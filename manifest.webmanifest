@@ -1,0 +1,23 @@
+{
+  "name": "Seul 2026 · Yılbaşı Planlayıcı",
+  "short_name": "Seul 2026",
+  "description": "Seul yılbaşı planı: uçuş, konaklama, gün gün tur, Naver/Kakao navigasyonu ve Korece cep sözlüğü.",
+  "lang": "tr",
+  "start_url": "./#ana",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1020",
+  "theme_color": "#0a1030",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "assets/icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "shortcuts": [
+    { "name": "Gün gün tur", "url": "./#tur", "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Keşfet", "url": "./#kesfet", "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Cep sözlüğü", "url": "./#rehber/sozluk", "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
