@@ -1,0 +1,93 @@
+[
+ {
+  "name": "Artist Bakery",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "fırın / kahvaltı",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Anguk 153",
+  "area": "Anguk",
+  "type": "kafe / kahvaltı",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Greenmile Coffee Bukchon",
+  "area": "Bukchon",
+  "type": "kahve",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "ACR Alegria Coffee Roasters",
+  "area": "Seul",
+  "type": "kahve",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "UPND Coffee Roasters",
+  "area": "Seul",
+  "type": "kahve",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Four Stones Samseong",
+  "area": "Samseong (Gangnam)",
+  "type": "kahve",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Imun Seolleongtang",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "seolleongtang (sığır kemik çorbası)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Jangin (Dak Galbi)",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "dak galbi (baharatlı tavuk, masada pişen)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Gwanghwamun Mi-jin",
+  "area": "Gwanghwamun",
+  "type": "geleneksel / karabuğday erişte (Michelin)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Goryeo Samgyetang",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "samgyetang (Michelin)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Mom's Touch",
+  "area": "Seul (birçok şube)",
+  "type": "Kore usulü kızarmış tavuk",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Jayeondo Salt Bread",
+  "area": "Ikseon-dong",
+  "type": "fırın",
+  "ko_known": null,
+  "price_known": "4 parça ₩12.000 (s24)"
+ },
+ {
+  "name": "Cheong Su Dang Cafe",
+  "area": "Ikseon-dong / Jongno",
+  "type": "kafe",
+  "ko_known": null,
+  "price_known": null
+ }
+]

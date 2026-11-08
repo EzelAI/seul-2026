@@ -3,9 +3,10 @@
   "use strict";
   const S = window.SEOUL;
   const { KRW_TRY, PEOPLE, BUDGET, REF_DEP, REF_RET, KETA_KRW, deps, rets, P, QR, ALTS, SEARCH_AIRLINES, AL_CODE,
-    AREAS, STAYS, CATS, CAT_META, PLACES, ICN, NEIGH, HOMECL, LUNCH, FOOD, APPS, PHRASES, CHECKLIST } = S;
+    AREAS, STAYS, CATS, CAT_META, PLACES, ICN, NEIGH, HOMECL, LUNCH, FOOD, APPS, PHRASES, CHECKLIST, SEASONS } = S;
   const PLACE = Object.fromEntries(PLACES.map(p => [p.id, p]));
   const APP = Object.fromEntries(APPS.map(a => [a.id, a]));
+  const SEASON = Object.fromEntries(SEASONS.map(s => [s.id, s]));
   const STORE = "seulPlan.v3", OLD_STORE = "seulPlan.v2", WX_KEY = "seulWx", THEME_KEY = "seulTheme";
 
   // ---------- Platform ----------
@@ -57,14 +58,18 @@
   const iosStore = id => "https://apps.apple.com/tr/app/" + id;
   const playStore = pkg => "https://play.google.com/store/apps/details?id=" + pkg;
 
-  // Hedef: { name, ko, q, lat, lng }. Naver/Kakao rotası telefonda bulunduğunuz yerden başlar.
+  // Hedef: { name, ko, q, lat?, lng? }. Koordinat varsa rota, yoksa (restoranlar) uygulama içi arama açılır.
+  const hasXY = dst => typeof dst.lat === "number" && typeof dst.lng === "number";
+  const nm = dst => dst.ko || dst.name;
   const NAV = {
     naver: dst => ({ app: APP.naver,
-      scheme: "nmap://route/public?dlat=" + dst.lat + "&dlng=" + dst.lng + "&dname=" + enc(dst.ko) + "&appname=" + enc(NAVER_APPNAME),
-      web: "https://map.naver.com/p/search/" + enc(dst.ko) }),
+      scheme: hasXY(dst)
+        ? "nmap://route/public?dlat=" + dst.lat + "&dlng=" + dst.lng + "&dname=" + enc(nm(dst)) + "&appname=" + enc(NAVER_APPNAME)
+        : "nmap://search?query=" + enc(nm(dst)) + "&appname=" + enc(NAVER_APPNAME),
+      web: "https://map.naver.com/p/search/" + enc(nm(dst)) }),
     kakao: dst => ({ app: APP.kakaomap,
-      scheme: "kakaomap://route?ep=" + dst.lat + "," + dst.lng + "&by=publictransit",
-      web: "https://map.kakao.com/link/to/" + enc(dst.ko) + "," + dst.lat + "," + dst.lng })
+      scheme: hasXY(dst) ? "kakaomap://route?ep=" + dst.lat + "," + dst.lng + "&by=publictransit" : "kakaomap://search?q=" + enc(nm(dst)),
+      web: hasXY(dst) ? "https://map.kakao.com/link/to/" + enc(nm(dst)) + "," + dst.lat + "," + dst.lng : "https://map.kakao.com/?q=" + enc(nm(dst)) })
   };
   // Android: intent:// yüklü değilse Google Play'i açar. iOS: şema açılmazsa 1,6 sn sonra App Store.
   function launchScheme(scheme, app) {
@@ -85,14 +90,15 @@
 
   // ---------- Durum ----------
   const VIEWS = ["ana", "tur", "kesfet", "planla", "rehber"];
-  const SUBS = { planla: ["butce", "ucus", "konaklama"], rehber: ["uygulamalar", "ulasim", "sozluk", "pratik"] };
+  const SUBS = { kesfet: ["yerler", "restoran", "turkler"], planla: ["butce", "ucus", "konaklama"], rehber: ["uygulamalar", "ulasim", "sozluk", "pratik"] };
   const LEGACY = { plan: "planla/butce", ucus: "planla/ucus", konaklama: "planla/konaklama", yerler: "kesfet" };
   const state = {
     di: 5, ri: 3, t: "t1", alt: null, stay: STAYS[0].id, food: 1,
     picks: Object.fromEntries(PLACES.filter(p => p.def).map(p => [p.id, true])),
     origin: "", checks: {}, apps: {},
-    stayFilter: "all", cat: "all", q: "", phraseCat: "Temel", allChecks: false,
-    view: "ana", sub: { planla: "butce", rehber: "uygulamalar" }
+    stayFilter: "all", cat: "all", q: "", restKind: "all", phraseCat: "Temel", allChecks: false,
+    season: "yilbasi", trip: { bayram: "b2", sakura: "s2" }, fl: { bayram: 0, sakura: 0 },
+    view: "ana", sub: { kesfet: "yerler", planla: "butce", rehber: "uygulamalar" }
   };
   try {
     const saved = JSON.parse(localStorage.getItem(STORE) || localStorage.getItem(OLD_STORE) || "null");
@@ -103,6 +109,14 @@
       if (STAYS.some(s => s.id === saved.stay)) state.stay = saved.stay;
       if (FOOD[saved.food]) state.food = saved.food;
       if (saved.picks && typeof saved.picks === "object") state.picks = Object.fromEntries(Object.keys(saved.picks).filter(k => PLACE[k] && saved.picks[k]).map(k => [k, true]));
+      // Kaydedilmiş planda bulunmayan yeni yerlerin varsayılan seçimini ekle.
+      const known = Array.isArray(saved.known) ? saved.known : Object.keys(saved.picks || {}).concat(["gyeongbok","bukchon","changdeok","insadong","gwanghwamun","ikseon","gwangjang","ddp","namsan","myeongdong","namsangol","nmk","itaewon","hongdae","seongsu","coex","seoulsky","bosingak","rink","nami","suwon","dmz"]);
+      PLACES.forEach(p => { if (p.def && !known.includes(p.id)) state.picks[p.id] = true; });
+      if (SEASON[saved.season]) state.season = saved.season;
+      ["bayram", "sakura"].forEach(sid => {
+        if (saved.trip && SEASON[sid].trips.some(t => t.id === saved.trip[sid])) state.trip[sid] = saved.trip[sid];
+        if (saved.fl && Number.isInteger(saved.fl[sid]) && saved.fl[sid] >= 0) state.fl[sid] = saved.fl[sid];
+      });
       if (typeof saved.origin === "string") state.origin = saved.origin;
       if (saved.checks && typeof saved.checks === "object") state.checks = saved.checks;
       if (saved.apps && typeof saved.apps === "object") state.apps = saved.apps;
@@ -111,7 +125,8 @@
   const save = () => {
     try {
       localStorage.setItem(STORE, JSON.stringify({ di: state.di, ri: state.ri, t: state.t, alt: state.alt, stay: state.stay, food: state.food,
-        picks: state.picks, origin: state.origin, checks: state.checks, apps: state.apps }));
+        picks: state.picks, known: PLACES.map(p => p.id), origin: state.origin, checks: state.checks, apps: state.apps,
+        season: state.season, trip: state.trip, fl: state.fl }));
     } catch (e) { /* depolama kapalı */ }
   };
 
@@ -131,9 +146,27 @@
     return best[days];
   };
 
-  function context() {
+  // ---------- Dönemler ----------
+  const inSeason = (p, sid) => !p.seasons || p.seasons.includes(sid);
+  const tipFor = (p, sid) => (sid !== "yilbasi" && p.tipSpring) || p.tip;
+  const tripOf = sid => { const s = SEASON[sid]; return s.trips.find(t => t.id === state.trip[sid]) || s.trips[0]; };
+  // Dönemin konaklama fiyatı; o tarihte müsait görünmeyen ilan için Aralık gecelik fiyatı tahmin olarak kullanılır.
+  function stayPrice(st, sid) {
+    if (sid === "yilbasi") return { nightly: st.nightly };
+    const s = SEASON[sid], total = s.stay[st.id];
+    if (total == null) return { nightly: st.nightly, na: true };
+    return { nightly: total / diff(s.stayRange[0], s.stayRange[1]) };
+  }
+
+  function context(sid) {
+    sid = sid || state.season;
     let flight;
-    if (state.alt !== null) {
+    if (sid !== "yilbasi") {
+      const tr = tripOf(sid);
+      const f = tr.flights[Math.min(state.fl[sid] || 0, tr.flights.length - 1)];
+      flight = { airline: f.al, dep: f.dep, arr: f.arr, off: f.off, dur: f.dur, via: f.via, direct: f.direct, price: f.price, depDate: tr.dep, retDate: tr.ret,
+        link: gflights(tr.dep, tr.ret, f.al, f.direct), note: f.note };
+    } else if (state.alt !== null) {
       const a = ALTS[state.alt];
       flight = { airline: a.al, dep: a.dep, arr: a.arr, off: a.off, dur: a.dur, via: a.via, direct: a.direct, price: a.price, depDate: REF_DEP, retDate: REF_RET,
         link: gflights(REF_DEP, REF_RET, a.al, a.direct), note: a.note };
@@ -149,7 +182,7 @@
     const custom = state.origin.trim();
     const origin = custom || stay.origin;
     const home = { name: stay.name, ko: stay.ko, q: origin, lat: stay.lat, lng: stay.lng, approx: !!stay.approx, custom };
-    return { flight, arrDate, retDate: flight.retDate, nights, days: nights + 1, arrH, homeH: arrH + 2, stay, origin, home,
+    return { season: sid, S: SEASON[sid], flight, arrDate, retDate: flight.retDate, nights, days: nights + 1, arrH, homeH: arrH + 2, stay, sp: stayPrice(stay, sid), origin, home,
       nye: arrDate <= "2026-12-31" && flight.retDate >= "2027-01-01" };
   }
 
@@ -161,13 +194,21 @@
       const eve = kind === "departure" ? 0 : kind === "arrival" ? (ctx.homeH <= 19 ? 1 : 0) : 1;
       days.push({ date: dt, kind, cap, left: cap, eve, items: [], evening: null, trip: null, cluster: kind === "arrival" ? HOMECL[ctx.stay.area] : null });
     }
-    const picks = PLACES.filter(p => state.picks[p.id]);
+    const picks = PLACES.filter(p => state.picks[p.id] && inSeason(p, ctx.season));
     const unplaced = [];
     const placedOn = {};
 
+    // Tarihi sabit etkinlikler: sabah olanlar (bayram namazı) günün başına, akşam olanlar (çan töreni) akşama.
     picks.filter(p => p.pin).forEach(p => {
-      const day = days.find(x => x.date === p.pin && x.kind !== "departure" && (x.kind !== "arrival" || ctx.homeH <= 22));
-      if (day) { day.evening = p; day.eve = 0; } else unplaced.push([p, "Bu tarihte Seul'de değilsiniz."]);
+      const morning = p.when === "day";
+      const day = days.find(x => x.date === p.pin && x.kind !== "departure" &&
+        (x.kind !== "arrival" || (morning ? ctx.homeH + 0.5 <= p.at : ctx.homeH <= 22)));
+      if (!day) {
+        const there = days.some(x => x.date === p.pin);
+        unplaced.push([p, there ? "O sabah henüz konaklamaya varmış olmuyorsunuz; daha erken varan bir uçuş seçin." : "Bu tarihte Seul'de değilsiniz."]);
+      } else if (morning) {
+        day.items.unshift(p); day.left = Math.max(0, day.left - p.hours); day.cluster = p.cluster;
+      } else { day.evening = p; day.eve = 0; }
     });
 
     const full = days.filter(x => x.kind === "full");
@@ -238,6 +279,7 @@
     if (day.trip) out.push({ h: 8.5, p: day.trip });
     let t = day.kind === "arrival" ? ctx.homeH + 0.75 : day.kind === "newyear" ? 11 : day.kind === "nye" ? 10.5 : 9.5;
     day.items.forEach(p => {
+      if (p.pin && p.at) t = p.at;
       if (p.id === "bukchon" && t < 10) t = 10;
       out.push({ h: t, p });
       t += p.hours + 0.5;
@@ -248,7 +290,7 @@
 
   function computeCosts(ctx, tour) {
     const food = FOOD[state.food].krw * KRW_TRY * ctx.days;
-    const homeTotal = ctx.stay.nightly * ctx.nights;
+    const homeTotal = ctx.sp.nightly * ctx.nights;
     const passDays = Math.max(0, ctx.days - 2);
     const t = { arex: 2 * 4750, rides: 4 * 1550, cards: 7000, passDays, pass: passCost(passDays) };
     t.krw = t.arex + t.rides + t.cards + t.pass;
@@ -279,27 +321,62 @@
   function destOf(key, ctx) {
     if (key === "home") return ctx.home;
     if (key === "icn") return ICN;
+    if (key.startsWith("rest:")) return RESTS[+key.slice(5)];
     return PLACE[key.slice(6)];
   }
   // Navigasyon butonları: href = web yedeği (masaüstü), data-launch = telefonda uygulama.
   function navButtons(key, ctx, from, style) {
     const dst = destOf(key, ctx);
     const nv = NAV.naver(dst), kk = NAV.kakao(dst);
-    const g = gRoute(from || ctx.origin, dst.q);
+    const g = hasXY(dst) || dst.q ? gRoute(from || ctx.origin, dst.q) : gRoute(from || ctx.origin, dst.name + ", Seoul");
     const cls = style === "pill" ? "pill" : "navbtn";
     const lbl = (txt) => style === "pill" ? txt : "<span>" + txt + "</span>";
-    return "<a class='" + cls + "' href='" + nv.web + "' target='_blank' rel='noopener' data-launch='naver' data-dest='" + key + "' aria-label='" + esc(dst.name) + " için Naver Map rotası'>" + mono("n", "N") + lbl("Naver") + "</a>" +
-      "<a class='" + cls + "' href='" + kk.web + "' target='_blank' rel='noopener' data-launch='kakao' data-dest='" + key + "' aria-label='" + esc(dst.name) + " için KakaoMap rotası'>" + mono("k", "K") + lbl("Kakao") + "</a>" +
-      "<a class='" + cls + "' href='" + g + "' target='_blank' rel='noopener' aria-label='" + esc(dst.name) + " için Google Haritalar rotası'>" + mono("g", "G") + lbl("Google") + "</a>" +
-      "<button type='button' class='" + cls + "' data-taxi='" + key + "' aria-label='" + esc(dst.name) + " için taksi kartı'>" + mono("t", ic("car")) + lbl("Taksi") + "</button>";
+    return "<a class='" + cls + "' href='" + nv.web + "' target='_blank' rel='noopener' data-launch='naver' data-dest='" + key + "' aria-label='" + esc(dst.name) + " için Naver Map'>" + mono("n", "N") + lbl("Naver") + "</a>" +
+      "<a class='" + cls + "' href='" + kk.web + "' target='_blank' rel='noopener' data-launch='kakao' data-dest='" + key + "' aria-label='" + esc(dst.name) + " için KakaoMap'>" + mono("k", "K") + lbl("Kakao") + "</a>" +
+      "<a class='" + cls + "' href='" + g + "' target='_blank' rel='noopener' aria-label='" + esc(dst.name) + " için Google Haritalar'>" + mono("g", "G") + lbl("Google") + "</a>" +
+      (dst.ko ? "<button type='button' class='" + cls + "' data-taxi='" + key + "' aria-label='" + esc(dst.name) + " için taksi kartı'>" + mono("t", ic("car")) + lbl("Taksi") + "</button>" : "");
   }
+
+  // ---------- Araştırma verisi: puanlar, Türk blogları, restoranlar ----------
+  const R = window.RESEARCH || { images: {}, ratings: {}, trmap: {}, tr: { sources: [], places: [], restaurants: [], tips: [] } };
+  const SRC = Object.fromEntries(R.tr.sources.map((s, i) => [s.id, Object.assign({ n: i + 1 }, s)]));
+  const NSRC = R.tr.sources.length;
+  const cite = txt => esc(txt || "").replace(/\bs(\d{1,2})\b/g, (m, n) => SRC["s" + n]
+    ? "<a class='cite' href='" + esc(SRC["s" + n].url) + "' target='_blank' rel='noopener' title='" + esc(SRC["s" + n].site) + "'>[" + SRC["s" + n].n + "]</a>" : m);
+  const citeList = ids => ids.filter(id => SRC[id]).map(id => "<a class='cite' href='" + esc(SRC[id].url) + "' target='_blank' rel='noopener' title='" + esc(SRC[id].site) + "'>[" + SRC[id].n + "]</a>").join("");
+  const restCluster = a => {
+    const s = (a || "").toLowerCase();
+    if (/itaewon|haebang|yongsan/.test(s)) return "yongsan";
+    if (/ikseon|gwangjang|jongno 3|dongdaemun/.test(s)) return "eastjongno";
+    if (/anguk|bukchon|gwanghwamun|insa|samcheong|jongno|gyeongbok/.test(s)) return "palace";
+    if (/myeongdong|namdaemun|namsan|city hall|jung/.test(s)) return "namsan";
+    if (/hongdae|yeonnam|hapjeong|mapo|sinchon/.test(s)) return "west";
+    if (/seongsu|seoul forest/.test(s)) return "seongsu";
+    if (/gangnam|samseong|coex|apgujeong|jamsil/.test(s)) return "gangnam";
+    return null;
+  };
+  const RESTS = R.tr.restaurants.map((r, i) => Object.assign({}, r, { i, key: "rest:" + i, cluster: restCluster(r.area), q: (r.ko || r.name) + ", Seoul" }));
+  const restKind = r => /kafe|kahve|fırın|bakery|çay|dondurma/i.test(r.type || "") ? "kafe"
+    : (r.halal === "yes" || /türk|helal|kebap|kebab/i.test(r.type || "") ? "helal" : /pazar|sokak/i.test(r.type || "") ? "pazar" : "yemek");
+  const REST_KINDS = [["all", "Tümü"], ["yemek", "Yemek"], ["kafe", "Kafe ve fırın"], ["pazar", "Pazar ve sokak"], ["helal", "Helal ve Türk"]];
+  const compact = n => n >= 1000 ? (n / 1000).toLocaleString("tr-TR", { maximumFractionDigits: 1 }) + " bin" : String(n);
+  const rateLine = r => {
+    if (!r) return "";
+    const bits = [];
+    if (r.g) bits.push("<a class='rb g' href='" + esc(r.g[2]) + "' target='_blank' rel='noopener'><b>" + ic("star") + String(r.g[0]).replace(".", ",") + "</b> Google <small>(" + compact(r.g[1]) + ")</small></a>");
+    if (r.ta) bits.push("<a class='rb' href='" + esc(r.ta[2]) + "' target='_blank' rel='noopener'><b>" + String(r.ta[0]).replace(".", ",") + "</b> Tripadvisor <small>(" + compact(r.ta[1]) + ")</small></a>");
+    return bits.join("");
+  };
 
   // ---------- ANA SAYFA ----------
   function renderHome(ctx, tour, costs) {
     const f = ctx.flight;
+    const S = ctx.S;
     $("homeHero").innerHTML =
+      "<div class='season-seg' role='group' aria-label='Dönem seç'>" + SEASONS.map(s =>
+        "<button type='button' data-season='" + s.id + "' aria-pressed='" + (s.id === ctx.season) + "'>" + ic(s.icon) + "<span><b>" + s.label + "</b><small>" + s.sub + "</small></span></button>").join("") + "</div>" +
       "<div class='hero-top'><div class='hero-text'>" +
-        "<p class='eyebrow'>" + ic("sparkles") + "<span class='ko' lang='ko'>서울</span> Yılbaşı 2026 → 2027</p>" +
+        "<p class='eyebrow'>" + ic(S.icon) + "<span class='ko' lang='ko'>서울</span> " + S.eyebrow + "</p>" +
         "<h2 id='heroTitle'>Seul'e geri sayım</h2>" +
         "<p class='meta'>" + fmtDL(f.depDate) + " " + f.dep + " İstanbul → " + fmtDL(ctx.retDate) + " dönüş · " + ctx.nights + " gece · " + esc(f.airline) + " · " + esc(ctx.stay.name) + "</p>" +
       "</div><div class='countdown' id='countdown' aria-live='off'></div></div>" +
@@ -327,12 +404,13 @@
       "<a class='btn ghost sm' href='#tur/gun-" + (idx + 1) + "'>Günün detayları" + ic("arrow-right") + "</a>";
 
     // Hazırlık listesi
-    const done = CHECKLIST.filter(c => state.checks[c.id]).length;
-    const pct = Math.round(done / CHECKLIST.length * 100);
-    const items = state.allChecks ? CHECKLIST : CHECKLIST.filter(c => !state.checks[c.id]).slice(0, 5);
+    const CL = CHECKLIST.filter(c => !c.seasons || c.seasons.includes(ctx.season));
+    const done = CL.filter(c => state.checks[c.id]).length;
+    const pct = Math.round(done / CL.length * 100);
+    const items = state.allChecks ? CL : CL.filter(c => !state.checks[c.id]).slice(0, 5);
     $("checkCard").innerHTML =
       "<div class='card-head'><h2><span class='h-ic green'>" + ic("list-check") + "</span>Hazırlık listesi</h2>" +
-        "<div class='progress'><span class='sub'>" + done + "/" + CHECKLIST.length + " tamam</span><span class='ring' style='--p:" + pct + "' role='img' aria-label='Yüzde " + pct + " tamamlandı'><span>%" + pct + "</span></span></div></div>" +
+        "<div class='progress'><span class='sub'>" + done + "/" + CL.length + " tamam</span><span class='ring' style='--p:" + pct + "' role='img' aria-label='Yüzde " + pct + " tamamlandı'><span>%" + pct + "</span></span></div></div>" +
       (items.length ? "<ul class='checklist'>" + items.map(c =>
         "<li><label><input type='checkbox' data-check='" + c.id + "'" + (state.checks[c.id] ? " checked" : "") + "><span>" + esc(c.text) + "</span></label>" +
         (c.href ? (c.ext ? "<a href='" + c.href + "' target='_blank' rel='noopener'>Aç" + EXT + "</a>" : "<a href='" + c.href + "'>Git</a>") : "") +
@@ -348,7 +426,31 @@
       "<div class='stackbar' role='img' aria-label='Bütçe dağılımı: " + parts.map(p => p[0] + " " + tl(p[1])).join(", ") + "'>" +
         parts.map(p => "<span style='flex:" + p[1].toFixed(0) + ";background:var(" + p[2] + ")'></span>").join("") + "</div>" +
       "<div class='legend-list'>" + parts.map(p => "<div><i style='background:var(" + p[2] + ")'></i><span>" + p[0] + "</span><b class='num'>" + tl(p[1]) + "</b><small>%" + Math.round(p[1] / costs.total * 100) + "</small></div>").join("") + "</div>";
+    renderCompare();
     tick(ctx);
+  }
+
+  // Üç dönemin seçili seçeneklerle karşılaştırması (aynı yemek seviyesi, konaklama ve yer seçimleriyle).
+  function renderCompare() {
+    const rows = SEASONS.map(s => { const c = context(s.id); const k = computeCosts(c, buildTour(c)); return { s, c, k }; });
+    const minT = Math.min(...rows.map(r => r.k.total));
+    $("compareCard").innerHTML =
+      "<div class='card-head'><h2><span class='h-ic'>" + ic("calendar") + "</span>Hangi dönem?</h2><span class='sub'>Kişi başı, seçili uçuş ve konaklamayla</span></div>" +
+      "<div class='compare'>" + rows.map(({ s, c, k }) => {
+        const on = s.id === state.season;
+        const bf = bloomFit(c);
+        return "<button type='button' class='cmp" + (on ? " on" : "") + "' data-season='" + s.id + "' aria-pressed='" + on + "' style='--sc:" + s.color + "'>" +
+          "<span class='cmp-h'><span class='cmp-ic'>" + ic(s.icon) + "</span><span><b>" + s.label + "</b><small>" + fmtD(c.flight.depDate) + " → " + fmtD(c.retDate) + " · " + c.nights + " gece</small></span>" +
+            (on ? "<span class='tag blue'>" + ic("check") + "Seçili</span>" : "") + "</span>" +
+          "<span class='cmp-total'><b class='num'>" + tl(k.total) + "</b>" + (k.total === minT ? "<span class='tag good'>En uygun</span>" : "<small>+" + tl(k.total - minT) + "</small>") + "</span>" +
+          "<span class='cmp-kv'><span>" + ic("plane") + esc(c.flight.airline) + " · " + tl(k.flight) + "</span>" +
+            "<span>" + ic("home") + tl(k.home) + (c.sp.na ? " (tahmin)" : "") + "</span>" +
+            "<span>" + ic("thermo") + s.weather.hi + "° / " + s.weather.lo + "° · " + s.weather.rain + " mm</span>" +
+            (bf ? "<span>" + ic("flower") + bf.hits + "/" + bf.n + " yıl tam çiçeklenme denk</span>" : "") + "</span>" +
+          "<span class='sub'>" + esc(s.highlight) + "</span>" +
+          "<span class='cmp-leave'>" + ic("calendar") + esc(s.leaveNote) + "</span>" +
+        "</button>";
+      }).join("") + "</div>";
   }
 
   let tickCtx = null;
@@ -478,7 +580,7 @@
       schedule(day, ctx).forEach(s => {
         const p = s.p;
         stop(hm(s.h), "<b>" + esc(p.name) + " <span class='ko' lang='ko'>" + esc(p.ko) + "</span></b>",
-          esc(p.station) + (p.fee ? " · " + won(p.fee) : "") + "<br>" + esc(p.tip), "", p.cats[0], navButtons("place:" + p.id, ctx, prev, "pill"));
+          esc(p.station) + (p.fee ? " · " + won(p.fee) : "") + "<br>" + esc(tipFor(p, ctx.season)), "", p.cats[0], navButtons("place:" + p.id, ctx, prev, "pill"));
         prev = p.q;
       });
       if (!day.items.length && !day.trip && !day.evening && (day.kind === "full" || day.kind === "newyear" || day.kind === "nye")) {
@@ -508,12 +610,19 @@
     if (!$("catSeg").childElementCount) {
       $("catSeg").innerHTML = CATS.map(([k, l]) => "<button type='button' data-cat='" + k + "'>" + (CAT_META[k] ? ic(CAT_META[k].icon) : "") + l + "</button>").join("");
     }
-    document.querySelectorAll("#catSeg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.cat === state.cat ? "true" : "false"));
+    const seasonal = PLACES.filter(p => inSeason(p, ctx.season));
+    document.querySelectorAll("#catSeg button").forEach(b => {
+      b.setAttribute("aria-pressed", b.dataset.cat === state.cat ? "true" : "false");
+      b.hidden = b.dataset.cat !== "all" && !seasonal.some(p => p.cats.includes(b.dataset.cat));
+    });
+    if (state.cat !== "all" && !seasonal.some(p => p.cats.includes(state.cat))) state.cat = "all";
     const q = state.q.trim().toLocaleLowerCase("tr");
-    const list = PLACES.filter(p => (state.cat === "all" || p.cats.includes(state.cat)) &&
+    const list = seasonal.filter(p => (state.cat === "all" || p.cats.includes(state.cat)) &&
       (!q || [p.name, p.ko, p.desc, p.station].join(" ").toLocaleLowerCase("tr").includes(q)));
-    const nPick = PLACES.filter(p => state.picks[p.id]).length;
-    $("placeCount").textContent = nPick + " yer turda · " + Object.keys(tour.placedOn).length + " tanesi günlere yerleşti";
+    const nPick = seasonal.filter(p => state.picks[p.id]).length;
+    const hiddenN = PLACES.length - seasonal.length;
+    $("placeCount").textContent = ctx.S.label + " dönemi · " + nPick + " yer turda · " + Object.keys(tour.placedOn).length + " tanesi günlere yerleşti" +
+      (hiddenN ? " · başka döneme ait " + hiddenN + " yer gizli" : "");
     $("placesEmpty").hidden = list.length > 0;
     $("places").innerHTML = list.map(p => {
       const on = !!state.picks[p.id];
@@ -528,18 +637,34 @@
       ].filter(Boolean).join(" · ");
       const fee = p.fee === null ? "Değişken" : p.fee === 0 ? "Ücretsiz" : won(p.fee) + " ≈ " + tl(p.fee * KRW_TRY);
       const kv = (icon, label, val) => "<div><dt>" + ic(icon) + "<span class='sr'>" + label + "</span></dt><dd>" + val + "</dd></div>";
-      return "<article class='place" + (on ? " on" : "") + "' style='--c: var(--c-" + p.cats[0] + ")'>" +
-        "<div class='cover'><span class='cat-ic'>" + ic(meta.icon) + "</span><span class='cat'>" + meta.label + "</span>" + status + "</div>" +
+      const cr = R.images[p.id], rt = R.ratings[p.id], tr = R.trmap[p.id];
+      const photo = cr
+        ? "<figure class='photo'><img src='assets/img/" + p.id + ".jpg' alt='" + esc(p.name) + " fotoğrafı' loading='lazy' width='800' height='500'>" +
+            "<span class='ph-cat'><span class='cat-ic'>" + ic(meta.icon) + "</span>" + meta.label + "</span><span class='ph-st'>" + status + "</span>" +
+            "<figcaption>Foto: " + esc(cr.artist) + " · <a href='" + esc(cr.page) + "' target='_blank' rel='noopener'>" + esc(cr.lic) + "</a></figcaption></figure>"
+        : "<div class='cover'><span class='cat-ic'>" + ic(meta.icon) + "</span><span class='cat'>" + meta.label + "</span>" + status + "</div>";
+      const voices = rt && (rt.praise.length || rt.complaints.length)
+        ? "<details class='voices'><summary>" + ic("message") + "<span>Ziyaretçiler ne diyor?</span>" + ic("chevron", "chev") + "</summary>" +
+            (rt.verdict ? "<p class='verdict'>" + (ctx.season !== "yilbasi" ? "<small class='sub'>Kış ziyareti değerlendirmesi: </small>" : "") + esc(rt.verdict) + "</p>" : "") +
+            (rt.praise.length ? "<ul class='vl good'>" + rt.praise.map(x => "<li>" + ic("check-circle") + "<span>" + esc(x) + "</span></li>").join("") + "</ul>" : "") +
+            (rt.complaints.length ? "<ul class='vl bad'>" + rt.complaints.map(x => "<li>" + ic("minus-circle") + "<span>" + esc(x) + "</span></li>").join("") + "</ul>" : "") +
+            (tr && tr.comment ? "<p class='trc'>" + ic("users") + "<span><b>Türk bloglarında:</b> " + cite(tr.comment) + "</span></p>" : "") +
+            "<p class='sub'>Kaynak: " + rt.sources.map(u => "<a href='" + esc(u) + "' target='_blank' rel='noopener'>" + esc(new URL(u).hostname.replace(/^www\./, "")) + "</a>").join(", ") + "</p></details>"
+        : "";
+      const rateRow = (rt && (rt.g || rt.ta)) || tr
+        ? "<div class='rate'>" + rateLine(rt) + (tr ? "<a class='rb tr' href='#kesfet/turkler'>" + ic("users") + "<b>" + tr.n + "/" + NSRC + "</b> Türk blogunda</a>" : "") + "</div>"
+        : "";
+      return "<article class='place" + (on ? " on" : "") + "' style='--c: var(--c-" + p.cats[0] + ")'>" + photo +
         "<div class='pbody'>" +
-          "<h3>" + esc(p.name) + "<span class='ko' lang='ko'>" + esc(p.ko) + "</span></h3>" +
+          "<h3>" + esc(p.name) + "<span class='ko' lang='ko'>" + esc(p.ko) + "</span></h3>" + rateRow +
           "<p class='sub'>" + esc(p.desc) + "</p>" +
           "<dl class='kv'>" +
             kv(p.when === "evening" ? "moon" : "clock", "Süre", (p.trip ? "Tam gün" : "~" + String(p.hours).replace(".", ",") + " saat") + " · " + (p.when === "evening" ? "akşam" : p.when === "flex" ? "gündüz veya akşam" : "gündüz")) +
             kv("ticket", "Ücret", fee + (p.feeNote ? "<span class='det'>" + esc(p.feeNote) + "</span>" : "")) +
             kv("train", "Nasıl gidilir", esc(p.station)) +
             (closedTxt ? kv("calendar", "Takvim", esc(closedTxt)) : "") +
-            kv("bulb", "İpucu", esc(p.tip)) +
-          "</dl>" +
+            kv("bulb", "İpucu", esc(tipFor(p, ctx.season))) +
+          "</dl>" + voices +
           (p.unconfirmed ? "<p class='callout'>" + ic("alert") + "<span>2026 tarihleri henüz açıklanmadı; gitmeden kontrol edin.</span></p>" : "") +
         "</div>" +
         "<div class='foot'>" +
@@ -547,6 +672,56 @@
           "<div class='navrow'>" + navButtons("place:" + p.id, ctx) + "</div>" +
         "</div></article>";
     }).join("");
+    renderRestaurants(ctx);
+    renderTurks(tour);
+  }
+
+  function renderRestaurants(ctx) {
+    const multi = RESTS.filter(r => r.m.length >= 2).length;
+    $("restIntro").innerHTML = "Türkçe " + NSRC + " blog/gezi yazısından derlendi; en çok bahsedilenler üstte. Çoğu Türk blogu mekan adı vermiyor, bu yüzden listedeki " + RESTS.length + " mekanın " + multi + " tanesi birden fazla kaynakta geçiyor; tek kaynaklı olanlar kişisel öneridir, <b>puan değildir</b>. Hangul adı olmayanlarda Naver/Kakao İngilizce adla arar.";
+    if (!$("restFilter").childElementCount) $("restFilter").innerHTML = REST_KINDS.map(([k, l]) => "<button type='button' data-rf='" + k + "'>" + l + "</button>").join("");
+    document.querySelectorAll("#restFilter button").forEach(b => b.setAttribute("aria-pressed", b.dataset.rf === state.restKind ? "true" : "false"));
+    const list = RESTS.filter(r => state.restKind === "all" || restKind(r) === state.restKind);
+    $("restEmpty").hidden = list.length > 0;
+    $("restaurants").innerHTML = list.map(r => {
+      const kind = restKind(r);
+      const kv = (icon, label, val) => "<div><dt>" + ic(icon) + "<span class='sr'>" + label + "</span></dt><dd>" + val + "</dd></div>";
+      const color = kind === "kafe" ? "--c-alisveris" : kind === "helal" ? "--c-gunubirlik" : kind === "pazar" ? "--c-yemek" : "--c-tarih";
+      return "<article class='place rest' style='--c: var(" + color + ")'>" +
+        "<div class='cover'><span class='cat-ic'>" + ic(kind === "kafe" ? "coffee" : "utensils") + "</span><span class='cat'>" + esc(r.type || "") + "</span>" +
+          (r.halal === "yes" ? "<span class='tag good'>" + ic("check") + "Helal etiketli</span>" : "") + "</div>" +
+        "<div class='pbody'>" +
+          "<h3>" + esc(r.name) + (r.ko ? "<span class='ko' lang='ko'>" + esc(r.ko) + "</span>" : "") + "</h3>" +
+          "<div class='rate'><a class='rb tr' href='#kesfet/turkler'>" + ic("users") + "<b>" + r.m.length + "/" + NSRC + "</b> blogda</a><span class='rb plain'>" + ic("pin") + esc(r.area || "") + "</span></div>" +
+          "<dl class='kv'>" +
+            (r.order ? kv("utensils", "Ne yenmiş", esc(r.order)) : "") +
+            (r.note ? kv("message", "Türk gezginler", cite(r.note)) : "") +
+            (r.price ? kv("ticket", "Fiyat", esc(r.price)) : "") +
+            (r.station ? kv("train", "Nasıl gidilir", esc(r.station)) : "") +
+            kv("list-check", "Kaynaklar", citeList(r.m) || "—") +
+          "</dl></div>" +
+        "<div class='foot'><div class='navrow'>" + navButtons(r.key, ctx) + "</div></div></article>";
+    }).join("");
+  }
+
+  function renderTurks(tour) {
+    const planned = id => id && state.picks[id];
+    $("trIntro").innerHTML = NSRC + " Türkçe kaynakta adı geçen yerler, kaç kaynakta geçtiğine göre sıralı. Bu bir <b>anılma sayısı</b>: çoğu yazı liste halinde yazılmış, \"gitti ve beğendi\" demek değil. Gerçek yorum olanlar aşağıda alıntılandı; köşeli parantezler kaynak bloga gider.";
+    $("trPlaces").innerHTML = R.tr.places.map(p => {
+      const pct = Math.round(p.n / NSRC * 100);
+      const dst = { name: p.name, ko: p.ko, q: p.name + ", Seoul" };
+      const links = p.id
+        ? "<a class='btn ghost sm' href='#kesfet/yerler'>" + (planned(p.id) ? ic("check") + "Turda" : "Yerlerde gör") + "</a>"
+        : "<a class='pill' href='" + NAV.naver(dst).web + "' target='_blank' rel='noopener'>" + mono("n", "N") + "Naver</a><a class='pill' href='" + gRoute(tour ? context().origin : "Seoul", dst.q) + "' target='_blank' rel='noopener'>" + mono("g", "G") + "Google</a>";
+      return "<div class='trrow'><div class='trhead'><div><b>" + esc(p.name) + "</b>" + (p.ko ? " <span class='ko' lang='ko'>" + esc(p.ko) + "</span>" : "") +
+        (p.id ? " <span class='tag good'>Planında seçenek var</span>" : " <span class='tag'>Keşfet listende yok</span>") + "</div>" +
+        "<span class='num trn'><b>" + p.n + "</b>/" + NSRC + "</span></div>" +
+        "<div class='bar' role='img' aria-label='" + NSRC + " kaynağın " + p.n + " tanesinde geçiyor'><span style='width:" + pct + "%'></span></div>" +
+        (p.comment ? "<p class='sub'>" + cite(p.comment) + "</p>" : "") +
+        "<div class='actions'>" + links + "</div></div>";
+    }).join("");
+    $("trTips").innerHTML = R.tr.tips.map(t => "<li>" + cite(t.text) + " " + citeList(t.mentions || []) + "</li>").join("");
+    $("trSources").innerHTML = R.tr.sources.map(s => "<li><a href='" + esc(s.url) + "' target='_blank' rel='noopener'>" + esc(s.title) + "</a> <span class='sub'>· " + esc(s.site) + (s.date ? " · " + esc(s.date) : "") + "</span></li>").join("");
   }
 
   // ---------- PLANLA ----------
@@ -584,7 +759,11 @@
       td.classList.toggle("sel", on);
       td.setAttribute("aria-pressed", on ? "true" : "false");
     });
-    $("timeSeg").hidden = state.alt !== null;
+    const spring = ctx.season !== "yilbasi";
+    $("matrixCard").hidden = spring;
+    $("tripCard").hidden = !spring;
+    if (spring) renderTrips(ctx);
+    $("timeSeg").hidden = spring || state.alt !== null;
     ["t1", "t2"].forEach(k => $(k).setAttribute("aria-pressed", k === state.t ? "true" : "false"));
     $("fTitle").textContent = f.airline;
     $("fPrice").textContent = n0(f.price) + " TL / kişi";
@@ -614,7 +793,7 @@
       "<span class='t'>Giriş</span><span>" + fmtDL(ctx.arrDate) + "</span>" +
       "<span class='t'>Çıkış</span><span>" + fmtDL(ctx.retDate) + "</span>" +
       "<span class='t'>Süre</span><span>" + ctx.nights + " gece, " + ctx.days + " gün Seul'de</span>" +
-      "<span class='t'>Yılbaşı</span><span>" + (ctx.nye ? "31 Aralık gecesi Seul'desiniz" : "Bu tarihlerde yılbaşı Seul'de geçmiyor") + "</span>";
+      seasonRow(ctx);
 
     if (!$("foodSeg").childElementCount) $("foodSeg").innerHTML = FOOD.map((x, i) => "<button type='button' data-food='" + i + "'>" + x.label + " · " + won(x.krw) + "</button>").join("");
     document.querySelectorAll("#foodSeg button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.food === state.food ? "true" : "false"));
@@ -626,7 +805,7 @@
       "<span class='det'>" + det + "</span></span></div></td><td>" + tl(pp) + "</td><td>" + tl(pp * PEOPLE) + "</td></tr>";
     $("breakdown").innerHTML =
       row("plane", "", "Uçak", esc(f.airline) + ", " + fmtD(f.depDate) + " → " + fmtD(f.retDate), costs.flight) +
-      row("home", "", "Konaklama", esc(s.name) + ", " + ctx.nights + " gece (tahmini)", costs.home) +
+      row("home", "", "Konaklama", esc(s.name) + ", " + ctx.nights + " gece " + (ctx.sp.na ? "(bu tarihte müsait görünmüyor; Aralık fiyatıyla tahmin)" : "(tahmini)"), costs.home) +
       row("utensils", "amber", "Yemek", ft.label + ", " + ctx.days + " gün", costs.food) +
       row("train", "", "Şehir içi ulaşım", "AREX gidiş-dönüş + İklim Kartı (tahmini)", costs.transport) +
       row("ticket", "red", "Gezi biletleri", costs.ticketCount + " ücretli yer, plana yerleşenler", costs.tickets) +
@@ -637,7 +816,99 @@
     else { bn.className = "budget over"; bn.innerHTML = ic("alert") + "<span>Uçak kişi başı 40.000 TL bütçesini " + n0(f.price - BUDGET) + " TL aşıyor.</span>"; }
   }
 
+  // Dönemin kısa bilgisi: yılbaşı gecesi, Kore'de bayram, sakura denk gelme oranı.
+  function bloomFit(ctx) {
+    const B = ctx.S.bloom;
+    if (!B) return null;
+    const hits = B.filter(([, , full]) => { const dt = "2027-" + full; return dt >= ctx.arrDate && dt < ctx.retDate; });
+    return { hits: hits.length, n: B.length, years: hits.map(h => h[0]) };
+  }
+  function seasonRow(ctx) {
+    if (ctx.season === "yilbasi") return "<span class='t'>Yılbaşı</span><span>" + (ctx.nye ? "31 Aralık gecesi Seul'desiniz" : "Bu tarihlerde yılbaşı Seul'de geçmiyor") + "</span>";
+    if (ctx.season === "bayram") {
+      const ok = ctx.arrDate < "2027-03-09" || (ctx.arrDate === "2027-03-09" && ctx.homeH + 0.5 <= 7.5);
+      return "<span class='t'>Bayram</span><span>TR'de 9–11 Mart. " + (ok ? "9 Mart sabahı Seul'desiniz; bayram namazına yetişirsiniz." : "9 Mart sabahı henüz Seul'de değilsiniz; Kore'de bayram 9 Mart'sa namazı kaçırırsınız.") + "</span>";
+    }
+    const bf = bloomFit(ctx);
+    return "<span class='t'>Sakura</span><span>Son " + bf.n + " yılın " + bf.hits + "'ünde Yeouido'nun tam çiçeklenmesi bu tarihlere denk geldi.</span>";
+  }
+
+  function renderTrips(ctx) {
+    const S = ctx.S;
+    $("tripCard").innerHTML =
+      "<div class='card-head'><h2><span class='h-ic' style='background:color-mix(in srgb," + S.color + " 15%, var(--surface));color:" + S.color + "'>" + ic(S.icon) + "</span>" + S.label + " · tarih seçenekleri</h2>" +
+        "<a class='btn ghost sm' href='#planla/ucus'>Tüm uçuşlar" + ic("arrow-right") + "</a></div>" +
+      "<p class='hint'>" + ic("info") + "<span>" + esc(S.leaveNote) + " Fiyatlar 8 Kasım 2026'da Google Uçuşlar'da görülen kişi başı gidiş-dönüş fiyatlarıdır.</span></p>" +
+      "<div class='trips'>" + S.trips.map(tr => {
+        const on = tr.id === tripOf(ctx.season).id;
+        const ok = tr.flights.filter(f => durMin(f.dur) <= 20 * 60);
+        const cheapest = (ok.length ? ok : tr.flights).slice().sort((a, b) => a.price - b.price)[0];
+        const direct = tr.flights.filter(f => f.direct).sort((a, b) => a.price - b.price)[0];
+        let extra = "";
+        if (S.bloom) {
+          const arr = addDays(tr.dep, 1);
+          const hits = S.bloom.filter(([, , full]) => { const dt = "2027-" + full; return dt >= arr && dt < tr.ret; }).length;
+          extra = "<span class='tag' style='background:color-mix(in srgb,var(--c-bahar) 15%,var(--surface));color:var(--c-bahar)'>" + ic("flower") + hits + "/" + S.bloom.length + " yıl tam çiçeklenme</span>";
+        }
+        return "<button type='button' class='trip" + (on ? " on" : "") + "' data-trip='" + tr.id + "' aria-pressed='" + on + "'>" +
+          "<span class='tdates'><b>" + fmtD(tr.dep) + " → " + fmtD(tr.ret) + "</b><small>" + DAYS_L[d(tr.dep).getUTCDay()] + " – " + DAYS_L[d(tr.ret).getUTCDay()] + "</small></span>" +
+          "<span class='sub'>" + esc(tr.leave) + "</span>" +
+          "<span class='tprice'><span>En ucuz (≤20 sa) <b class='num'>" + tl(cheapest.price) + "</b> " + esc(cheapest.al) + "</span>" +
+            (direct ? "<span>Aktarmasız <b class='num'>" + tl(direct.price) + "</b> " + esc(direct.al) + "</span>" : "") + "</span>" + extra +
+          (on ? "<span class='tag blue'>" + ic("check") + "Planda</span>" : "") + "</button>";
+      }).join("") + "</div>";
+  }
+
   function renderFlights(ctx) {
+    const spring = ctx.season !== "yilbasi";
+    $("altTrips").hidden = !spring;
+    if (spring) { renderSeasonFlights(ctx); return; }
+    $("altTitle").textContent = "25 Aralık → 1 Ocak, tüm havayolları";
+    $("altHint").textContent = "Google Uçuşlar'da 7 Kasım 2026'da görülen seçenekler; saatler gidiş uçuşu içindir. \"Plana uygula\" tarihleri 25 Ara–1 Oca'ya ayarlar ve toplamı bu fiyatla hesaplar.";
+    renderDecFlights(ctx);
+  }
+
+  function renderSeasonFlights(ctx) {
+    const S = ctx.S, tr = tripOf(ctx.season), sel = Math.min(state.fl[ctx.season] || 0, tr.flights.length - 1);
+    $("altTitle").textContent = S.label + ": " + fmtD(tr.dep) + " → " + fmtD(tr.ret) + ", tüm havayolları";
+    $("altHint").textContent = "Google Uçuşlar'da 8 Kasım 2026'da görülen seçenekler (1 yetişkin, ekonomi); saatler gidiş uçuşu içindir. Önce tarih seçeneğini, sonra uçuşu seçin.";
+    $("altTrips").innerHTML = S.trips.map(t => "<button type='button' data-trip='" + t.id + "' aria-pressed='" + (t.id === tr.id) + "'>" + fmtD(t.dep) + " → " + fmtD(t.ret) + "</button>").join("");
+    const fl = tr.flights.map((f, i) => Object.assign({ i }, f)).sort((a, b) => a.price - b.price);
+    const ref = fl[0].price;
+    const inB = fl.filter(f => f.price <= BUDGET && durMin(f.dur) <= 20 * 60);
+    const best = inB.sort((a, b) => a.price - b.price)[0];
+    const cd = fl.filter(f => f.direct)[0];
+    $("altInsights").innerHTML =
+      (best ? "<div class='callout info'>" + ic("check-circle") + "<span><b>Bütçe içinde, 20 saatten kısa en ucuz:</b> " + esc(best.al) + ", " + best.dur + ", " + tl(best.price) + ", varış " + best.arr + ".</span></div>"
+        : "<div class='callout'>" + ic("alert") + "<span>Bu tarihte 40.000 TL altında, 20 saatten kısa uçuş görünmedi.</span></div>") +
+      (cd ? "<div class='callout info'>" + ic("plane") + "<span><b>Aktarmasız en ucuz:</b> " + esc(cd.al) + ", " + tl(cd.price) + ", 4 kişi " + tl(cd.price * PEOPLE) + ".</span></div>" : "");
+    $("alts").innerHTML = fl.map(a => {
+      const dlt = a.price - ref;
+      const on = a.i === sel;
+      return "<div class='frow" + (on ? " on" : "") + "'>" +
+        "<div class='airline'><span class='al-av' aria-hidden='true'>" + (AL_CODE[a.al] || a.al.slice(0, 2).toUpperCase()) + "</span><span><b>" + esc(a.al) + "</b>" + (a.note ? "<span class='det'>" + esc(a.note) + "</span>" : "") + "</span></div>" +
+        "<div class='times'>" + a.dep + " → " + a.arr + (a.off ? "<sup>+" + a.off + "</sup>" : "") + "<span class='det'>" + a.dur + "</span></div>" +
+        "<div class='dur sub'>" + (dlt === 0 ? "en ucuz" : "+" + n0(dlt) + " TL") + "</div>" +
+        "<div class='via'>" + (a.direct ? "<span class='tag good'>" + ic("check") + "Aktarmasız</span>" : "<span class='sub'>" + esc(a.via) + "</span>") + "</div>" +
+        "<div class='price'><b class='" + tier(a.price) + "'>" + n0(a.price) + " TL</b><span class='det'>4 kişi " + n0(a.price * PEOPLE) + "</span></div>" +
+        "<div class='actions'>" +
+          (on ? "<span class='tag blue'>" + ic("check") + "Planda</span>" : "<button type='button' class='btn ghost sm' data-sfl='" + a.i + "'>Plana uygula</button>") +
+          "<a class='btn ghost sm icon-only' href='" + gflights(tr.dep, tr.ret, a.al.split(" / ")[0], a.direct) + "' target='_blank' rel='noopener' aria-label='" + esc(a.al) + " uçuşunu Google Uçuşlar'da aç'>" + EXT + "</a>" +
+        "</div></div>";
+    }).join("");
+    searchLinks(ctx);
+  }
+  function searchLinks(ctx) {
+    const dep = ctx.flight.depDate, ret = ctx.flight.retDate;
+    $("searchDates").textContent = fmtDL(dep) + " → " + fmtDL(ret);
+    $("searchLinks").innerHTML =
+      extLink("btn", gflights(dep, ret, "", true), "Yalnızca aktarmasız") +
+      extLink("btn ghost", gflights(dep, ret, ""), "Tüm havayolları") +
+      SEARCH_AIRLINES.map(al => extLink("btn ghost sm", gflights(dep, ret, al), esc(al))).join("") +
+      extLink("btn ghost sm", skyscanner(dep, ret), "Skyscanner (4 kişi)");
+  }
+
+  function renderDecFlights(ctx) {
     const ref = ALTS[1].price;
     const onIdx = state.alt !== null ? state.alt
       : (deps[state.di] === REF_DEP && rets[state.ri] === REF_RET ? ALTS.findIndex(a => a.qr === state.t) : -1);
@@ -660,13 +931,7 @@
           "<a class='btn ghost sm icon-only' href='" + gflights(REF_DEP, REF_RET, a.al, a.direct) + "' target='_blank' rel='noopener' aria-label='" + esc(a.al) + " uçuşunu Google Uçuşlar'da aç'>" + EXT + "</a>" +
         "</div></div>";
     }).join("");
-    const dep = ctx.flight.depDate, ret = ctx.flight.retDate;
-    $("searchDates").textContent = fmtDL(dep) + " → " + fmtDL(ret);
-    $("searchLinks").innerHTML =
-      extLink("btn", gflights(dep, ret, "", true), "Yalnızca aktarmasız") +
-      extLink("btn ghost", gflights(dep, ret, ""), "Tüm havayolları") +
-      SEARCH_AIRLINES.map(al => extLink("btn ghost sm", gflights(dep, ret, al), esc(al))).join("") +
-      extLink("btn ghost sm", skyscanner(dep, ret), "Skyscanner (4 kişi)");
+    searchLinks(ctx);
   }
 
   function renderStays(ctx) {
@@ -681,9 +946,12 @@
         "<div class='actions'>" + extLink("btn ghost sm", airbnbArea(a.air, ci, co), "Airbnb'de ara") + extLink("btn ghost sm", bookingArea(a.bk, ci, co), "Booking'de ara") + "</div>" +
       "</div>").join("");
     document.querySelectorAll("#stayFilter button").forEach(b => b.setAttribute("aria-pressed", b.dataset.k === state.stayFilter ? "true" : "false"));
-    const list = STAYS.filter(s => state.stayFilter === "all" || s.kind === state.stayFilter).slice().sort((a, b) => a.nightly - b.nightly);
+    const sp = x => stayPrice(x, ctx.season);
+    const list = STAYS.filter(s => state.stayFilter === "all" || s.kind === state.stayFilter).slice()
+      .sort((a, b) => (sp(a).na - sp(b).na) || sp(a).nightly - sp(b).nightly);
     $("homes").innerHTML = list.map(x => {
-      const cost = x.nightly * ctx.nights;
+      const p = sp(x);
+      const cost = p.nightly * ctx.nights;
       const on = x.id === state.stay;
       const area = AREAS.find(a => a.key === x.area);
       return "<div class='home' role='button' tabindex='0' data-stay='" + esc(x.id) + "' aria-pressed='" + on + "'>" +
@@ -693,7 +961,8 @@
         "<div class='chips'><span class='chip kind'>" + ic(x.kind === "ev" ? "home" : "building") + (x.kind === "ev" ? "Airbnb · tüm ev" : "Otel · 2 oda") + "</span><span class='chip'>" + ic("pin") + esc(area.name.split(" · ")[0]) + "</span>" +
           x.chips.map(c => "<span class='chip " + c[0] + "'>" + esc(c[1]) + "</span>").join("") + "</div>" +
         (x.early && ctx.homeH < 15 ? "<p class='sub' style='color:var(--good)'>" + ic("check-circle") + " " + esc(x.early) + "</p>" : "") +
-        "<div class='cost'><span class='sub'>" + ctx.nights + " gece · gecelik ~" + n0(x.nightly) + " TL<br>aile başı ~" + n0(cost / 2) + " TL · kişi başı ~" + n0(cost / 4) + " TL</span><strong class='num'>~" + tl(cost) + "</strong></div>" +
+        (p.na ? "<p class='callout'>" + ic("alert") + "<span>" + esc(ctx.S.label) + " tarihlerinde (" + fmtD(ctx.S.stayRange[0]) + "–" + fmtD(ctx.S.stayRange[1]) + ") müsait görünmedi; fiyat Aralık'tan tahmin. Linkten kontrol edin.</span></p>" : "") +
+        "<div class='cost'><span class='sub'>" + ctx.nights + " gece · gecelik ~" + n0(p.nightly) + " TL" + (p.na ? " (tahmin)" : "") + "<br>aile başı ~" + n0(cost / 2) + " TL · kişi başı ~" + n0(cost / 4) + " TL</span><strong class='num'>~" + tl(cost) + "</strong></div>" +
         extLink("btn ghost", stayUrl(x, ci, co), fmtD(ci) + "–" + fmtD(co) + " için " + (x.kind === "ev" ? "Airbnb" : "Booking") + "'de aç") +
       "</div>";
     }).join("");
@@ -754,6 +1023,24 @@
       "<span class='det'>AREX genel tren gidiş-dönüş " + won(t.arex) + " · varış/dönüş günü 4 yolculuk " + won(t.rides) + " · kartlar " + won(t.cards) +
       (t.passDays ? " · " + t.passDays + " günlük İklim Kartı paketi " + won(t.pass) : "") + ". Günübirlik gezilerin tren ücretleri dahil değil.</span></div>";
     $("sosList").innerHTML = sosHtml();
+    const S = ctx.S;
+    $("seasonGuide").innerHTML = (S.guide || []).map(g =>
+      "<section class='card'><h2><span class='h-ic" + (g.tone ? " " + g.tone : "") + "'>" + ic(g.icon) + "</span>" + esc(g.title) + "</h2>" +
+      "<ul class='clean'>" + g.items.map(x => "<li>" + esc(x) + "</li>").join("") + "</ul>" +
+      (g.icon === "flower" && S.bloom ? bloomTable(ctx) : "") + "</section>").join("");
+  }
+  function bloomTable(ctx) {
+    const min = 85, max = 104; // 26 Mart .. 14 Nisan gün sırası (yılın günü)
+    const doy = mmdd => { const [m, dd] = mmdd.split("-").map(Number); return (m === 3 ? 59 : 90) + dd; };
+    const pos = v => ((v - min) / (max - min) * 100).toFixed(1) + "%";
+    const a = doy(ctx.arrDate.slice(5)), r = doy(ctx.retDate.slice(5));
+    const band = "<span class='bl-stay' style='left:" + pos(Math.max(min, a)) + ";width:" + ((Math.min(max, r) - Math.max(min, a)) / (max - min) * 100).toFixed(1) + "%'></span>";
+    const tick = (v, l) => "<span style='left:" + pos(v) + "'>" + l + "</span>";
+    return "<div class='bloom' role='img' aria-label='Yeouido çiçeklenme tarihleri 2017–2026 ve seçili tarihleriniz'>" +
+      "<div class='bl-row'><span></span><span class='bl-axis'>" + tick(85, "26 Mar") + tick(91, "1 Nis") + tick(98, "8 Nis") + tick(104, "14 Nis") + "</span></div>" +
+      ctx.S.bloom.slice().reverse().map(([y, o, f]) => { const s0 = Math.max(min, doy(o)), e0 = Math.min(max, doy(f) + 4);
+        return "<div class='bl-row'><span class='y'>" + y + "</span><span class='bl-track'>" + band + "<span class='bl-bar' style='left:" + pos(s0) + ";width:" + ((e0 - s0) / (max - min) * 100).toFixed(1) + "%'></span><span class='bl-full' style='left:" + pos(doy(f)) + "'></span></span></div>"; }).join("") +
+      "<p class='sub'>Mavi alan: " + fmtD(ctx.arrDate) + "–" + fmtD(ctx.retDate) + " Seul'de olduğunuz günler. Çubuk: açmadan tam çiçeklenmenin ~4 gün sonrasına; nokta: tam çiçeklenme (KMA, Yeouido Yunjung-ro).</p></div>";
   }
   const sosHtml = () => SOS.map(s => "<a href='" + s[3] + "'><b>" + s[0] + "</b><span>" + s[1] + "<small>" + s[2] + "</small></span></a>").join("") +
     "<a href='https://seul.be.mfa.gov.tr' target='_blank' rel='noopener'><b>" + ic("landmark") + "</b><span>T.C. Seul Büyükelçiliği<small>seul.be.mfa.gov.tr</small></span></a>";
@@ -992,9 +1279,17 @@
       render(); toast(a.al + " plana uygulandı");
       return;
     }
+    const sea = t.closest("[data-season]");
+    if (sea) { state.season = sea.dataset.season; render(); toast(SEASON[state.season].label + " planı · " + SEASON[state.season].sub); return; }
+    const trp = t.closest("[data-trip]");
+    if (trp) { state.trip[state.season] = trp.dataset.trip; state.fl[state.season] = 0; render(); toast(fmtD(tripOf(state.season).dep) + " → " + fmtD(tripOf(state.season).ret) + " seçildi"); return; }
+    const sfl = t.closest("[data-sfl]");
+    if (sfl) { state.fl[state.season] = +sfl.dataset.sfl; render(); toast(tripOf(state.season).flights[+sfl.dataset.sfl].al + " plana uygulandı"); return; }
     const st = t.closest("[data-stay]");
     if (st && !t.closest("a")) { state.stay = st.dataset.stay; render(); toast(STAYS.find(s => s.id === state.stay).name + " seçildi"); return; }
     const cat = t.closest("[data-cat]");
+    const rf = t.closest("[data-rf]");
+    if (rf) { state.restKind = rf.dataset.rf; render(); return; }
     if (cat) { state.cat = cat.dataset.cat; render(); return; }
     const pcat = t.closest("[data-pcat]");
     if (pcat) { state.phraseCat = pcat.dataset.pcat; renderPhrases(); return; }

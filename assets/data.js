@@ -118,17 +118,19 @@ window.SEOUL = (() => {
   ];
   STAYS.forEach(s => { s.nightly = s.total6 / 6; });
 
-  const CATS = [["all","Tümü"],["tarih","Tarih"],["sehir","Manzara"],["alisveris","Mahalle"],["yemek","Yemek"],["muze","Müze"],["kis","Kış"],["gunubirlik","Günübirlik"]];
+  const CATS = [["all","Tümü"],["tarih","Tarih"],["sehir","Manzara"],["alisveris","Mahalle"],["yemek","Yemek"],["muze","Müze"],["kis","Kış"],["bahar","Sakura"],["bayram","Bayram"],["gunubirlik","Günübirlik"]];
   const CAT_META = {
     tarih: { icon: "landmark", label: "Tarih ve saray" }, sehir: { icon: "mountain", label: "Manzara" }, alisveris: { icon: "bag", label: "Mahalle ve alışveriş" },
-    yemek: { icon: "utensils", label: "Yemek ve pazar" }, muze: { icon: "image", label: "Müze" }, kis: { icon: "snow", label: "Kış ve yılbaşı" }, gunubirlik: { icon: "bus", label: "Günübirlik" }
+    yemek: { icon: "utensils", label: "Yemek ve pazar" }, muze: { icon: "image", label: "Müze" }, kis: { icon: "snow", label: "Kış ve yılbaşı" },
+    bahar: { icon: "flower", label: "Sakura ve bahar" }, bayram: { icon: "moon", label: "Bayram" }, gunubirlik: { icon: "bus", label: "Günübirlik" }
   };
 
   // when: day = gündüz, flex = gündüz veya akşam, evening = akşam. closed: kapalı hafta günleri (0 = Pazar).
   const PLACES = [
     { id: "gyeongbok", name: "Gyeongbokgung Sarayı", ko: "경복궁", q: "Gyeongbokgung Palace, Seoul", lat: 37.57975, lng: 126.97668, cats: ["tarih"], cluster: "palace", hours: 2.5, when: "day", order: 1, closed: [2],
       fee: 3000, feeNote: "Hanbok giyenlere ücretsiz", station: "Gyeongbokgung · Hat 3 · Çıkış 5",
-      desc: "Joseon hanedanının ana sarayı; içinde Ulusal Halk Müzesi (ücretsiz).", tip: "Kışın 09:00–17:00 (son giriş 16:00), salı kapalı. Muhafız değişimi 10:00 ve 14:00'te Gwanghwamun kapısında.", def: true },
+      desc: "Joseon hanedanının ana sarayı; içinde Ulusal Halk Müzesi (ücretsiz).", tip: "Kışın 09:00–17:00 (son giriş 16:00), salı kapalı. Muhafız değişimi 10:00 ve 14:00'te Gwanghwamun kapısında.",
+      tipSpring: "Mart–Mayıs 09:00–18:00 (son giriş 17:00), salı kapalı. Muhafız değişimi 10:00 ve 14:00'te Gwanghwamun kapısında. Sarayın arka bahçelerinde de kiraz ağaçları var.", def: true },
     { id: "bukchon", name: "Bukchon Hanok Köyü", ko: "북촌한옥마을", q: "Bukchon Hanok Village, Seoul", lat: 37.58239, lng: 126.98586, cats: ["tarih","alisveris"], cluster: "palace", hours: 1, when: "day", order: 2,
       fee: 0, station: "Anguk · Hat 3 · Çıkış 2",
       desc: "Geleneksel hanok evleriyle yokuşlu sokaklar; insanların yaşadığı bir mahalle.", tip: "Kırmızı bölge turistlere yalnızca 10:00–17:00 arası açık; dışında 100.000 won ceza. Sessiz olun.", def: true },
@@ -138,7 +140,7 @@ window.SEOUL = (() => {
     { id: "insadong", name: "Insadong ve Ssamziegil", ko: "인사동 쌈지길", q: "Insadong, Seoul", lat: 37.57426, lng: 126.98482, cats: ["alisveris","yemek"], cluster: "palace", hours: 1.5, when: "flex", order: 4,
       fee: 0, station: "Anguk · Hat 3 · Çıkış 6",
       desc: "El sanatları, geleneksel çay evleri, hediyelik eşya.", tip: "Soğuk günde geleneksel çay evinde yuja-cha deneyin.", def: true },
-    { id: "gwanghwamun", name: "Seoul Light Gwanghwamun ve Cheonggyecheon", ko: "광화문광장", q: "Gwanghwamun Square, Seoul", lat: 37.57278, lng: 126.97686, cats: ["kis","sehir"], cluster: "palace", hours: 1.5, when: "evening", order: 5,
+    { id: "gwanghwamun", name: "Seoul Light Gwanghwamun ve Cheonggyecheon", ko: "광화문광장", q: "Gwanghwamun Square, Seoul", lat: 37.57278, lng: 126.97686, cats: ["kis","sehir"], seasons: ["yilbasi"], cluster: "palace", hours: 1.5, when: "evening", order: 5,
       window: ["2026-12-11","2027-01-03"], fee: 0, station: "Gwanghwamun · Hat 5 · Çıkış 2",
       desc: "Meydanda kış ışık gösterisi; hemen yanından başlayan Cheonggyecheon dere yürüyüşü.", tip: "11 Aralık 2026–3 Ocak 2027 ilan edildi; saatler açıklanmadı (geçen yıl 17:30–21:30).", def: true },
     { id: "ikseon", name: "Ikseon-dong hanok sokakları", ko: "익선동", q: "Ikseon-dong, Seoul", lat: 37.57436, lng: 126.98978, cats: ["alisveris","yemek"], cluster: "eastjongno", hours: 1, when: "flex", order: 1,
@@ -177,10 +179,10 @@ window.SEOUL = (() => {
     { id: "seoulsky", name: "Lotte World Tower · Seoul Sky", ko: "롯데월드타워 서울스카이", q: "Seoul Sky, Lotte World Tower", lat: 37.51255, lng: 127.10268, cats: ["sehir"], cluster: "gangnam", hours: 1.5, when: "evening", order: 2,
       fee: 33000, station: "Jamsil · Hat 2/8 · Çıkış 1–2",
       desc: "500 m'deki seyir terası; Kore'nin en yüksek binası.", tip: "10:30'da açılır; gün batımına (≈17:20) denk getirin. Altında Lotte World Mall ve Seokchon Gölü.", def: false },
-    { id: "bosingak", name: "Bosingak yılbaşı çan töreni", ko: "보신각", q: "Bosingak, Seoul", lat: 37.56985, lng: 126.98361, cats: ["kis"], cluster: "palace", hours: 2, when: "evening", pin: "2026-12-31", at: 22.5,
+    { id: "bosingak", name: "Bosingak yılbaşı çan töreni", ko: "보신각", q: "Bosingak, Seoul", lat: 37.56985, lng: 126.98361, cats: ["kis"], seasons: ["yilbasi"], cluster: "palace", hours: 2, when: "evening", pin: "2026-12-31", at: 22.5,
       fee: 0, station: "Jonggak · Hat 1 · Çıkış 4 (o gece tren durmayabilir; Jongno 3-ga veya Gwanghwamun'dan yürüyün)",
       desc: "Gece yarısı çan 33 kez çalınır; on binlerce kişi toplanır.", tip: "Erken gidin, sıcak giyinin. 2026 programı henüz açıklanmadı.", def: true },
-    { id: "rink", name: "Seoul Plaza buz pateni", ko: "서울광장 스케이트장", q: "Seoul Plaza", lat: 37.56564, lng: 126.97799, cats: ["kis"], cluster: "palace", hours: 1, when: "flex", order: 6,
+    { id: "rink", name: "Seoul Plaza buz pateni", ko: "서울광장 스케이트장", q: "Seoul Plaza", lat: 37.56564, lng: 126.97799, cats: ["kis"], seasons: ["yilbasi"], cluster: "palace", hours: 1, when: "flex", order: 6,
       fee: 1000, unconfirmed: true, station: "City Hall · Hat 1/2 · Çıkış 5–6",
       desc: "Belediye binası önünde açık hava pisti; paten ve kask dahil.", tip: "Geçen sezon 19 Ara–8 Şub, saati ₩1.000'di. 2026 tarihleri henüz açıklanmadı.", def: false },
     { id: "nami", name: "Nami Adası", ko: "남이섬", q: "Nami Island", lat: 37.80384, lng: 127.52531, cats: ["gunubirlik"], cluster: "trip", hours: 8, when: "day", trip: true,
@@ -191,12 +193,32 @@ window.SEOUL = (() => {
       desc: "UNESCO listesindeki 18. yüzyıl surları; sur üstü yürüyüş ve Haenggung sarayı.", tip: "Surlar açık alanda; rüzgârlı günde soğuk.", def: false },
     { id: "dmz", name: "DMZ turu", ko: "임진각", q: "Imjingak", lat: 37.8923, lng: 126.744, cats: ["gunubirlik","tarih"], cluster: "trip", hours: 8, when: "day", trip: true,
       fee: null, feeNote: "Tur fiyatı şirkete göre değişir; toplama eklenmedi", station: "Yalnızca organize turla; Seul merkezinden toplama",
-      desc: "İki Kore arasındaki askerî bölge; gözlem noktaları ve tüneller.", tip: "Pasaport zorunlu. Program güvenlik durumuna göre son anda değişebilir; iptal koşullarına bakın.", def: false }
+      desc: "İki Kore arasındaki askerî bölge; gözlem noktaları ve tüneller.", tip: "Pasaport zorunlu. Program güvenlik durumuna göre son anda değişebilir; iptal koşullarına bakın.", def: false },
+
+    // ---- Bahar (sakura) ve Bayram dönemine özel yerler ----
+    { id: "yeouido", name: "Yeouido Yunjung-ro kiraz yolu", ko: "여의서로 벚꽃길", q: "Yeouiseo-ro cherry blossom road, Seoul", lat: 37.52517, lng: 126.91481, cats: ["bahar","sehir"], seasons: ["sakura"], cluster: "yeouido", hours: 2, when: "flex", order: 1,
+      fee: 0, station: "Kuk-hoe-uisadang (Ulusal Meclis) · Hat 9 · Çıkış 1 veya 6 (~400 m) / Yeouinaru · Hat 5",
+      desc: "Han Nehri kıyısında 1,7 km boyunca ~1.886 kiraz ağacı; Seul'ün en ünlü sakura yolu.", tip: "2026'da festival 3–7 Nisan 11:30–21:30'du, yol 8 gün araçlara kapalıydı; 5 günde 3,6 milyon ziyaretçi. Hafta içi sabah gidin; festival cumartesileri trenler istasyonu atlayabiliyor, bir durak önce inin.", def: true },
+    { id: "seokchon", name: "Seokchon Gölü kiraz festivali", ko: "석촌호수", q: "Seokchon Lake, Seoul", lat: 37.51009, lng: 127.10408, cats: ["bahar","sehir"], seasons: ["sakura"], cluster: "gangnam", hours: 1.5, when: "flex", order: 0,
+      fee: 0, station: "Jamsil · Hat 2/8 · Çıkış 2–3",
+      desc: "Göl çevresinde ~1.000 kiraz ağacı ve 2,5 km yol; arka planda Lotte World Tower.", tip: "2026'da festival 3–11 Nisan'dı; göl boyunca gece ışıklandırması resmî olarak var. 27 Mart–12 Nisan'da 9 milyon ziyaret: hafta içi 09:00'dan önce ya da akşam gidin.", def: true },
+    { id: "yangjae", name: "Yangjaecheon kiraz ve fener festivali", ko: "양재천 영동1교", q: "Yangjaecheon Yeongdong 1-gyo, Seoul", lat: 37.47456, lng: 127.03866, cats: ["bahar"], seasons: ["sakura"], cluster: "gangnam", hours: 1.5, when: "evening", order: 3,
+      fee: 0, station: "Maebong · Hat 3 · Çıkış 4 (~10 dk yürüme)",
+      desc: "Dere boyunca kiraz ağaçları ve fenerler; Seul'ün en uzun süren sakura etkinliği.", tip: "2026'da 30 Mart–19 Nisan, 21 gün sürdü. Çiçeklenmeyi tam tutturamazsanız en güvenli seçenek; kalabalık orta düzeyde.", def: false },
+    { id: "naksan", name: "Naksan Parkı ve şehir surları", ko: "낙산공원", q: "Naksan Park, Seoul", lat: 37.58053, lng: 127.00761, cats: ["sehir","tarih"], cluster: "eastjongno", hours: 1.5, when: "flex", order: 4,
+      fee: 0, station: "Hyehwa · Hat 4 · Çıkış 2 (yokuş, ~15 dk)",
+      desc: "Joseon dönemi sur duvarı boyunca yürüyüş; gün batımında şehir manzarası, hemen altında Ihwa duvar resimleri köyü.", tip: "Mart sonunda yamaçlar sarı forsythia ile kaplanır. Ihwa'da insanlar yaşıyor; sessiz olun.", def: false },
+    { id: "everland", name: "Everland lale festivali", ko: "에버랜드", q: "Everland, Yongin", lat: 37.29355, lng: 127.20704, cats: ["gunubirlik","bahar"], seasons: ["sakura"], cluster: "trip", hours: 8, when: "day", trip: true,
+      fee: null, feeNote: "Bilet fiyatı tarihe göre değişir; toplama eklenmedi", station: "Seul'den otobüs veya metro + Everland hattıyla 1–1,5 saat; güncel güzergâhı Naver Map'te kontrol edin",
+      desc: "Kore'nin en büyük tema parkı; bahar festivalinde 100'den fazla lale çeşidi ve ~1,2 milyon çiçek, akşam geçit töreni.", tip: "2026'da lale festivali 20 Mart–30 Nisan'dı (VisitKorea); 2027 tarihleri açıklanmadı.", def: false },
+    { id: "bayram", name: "Bayram namazı · Seul Merkez Camii", ko: "서울중앙성원", q: "Seoul Central Mosque", lat: 37.53343, lng: 126.99752, cats: ["bayram"], seasons: ["bayram"], cluster: "yongsan", hours: 2, when: "day", pin: "2027-03-09", at: 7.5,
+      fee: 0, station: "Itaewon · Hat 6 · Çıkış 3, ~10 dk yokuş",
+      desc: "Kore'nin ilk camisinde (1976) bayram namazı; ardından Usadan-ro'da helal kahvaltı ve bayramlaşma.", tip: "Kore'de bayram günü ve namaz saati Kore Müslüman Federasyonu (KMF) tarafından duyurulur; Türkiye ile aynı gün olmayabilir. Kadınlar için ayrı bölüm var, başörtüsü gerekli; ödünç örtü verilir.", def: true }
   ];
 
   const ICN = { name: "Incheon Havalimanı T1", ko: "인천국제공항 제1여객터미널", q: "Incheon International Airport", lat: 37.44957, lng: 126.45212 };
 
-  const NEIGH = { palace: ["eastjongno","namsan"], eastjongno: ["palace","namsan","seongsu"], namsan: ["yongsan","palace","eastjongno"], yongsan: ["namsan","west"], west: ["yongsan"], seongsu: ["eastjongno","gangnam"], gangnam: ["seongsu"] };
+  const NEIGH = { palace: ["eastjongno","namsan"], eastjongno: ["palace","namsan","seongsu"], namsan: ["yongsan","palace","eastjongno"], yongsan: ["namsan","west","yeouido"], west: ["yongsan","yeouido"], yeouido: ["west","yongsan"], seongsu: ["eastjongno","gangnam"], gangnam: ["seongsu"] };
   const HOMECL = { myeongdong: "namsan", hongdae: "west", seoulstn: "yongsan", east: "eastjongno" };
   const LUNCH = {
     palace: "Öğle: Gyeongbokgung yakınında samgyetang (Tosokchon) veya Insadong'da geleneksel lokanta.",
@@ -206,6 +228,7 @@ window.SEOUL = (() => {
     west: "Öğle: Yeonnam-dong kafeleri; akşam Hongdae'de Kore barbekü.",
     seongsu: "Öğle: Seongsu'nun kafe ve fırınları.",
     gangnam: "Öğle: COEX Mall veya Lotte World Mall yemek katları.",
+    yeouido: "Öğle: Yeouido Hangang Parkı'nda piknik veya IFC Mall / The Hyundai Seoul yemek katları.",
     trip: "Öğle: gidilen yerde yerel lokanta."
   };
 
@@ -291,11 +314,132 @@ window.SEOUL = (() => {
     { id: "pwa", text: "Bu uygulamayı telefona yükle (çevrimdışı çalışır)", action: "install" },
     { id: "internet", text: "İnternet: eSIM, Kore SIM'i veya pocket Wi-Fi" },
     { id: "won", text: "Pazar ve T-money için biraz nakit won" },
-    { id: "giyim", text: "Kışlık mont, bere, eldiven, termal içlik" },
+    { id: "giyim", text: "Kışlık mont, bere, eldiven, termal içlik", seasons: ["yilbasi"] },
+    { id: "giyim2", text: "Katmanlı giyim: mont, kazak, atkı (sabahlar soğuk)", seasons: ["bayram"] },
+    { id: "giyim3", text: "İnce mont, kazak, rahat yürüyüş ayakkabısı", seasons: ["sakura"] },
     { id: "huwon", text: "Huwon bahçe turu rezervasyonu (gidecekseniz)" },
-    { id: "nye", text: "31 Aralık akşam yemeği rezervasyonu" }
+    { id: "nye", text: "31 Aralık akşam yemeği rezervasyonu", seasons: ["yilbasi"] },
+    { id: "kmf", text: "Kore'deki bayram günü ve namaz saatini KMF duyurusundan kontrol et", seasons: ["bayram"], href: "https://www.koreaislam.org/en/mainpage/", ext: true },
+    { id: "mask", text: "KF94 maske (Mart–Nisan sarı toz ve ince toz)", seasons: ["bayram", "sakura"] },
+    { id: "bloom", text: "Şubat sonu çıkan çiçeklenme tahminine göre tarihleri kesinleştir", seasons: ["sakura"] },
+    { id: "freecancel", text: "Ücretsiz iptalli konaklama seç (çiçeklenme kayabilir)", seasons: ["sakura"] }
+  ];
+
+  // ---------- Dönemler ----------
+  // Mart ve Nisan fiyatları 8 Kasım 2026'da Google Uçuşlar (1 yetişkin, ekonomi) ve Airbnb/Booking'den alındı.
+  // Konaklama: stay = örnek tarih aralığı için toplam TL; null = o tarihte müsait görünmedi veya fiyat doğrulanamadı.
+  const SEASONS = [
+    { id: "yilbasi", label: "Yılbaşı", sub: "Aralık 2026", icon: "snow", color: "var(--c-kis)", eyebrow: "Yılbaşı 2026 → 2027",
+      leaveNote: "Türkiye'de 1 Ocak dışında resmî tatil yok; tarihe göre 4–6 gün izin.",
+      weather: { hi: 4, lo: -3, rain: 23, note: "Kuru ve soğuk; gece −3,4 °C. Kalın mont, bere, eldiven." },
+      highlight: "31 Aralık gecesi Bosingak çan töreni, Gwanghwamun ışık gösterisi, buz pateni.",
+      guide: [
+        { title: "Yılbaşı gecesi (31 Aralık)", icon: "sparkles", tone: "red", items: [
+          "Bosingak çan töreni gece yarısı; çan 33 kez çalınır. 2025'te program 22:50–00:20 arasıydı.",
+          "2025'te Jonggak istasyonunda 23:00–01:00 arası tren durmadı, çevre yollar 18:00'den kapatıldı, metro son seferleri 02:00'ye uzatıldı.",
+          "2026 programı henüz açıklanmadı; Seul Belediyesi genelde 30 Aralık civarı duyurur.",
+          "31 Aralık ve 25 Aralık (resmî tatil) akşam yemeği için önceden rezervasyon yapın." ] },
+        { title: "Hava ve giyim", icon: "snow", tone: "", items: [
+          "Aralık ortalaması 0,2 °C (gece −3,4 °C, gündüz 4,2 °C); Ocak daha soğuk, yaklaşık −6 ile 2 °C arası.",
+          "Kalın mont, bere, eldiven, kaymayan ayakkabı. Metro ve AVM'ler sıcak; katmanlı giyinin.",
+          "İnce toz günlerinde AirKorea'ya bakın; KF94 maske marketlerde satılır." ] }
+      ] },
+    { id: "bayram", label: "Ramazan Bayramı", sub: "Mart 2027", icon: "moon", color: "var(--c-gunubirlik)", eyebrow: "Ramazan Bayramı 2027",
+      leaveNote: "Türkiye'de arife 8 Mart (yarım gün), bayram 9–11 Mart. 12 Mart Cuma izinle 6–14 Mart 9 gün.",
+      weather: { hi: 11, lo: 2, rain: 37, note: "Günler arası büyük fark; sabahları don olabilir. Sarı tozun en yoğun olduğu ay: KF94 maske." },
+      highlight: "Seul Merkez Camii'nde bayram namazı; saraylar kalabalıksız, kiraz henüz açmamış.",
+      stayRange: ["2027-03-09", "2027-03-15"],
+      stay: { "1609196513678801566": 43911, "1049670250878875939": null, "1384249110909704228": 44500, "1382960643056240467": 37174, "51675962": 40684,
+        "1339106802824892099": 50615, "1081781456973510644": null, "1648290505111026329": 60410, "melrouseutei-hongdae-mellow-stay-hongdae": 83892,
+        "holiday-inn-express-seoul-hongdae": 116073, "l7-hongdae": null, "lotte-city-seoul-myeongdong": 130814, "fraser-place-namdaemun": 141739, "l7-myeongdong-by-lotte": 150620 },
+      trips: [
+        { id: "b3", dep: "2027-03-08", ret: "2027-03-15", leave: "Arife öğlene kadar + 12 ve 15 Mart (2,5 gün izin)", flights: [
+          { al: "Qatar Airways", dep: "20:10", arr: "17:15", off: 1, dur: "15 sa 05 dk", direct: false, via: "Doha (DOH) · 2 sa 15 dk", price: 39733, note: "En ucuz makul seçenek; ama bayramın ilk günü akşam varış, Kore'de bayram 9 Mart'sa namazı kaçırırsınız." },
+          { al: "Korean Air", dep: "21:55", arr: "13:55", off: 1, dur: "10 sa", direct: true, via: "Aktarmasız", price: 43518, note: "Aktarmasızların en ucuzu." },
+          { al: "Turkmenistan", dep: "22:50", arr: "04:30", off: 2, dur: "23 sa 40 dk", direct: false, via: "Aşkabat (ASB) · 12 sa 20 dk", price: 33288, note: "En ucuz ama 10 Mart sabahı varış; bayram namazını kaçırırsınız." },
+          { al: "THAI", dep: "16:30", arr: "15:25", off: 1, dur: "16 sa 55 dk", direct: false, via: "Bangkok (BKK) · 2 sa 40 dk", price: 47511 },
+          { al: "Turkish Airlines", dep: "02:20", arr: "18:20", off: 0, dur: "10 sa", direct: true, via: "Aktarmasız", price: 54238, note: "7'yi 8'e bağlayan gece kalkış; 8 Mart akşamı Seul'desiniz (+1 gece)." }
+        ] },
+        { id: "b2", dep: "2027-03-07", ret: "2027-03-14", leave: "Arife yarım gün + 12 Mart (1,5 gün izin)", flights: [
+          { al: "Qatar Airways", dep: "20:10", arr: "17:15", off: 1, dur: "15 sa 05 dk", direct: false, via: "Doha (DOH) · 2 sa 15 dk", price: 49782 },
+          { al: "MIAT / Korean Air", dep: "16:20", arr: "12:05", off: 1, dur: "13 sa 45 dk", direct: false, via: "Ulanbatur (UBN) · 2 sa 15 dk", price: 55126 },
+          { al: "Korean Air", dep: "21:55", arr: "13:55", off: 1, dur: "10 sa", direct: true, via: "Aktarmasız", price: 55351 },
+          { al: "LOT", dep: "15:00", arr: "10:30", off: 2, dur: "37 sa 30 dk", direct: false, via: "Varşova (WAW) · 23 sa 40 dk", price: 43597, note: "Ucuz ama Varşova'da gece geçiren 37 saatlik yolculuk." }
+        ] },
+        { id: "b1", dep: "2027-03-06", ret: "2027-03-14", leave: "Arife yarım gün + 12 Mart (1,5 gün izin), 9 günün tamamı", flights: [
+          { al: "Qatar Airways", dep: "20:10", arr: "17:15", off: 1, dur: "15 sa 05 dk", direct: false, via: "Doha (DOH) · 2 sa 15 dk", price: 53643 },
+          { al: "Air Astana", dep: "12:20", arr: "09:55", off: 1, dur: "15 sa 35 dk", direct: false, via: "Almatı (ALA) · 4 sa 10 dk", price: 56193 },
+          { al: "Asiana Airlines", dep: "21:55", arr: "13:55", off: 1, dur: "10 sa", direct: true, via: "Aktarmasız", price: 59907 },
+          { al: "LOT", dep: "15:00", arr: "10:30", off: 2, dur: "37 sa 30 dk", direct: false, via: "Varşova (WAW) · 23 sa 40 dk", price: 43597, note: "Ucuz ama 37 saatlik yolculuk." }
+        ] }
+      ],
+      guide: [
+        { title: "Kore'de bayram", icon: "moon", tone: "green", items: [
+          "Bayram namazı Seul Merkez Camii'nde (Itaewon) kılınır. Kore'deki bayram günü ve saati Kore Müslüman Federasyonu (KMF) tarafından duyurulur; Türkiye ile aynı gün olmayabilir.",
+          "Ramazan boyunca camide her akşam ücretsiz iftar veriliyor; 8 Mart'ta varırsanız son iftara yetişebilirsiniz.",
+          "Kadınlar için ayrı namaz bölümü var; başörtüsü gerekli, ödünç örtü veriliyor. Caminin hemen yanında helal kasap ve lokantalar var.",
+          "Kore'de bayram tatil değil: her yer açık, hafta içi saraylar ve müzeler sakin." ] },
+        { title: "Mart'ta Seul", icon: "cloud-sun", tone: "", items: [
+          "Ortalama en yüksek 11 °C, en düşük 2 °C, ~37 mm yağış (KMA 1991–2020). Gün içinde 18 °C'den sabah dona kadar dalgalanabilir.",
+          "Sarı toz (hwangsa) ve ince tozun en yoğun olduğu ay. KF94 maske marketlerde satılır; AirKorea veya Misemise'den günlük durumu kontrol edin.",
+          "Kiraz henüz açmamış olur; Mart sonuna doğru sarı forsythia ve azaleler başlar. Saraylar Mart'tan itibaren 18:00'e kadar açık.",
+          "Katmanlı giyinin: mont, kazak, atkı; akşamları kış gibi." ] },
+        { title: "Tatil ve izin", icon: "calendar", tone: "amber", items: [
+          "Türkiye: 8 Mart arife (yarım gün), 9–11 Mart Ramazan Bayramı (Salı–Perşembe).",
+          "12 Mart Cuma izin alınırsa 6–14 Mart 9 günlük tatil olur; 8–15 Mart seçeneği en ucuz uçuşları veriyor.",
+          "Bayram dönemi bilet talebi yüksek; fiyatlar yaklaştıkça artabilir." ] }
+      ] },
+    { id: "sakura", label: "Sakura", sub: "Nisan 2027", icon: "flower", color: "var(--c-bahar)", eyebrow: "Sakura · Bahar 2027",
+      leaveNote: "Türkiye'de resmî tatil yok; 6–7 iş günü izin.",
+      weather: { hi: 18, lo: 8, rain: 73, note: "Gündüz ılık, sabah-akşam serin. İnce mont ve kazak; ince toz günlerinde maske." },
+      highlight: "Yeouido ve Seokchon kiraz festivalleri, Han Nehri'nde piknik, Everland lale festivali.",
+      stayRange: ["2027-04-02", "2027-04-09"],
+      stay: { "1609196513678801566": null, "1049670250878875939": null, "1384249110909704228": 49716, "1382960643056240467": null, "51675962": 44634,
+        "1339106802824892099": 54030, "1081781456973510644": null, "1648290505111026329": 67830, "melrouseutei-hongdae-mellow-stay-hongdae": null,
+        "holiday-inn-express-seoul-hongdae": 203904, "l7-hongdae": 256854, "lotte-city-seoul-myeongdong": 239041, "fraser-place-namdaemun": 215926, "l7-myeongdong-by-lotte": 263433 },
+      // Yeouido Yunjung-ro: KMA çiçeklenme (açma) ve tam çiçeklenme tarihleri (Seoul Window derlemesi, KMA kayıtları).
+      bloom: [["2017","04-06","04-10"],["2018","04-02","04-05"],["2019","04-04","04-08"],["2020","03-30","04-03"],["2021","03-25","03-30"],
+        ["2022","04-04","04-08"],["2023","03-26","03-30"],["2024","03-31","04-03"],["2025","04-03","04-07"],["2026","03-29","04-03"]],
+      trips: [
+        { id: "s2", dep: "2027-04-01", ret: "2027-04-09", leave: "7 iş günü izin (1–9 Nisan, Perşembe–Cuma)", flights: [
+          { al: "Qatar Airways", dep: "13:45", arr: "10:30", off: 1, dur: "14 sa 45 dk", direct: false, via: "Doha (DOH) · 2 sa", price: 33536, note: "En iyi fiyat/süre; sabah varış." },
+          { al: "Qatar Airways", dep: "20:05", arr: "17:05", off: 1, dur: "15 sa", direct: false, via: "Doha (DOH) · 2 sa 15 dk", price: 42583 },
+          { al: "Asiana Airlines", dep: "17:20", arr: "09:35", off: 1, dur: "10 sa 15 dk", direct: true, via: "Aktarmasız", price: 54152, note: "Aktarmasız, sabah varış." },
+          { al: "Etihad", dep: "13:50", arr: "10:50", off: 1, dur: "15 sa", direct: false, via: "Abu Dabi (AUH) · 1 sa 45 dk", price: 55738 },
+          { al: "Turkish Airlines", dep: "16:50", arr: "08:30", off: 1, dur: "9 sa 40 dk", direct: true, via: "Aktarmasız", price: 59243 }
+        ] },
+        { id: "s3", dep: "2027-04-02", ret: "2027-04-10", leave: "6 iş günü izin (2–10 Nisan, Cuma–Cumartesi)", flights: [
+          { al: "THAI", dep: "16:30", arr: "15:25", off: 1, dur: "16 sa 55 dk", direct: false, via: "Bangkok (BKK) · 2 sa 20 dk", price: 43433 },
+          { al: "Korean Air", dep: "21:20", arr: "13:25", off: 1, dur: "10 sa 05 dk", direct: true, via: "Aktarmasız", price: 47429, note: "Aktarmasızların en ucuzu." },
+          { al: "Qatar Airways", dep: "20:05", arr: "17:05", off: 1, dur: "15 sa", direct: false, via: "Doha (DOH) · 2 sa 15 dk", price: 48589 },
+          { al: "Turkish Airlines", dep: "01:45", arr: "17:40", off: 0, dur: "9 sa 55 dk", direct: true, via: "Aktarmasız", price: 51736, note: "1'i 2'ye bağlayan gece kalkış, aynı gün varış." },
+          { al: "Turkish Airlines", dep: "16:50", arr: "08:30", off: 1, dur: "9 sa 40 dk", direct: true, via: "Aktarmasız", price: 62997 }
+        ] },
+        { id: "s1", dep: "2027-03-31", ret: "2027-04-08", leave: "7 iş günü izin (31 Mart–8 Nisan, Çarşamba–Perşembe)", flights: [
+          { al: "Qatar Airways", dep: "13:45", arr: "10:30", off: 2, dur: "38 sa 45 dk", direct: false, via: "Doha (DOH) · 26 sa", price: 42642, note: "Ucuz ama Doha'da 26 saat bekleme; 2 Nisan varış." },
+          { al: "Turkish Airlines", dep: "01:45", arr: "17:40", off: 0, dur: "9 sa 55 dk", direct: true, via: "Aktarmasız", price: 54238, note: "30'u 31'e bağlayan gece kalkış, aynı gün varış." },
+          { al: "Etihad", dep: "13:50", arr: "10:50", off: 1, dur: "15 sa", direct: false, via: "Abu Dabi (AUH) · 1 sa 45 dk", price: 55738 },
+          { al: "Qatar Airways", dep: "20:05", arr: "17:05", off: 1, dur: "15 sa", direct: false, via: "Doha (DOH) · 2 sa 15 dk", price: 56647 }
+        ] }
+      ],
+      guide: [
+        { title: "Çiçeklenme ne zaman?", icon: "flower", tone: "red", items: [
+          "Kore Meteoroloji İdaresi (KMA) 2016'dan beri tahmin yapmıyor, yalnızca açtığını duyuruyor. Özel tahminler (Weatheri, Kweather) Şubat sonunda çıkar; 2026'da 5 gün yanıldılar.",
+          "Seul'de 30 yıllık ortalama açma 8 Nisan, ama son 10 yılın 6'sında 4 Nisan'dan önce açtı. Tam çiçeklenme açmadan 2–6 gün sonra; korular yaklaşık 1 hafta sonra en güzel hâlinde.",
+          "Mart ortasından itibaren KMA Weather Nuri 'bahar çiçeği durumu' sayfası günlük durumu gösterir.",
+          "Kaçırırsanız: Namsan gibi yüksek yerler 2–3 gün geç açar; Yangjaecheon festivali 3 hafta sürer." ] },
+        { title: "Festivaller ve kalabalık", icon: "users", tone: "", items: [
+          "2026 tarihleri (2027 için Mart ortasında açıklanır): Yeouido 3–7 Nisan, Seokchon Gölü 3–11 Nisan, Yangjaecheon 30 Mart–19 Nisan.",
+          "2026'da Yeouido 5 günde 3,6 milyon, Seokchon 17 günde 9 milyon ziyaret gördü. Hafta sonu hafta içinin iki katı kalabalık.",
+          "Festival cumartesileri Yeouido ve Jamsil'de trenler kalabalık istasyonu atlayabiliyor; bir durak önce inip yürüyün. Taksi Yeouido kiraz yoluna giremiyor.",
+          "Seokchon'da göl boyunca gece ışıklandırması var; akşam ikinci bir ziyaret farklı bir manzara verir." ] },
+        { title: "Nisan'da Seul", icon: "cloud-sun", tone: "amber", items: [
+          "Ortalama en yüksek 18 °C, en düşük 8 °C, ~73 mm yağış (KMA 1991–2020). Yağmur ve rüzgâr bir gecede çiçekleri dökebilir.",
+          "İnce toz kiraz zamanına denk gelebilir; KF94 maske bulundurun.",
+          "Otel fiyatları yükselir ve hızlı dolar; ücretsiz iptalli rezervasyonla tarihleri esnek tutun." ] }
+      ] }
   ];
 
   return { KRW_TRY, PEOPLE, BUDGET, REF_DEP, REF_RET, KETA_KRW, deps, rets, P, QR, ALTS, SEARCH_AIRLINES, AL_CODE,
-    AREAS, STAYS, CATS, CAT_META, PLACES, ICN, NEIGH, HOMECL, LUNCH, FOOD, APPS, PHRASES, CHECKLIST };
+    AREAS, STAYS, CATS, CAT_META, PLACES, ICN, NEIGH, HOMECL, LUNCH, FOOD, APPS, PHRASES, CHECKLIST, SEASONS };
 })();

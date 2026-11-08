@@ -1,0 +1,93 @@
+[
+ {
+  "name": "Original Pancake House",
+  "area": "Itaewon",
+  "type": "kahvaltı / pancake",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Cafe Hoho Myoll",
+  "area": "Hongdae",
+  "type": "temalı kafe (karavanlı)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "2D Cafe",
+  "area": "Hongdae",
+  "type": "temalı kafe (2D çizgi estetiği)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Tom N Toms Coffee",
+  "area": "Seul geneli",
+  "type": "kahve zinciri",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Caffe Pasuca (Incheon Havalimanı)",
+  "area": "Incheon Havalimanı",
+  "type": "kafe",
+  "ko_known": null,
+  "price_known": "kahve ₩3.800 (s14)"
+ },
+ {
+  "name": "Paris Baguette",
+  "area": "Seul geneli",
+  "type": "fırın zinciri",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Twosome Place",
+  "area": "Seul geneli",
+  "type": "kafe zinciri",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Tteul Gwa Dawon",
+  "area": "Seul (hanok kafe)",
+  "type": "geleneksel hanok çay evi",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Myeongdong Korean BBQ Beef Mongbeulli",
+  "area": "Myeongdong",
+  "type": "Kore barbekü (sınırsız)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Two Two Chicken",
+  "area": "Seul (Myeongdong civarı; semt belirtilmemiş)",
+  "type": "Kore usulü tavuk / birahane (zincir şube)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Kkanbu Chicken",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "Kore usulü tavuk (zincir şube)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Bbandak Bbandak",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "dak galbi",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Wheat & Meat",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "sandviç / pastırma",
+  "ko_known": null,
+  "price_known": null
+ }
+]

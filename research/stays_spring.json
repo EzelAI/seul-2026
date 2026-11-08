@@ -1,0 +1,131 @@
+{
+ "asof": "2026-11-08",
+ "ranges": {
+  "mart": [
+   "2027-03-09",
+   "2027-03-15"
+  ],
+  "nisan": [
+   "2027-04-02",
+   "2027-04-09"
+  ]
+ },
+ "res": {
+  "mart": {
+   "51675962": {
+    "total": 40684,
+    "nights": 6
+   },
+   "1609196513678801566": {
+    "total": 43911,
+    "nights": 6
+   },
+   "1049670250878875939": {
+    "na": true,
+    "snippet": "unavailable"
+   },
+   "1384249110909704228": {
+    "total": 44500,
+    "nights": 6
+   },
+   "1382960643056240467": {
+    "total": 37174,
+    "nights": 6
+   },
+   "1339106802824892099": {
+    "total": 50615,
+    "nights": 6
+   },
+   "1081781456973510644": {
+    "na": true,
+    "snippet": "unavailable"
+   },
+   "1648290505111026329": {
+    "total": 60410,
+    "nights": 6
+   },
+   "melrouseutei-hongdae-mellow-stay-hongdae": {
+    "total": 83892,
+    "breakfast": true
+   },
+   "holiday-inn-express-seoul-hongdae": {
+    "total": 116073,
+    "breakfast": true
+   },
+   "l7-hongdae": {
+    "na": true,
+    "snippet": "card not found"
+   },
+   "lotte-city-seoul-myeongdong": {
+    "total": 130814,
+    "breakfast": false
+   },
+   "fraser-place-namdaemun": {
+    "total": 141739,
+    "breakfast": false
+   },
+   "l7-myeongdong-by-lotte": {
+    "total": 150620,
+    "breakfast": false
+   }
+  },
+  "nisan": {
+   "51675962": {
+    "total": 44634,
+    "nights": 7
+   },
+   "1609196513678801566": {
+    "na": true,
+    "snippet": "unavailable"
+   },
+   "1049670250878875939": {
+    "na": true,
+    "snippet": "unavailable"
+   },
+   "1384249110909704228": {
+    "total": 49716,
+    "nights": 7
+   },
+   "1382960643056240467": {
+    "na": true,
+    "snippet": "unavailable"
+   },
+   "1339106802824892099": {
+    "total": 54030,
+    "nights": 7
+   },
+   "1081781456973510644": {
+    "na": true,
+    "snippet": "unavailable"
+   },
+   "1648290505111026329": {
+    "total": 67830,
+    "nights": 7
+   },
+   "melrouseutei-hongdae-mellow-stay-hongdae": {
+    "total": 58293,
+    "breakfast": true
+   },
+   "holiday-inn-express-seoul-hongdae": {
+    "total": 203904,
+    "breakfast": true
+   },
+   "l7-hongdae": {
+    "total": 256854,
+    "breakfast": true
+   },
+   "lotte-city-seoul-myeongdong": {
+    "total": 239041,
+    "breakfast": false
+   },
+   "fraser-place-namdaemun": {
+    "total": 215926,
+    "breakfast": false
+   },
+   "l7-myeongdong-by-lotte": {
+    "total": 263433,
+    "breakfast": false
+   }
+  }
+ }
+}

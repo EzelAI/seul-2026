@@ -1,0 +1,93 @@
+[
+ {
+  "name": "Gwangjang Market (Gwangjang Pazarı)",
+  "area": "Jongno",
+  "type": "sokak yemeği / geleneksel pazar",
+  "ko_known": "광장시장",
+  "price_known": "sokak lezzetleri ~₩4.000-9.000 (s9)"
+ },
+ {
+  "name": "Noryangjin Balık Pazarı",
+  "area": "Dongjak (Noryangjin)",
+  "type": "deniz ürünleri pazarı",
+  "ko_known": "노량진수산시장",
+  "price_known": "kişi başı ~₩20.000-200.000 (s3)"
+ },
+ {
+  "name": "Cafe Onion Anguk",
+  "area": "Anguk / Jongno",
+  "type": "kafe / fırın (hanok)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Thanks Nature Cafe",
+  "area": "Hongdae",
+  "type": "temalı kafe (koyunlu)",
+  "ko_known": null,
+  "price_known": "waffle ~₩6.000-12.000 (danielfooddiary.com, 2017)"
+ },
+ {
+  "name": "Mr. Kebab Türk Kebabı & Dondurma (Mr. Kebap)",
+  "area": "Itaewon",
+  "type": "Türk kebabı",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Kervan Turkish Restaurant (Itaewon)",
+  "area": "Itaewon",
+  "type": "Türk / helal",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "King Kebab Itaewon",
+  "area": "Itaewon",
+  "type": "Türk kebap / helal",
+  "ko_known": "킹케밥 이태원점",
+  "price_known": null
+ },
+ {
+  "name": "Mapple Tree House (Maple Tree House)",
+  "area": "Itaewon",
+  "type": "Kore barbekü",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Wangbijib",
+  "area": "Myeongdong",
+  "type": "Kore barbekü",
+  "ko_known": "왕비집",
+  "price_known": "kişi başı ~₩26.000-52.000 (s9)"
+ },
+ {
+  "name": "BBQ Chicken Myeongdong Star",
+  "area": "Myeongdong",
+  "type": "Kore usulü kızarmış tavuk",
+  "ko_known": null,
+  "price_known": "tavuk+bira kişi başı ~₩20.000-35.000 (s9)"
+ },
+ {
+  "name": "Niuroumianguan",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "noodle / mandu",
+  "ko_known": null,
+  "price_known": "noodle ₩7.000-15.000 (s9 genel fiyat notu)"
+ },
+ {
+  "name": "Solbangul Bakery",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "fırın / kahvaltı",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Isaac Toast & Coffee",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "tost / kahvaltı",
+  "ko_known": null,
+  "price_known": null
+ }
+]

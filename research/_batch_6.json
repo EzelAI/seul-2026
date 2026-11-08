@@ -1,0 +1,72 @@
+[
+ {
+  "name": "Muskshidonna Samcheongdong",
+  "area": "Samcheong-dong / Jongno",
+  "type": "tteokbokki",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Myeongdong Kyoja",
+  "area": "Myeongdong (29 Myeongdong 10-gil)",
+  "type": "kalguksu / mandu (Michelin listeli)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Tosokchon Samgyetang",
+  "area": "Jongno (Gyeongbokgung yakını, Jahamun-ro 5-gil)",
+  "type": "samgyetang (ginsengli tavuk çorbası)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Baeknyeon Tojong Samgyetang",
+  "area": "Jongno (Gyeongbokgung yakını)",
+  "type": "samgyetang",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "BRICKSAND Seoul",
+  "area": "Insadong çevresi",
+  "type": "fırın / tatlı",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Grains Cookie Bukchon",
+  "area": "Bukchon",
+  "type": "kafe / kurabiye",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Abon Cafe",
+  "area": "Gangnam",
+  "type": "konsept kafe",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Gourmet 494",
+  "area": "Gangnam (metrodan doğrudan giriş)",
+  "type": "yemek alanı (raylı sistem)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Rain Report Rainbow",
+  "area": "Gangnam",
+  "type": "temalı kafe",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Namusae Çay Evi",
+  "area": "Dongdaemun",
+  "type": "geleneksel çay evi",
+  "ko_known": null,
+  "price_known": null
+ }
+]

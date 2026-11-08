@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Seul 2026 · Yılbaşı Planlayıcı ve Rehberi</title>
-<meta name="description" content="İki aile için Seul yılbaşı planı: uçuş ve konaklama karşılaştırması, gün gün tur, Naver/Kakao navigasyonu, Korece sözlük ve pratik rehber.">
+<title>Seul 2026 · Tatil Planlayıcı ve Rehberi</title>
+<meta name="description" content="İki aile için Seul planı (yılbaşı, Ramazan Bayramı, sakura): uçuş ve konaklama karşılaştırması, gün gün tur, Naver/Kakao navigasyonu, Korece sözlük ve pratik rehber.">
 <meta name="theme-color" content="#0a1030">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
@@ -62,6 +62,7 @@
     <symbol id="i-cloud-rain" viewBox="0 0 24 24"><path d="M4 14.9A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.24M16 14v6M8 14v6M12 16v6"/></symbol>
     <symbol id="i-cloud-snow" viewBox="0 0 24 24"><path d="M4 14.9A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.24M8 15h.01M8 19h.01M12 17h.01M12 21h.01M16 15h.01M16 19h.01"/></symbol>
     <symbol id="i-fog" viewBox="0 0 24 24"><path d="M4 14.9A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.24M16 17H7M17 21H9"/></symbol>
+    <symbol id="i-thermo" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></symbol>
     <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
     <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
@@ -78,6 +79,9 @@
     <symbol id="i-list-check" viewBox="0 0 24 24"><path d="M11 18H3M15 18l2 2 4-4M16 12H3M16 6H3"/></symbol>
     <symbol id="i-contrast" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 18a6 6 0 0 0 0-12v12z"/></symbol>
     <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M10 2v2M14 2v2M6 2v2M17 8h1a4 4 0 0 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/></symbol>
+    <symbol id="i-flower" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 9a3 3 0 1 1 3-3c0 1.7-1.3 3-3 3zM15 12a3 3 0 1 1 3 3c-1.7 0-3-1.3-3-3zM12 15a3 3 0 1 1-3 3c0-1.7 1.3-3 3-3zM9 12a3 3 0 1 1-3-3c1.7 0 3 1.3 3 3z"/></symbol>
   </defs>
 </svg>
 
@@ -87,7 +91,7 @@
   <header class="topbar">
     <a class="brand" href="#ana" aria-label="Seul 2026 ana sayfa">
       <img src="assets/icons/icon.svg" alt="" width="36" height="36">
-      <span class="brand-text"><b>Seul 2026</b><small>Yılbaşı planlayıcı</small></span>
+      <span class="brand-text"><b>Seul 2026</b><small>Tatil planlayıcı</small></span>
     </a>
     <nav class="mainnav" aria-label="Ana menü">
       <a href="#ana" data-nav="ana"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg>Ana sayfa</a>
@@ -117,6 +121,8 @@
         <button type="button" class="qtile" data-action="emergency"><span class="qic" style="--q:var(--c-tarih)"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></span><span>Acil durum</span></button>
         <button type="button" class="qtile" data-action="ics"><span class="qic" style="--q:var(--c-muze)"><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg></span><span>Takvime ekle</span></button>
       </div>
+
+      <article class="card" id="compareCard"></article>
 
       <div class="grid2">
         <article class="card" id="seoulNow" aria-live="polite"></article>
@@ -175,15 +181,46 @@
       <div class="view-head">
         <div><h1 id="h-kesfet">Keşfet</h1><p class="sub" id="placeCount"></p></div>
       </div>
-      <div class="searchbar">
-        <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
-        <label for="placeSearch" class="sr">Yer ara</label>
-        <input type="search" id="placeSearch" placeholder="Yer, semt veya Korece ad ara" autocomplete="off">
+      <nav class="subnav" aria-label="Keşfet bölümleri">
+        <a href="#kesfet/yerler" data-sub="yerler">Yerler</a>
+        <a href="#kesfet/restoran" data-sub="restoran">Restoranlar</a>
+        <a href="#kesfet/turkler" data-sub="turkler">Türkler nereye gitmiş?</a>
+      </nav>
+
+      <div class="subview" data-subview="yerler">
+        <div class="searchbar">
+          <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+          <label for="placeSearch" class="sr">Yer ara</label>
+          <input type="search" id="placeSearch" placeholder="Yer, semt veya Korece ad ara" autocomplete="off">
+        </div>
+        <div class="chipbar" role="group" aria-label="Kategori" id="catSeg"></div>
+        <p class="hint"><svg class="ic" aria-hidden="true"><use href="#i-navigation"/></svg><span><b>Naver</b> ve <b>Kakao</b> butonları telefonda doğrudan uygulamayı açar ve bulunduğunuz yerden toplu taşıma rotası başlatır; yüklü değilse mağazaya yönlendirir. <b>Taksi</b> şoföre gösterilecek Korece kartı açar. Puanlar Google ve Tripadvisor'dan, fotoğraflar Wikimedia Commons'tan.</span></p>
+        <div class="places" id="places"></div>
+        <p class="empty" id="placesEmpty" hidden>Aramanızla eşleşen yer yok.</p>
       </div>
-      <div class="chipbar" role="group" aria-label="Kategori" id="catSeg"></div>
-      <p class="hint"><svg class="ic" aria-hidden="true"><use href="#i-navigation"/></svg><span><b>Naver</b> ve <b>Kakao</b> butonları telefonda doğrudan uygulamayı açar ve bulunduğunuz yerden toplu taşıma rotası başlatır; uygulama yüklü değilse mağazaya yönlendirir. <b>Taksi</b> şoföre gösterilecek Korece kartı açar.</span></p>
-      <div class="places" id="places"></div>
-      <p class="empty" id="placesEmpty" hidden>Aramanızla eşleşen yer yok.</p>
+
+      <div class="subview" data-subview="restoran" hidden>
+        <p class="hint"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span id="restIntro"></span></p>
+        <div class="chipbar" role="group" aria-label="Restoran filtresi" id="restFilter"></div>
+        <div class="places" id="restaurants"></div>
+        <p class="empty" id="restEmpty" hidden>Bu filtreyle eşleşen mekan yok.</p>
+      </div>
+
+      <div class="subview" data-subview="turkler" hidden>
+        <section class="card">
+          <div class="card-head"><h2><span class="h-ic red"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></span>Türk gezginlerin sık gittiği yerler</h2></div>
+          <p class="hint"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span id="trIntro"></span></p>
+          <div class="trlist" id="trPlaces"></div>
+        </section>
+        <section class="card">
+          <div class="card-head"><h2><span class="h-ic amber"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg></span>Bloglarda tekrar eden ipuçları</h2></div>
+          <ul class="clean" id="trTips"></ul>
+        </section>
+        <section class="card">
+          <div class="card-head"><h2><span class="h-ic"><svg class="ic" aria-hidden="true"><use href="#i-list-check"/></svg></span>Okunan bloglar</h2></div>
+          <ol class="clean" id="trSources"></ol>
+        </section>
+      </div>
     </section>
 
     <!-- PLANLA -->
@@ -198,7 +235,8 @@
       </nav>
 
       <div class="subview" data-subview="butce">
-        <section class="card">
+        <section class="card" id="tripCard" hidden></section>
+        <section class="card" id="matrixCard">
           <div class="card-head">
             <h2><span class="h-ic"><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg></span>Qatar Airways fiyat matrisi</h2>
             <span class="sub">Kişi başı gidiş-dönüş, TL · hücreye dokunun</span>
@@ -259,10 +297,11 @@
       <div class="subview" data-subview="ucus" hidden>
         <section class="card">
           <div class="card-head">
-            <h2><span class="h-ic"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg></span>25 Aralık → 1 Ocak, tüm havayolları</h2>
+            <h2><span class="h-ic"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg></span><span id="altTitle">25 Aralık → 1 Ocak, tüm havayolları</span></h2>
             <span class="sub">İstanbul (IST) → Seul (ICN) · kişi başı gidiş-dönüş</span>
           </div>
-          <p class="hint"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Google Uçuşlar'da 7 Kasım 2026'da görülen seçenekler; saatler gidiş uçuşu içindir. "Plana uygula" tarihleri 25 Ara–1 Oca'ya ayarlar ve toplamı bu fiyatla hesaplar.</span></p>
+          <div class="chipbar" role="group" aria-label="Tarih seçeneği" id="altTrips" hidden></div>
+          <p class="hint"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span id="altHint">Google Uçuşlar'da 7 Kasım 2026'da görülen seçenekler; saatler gidiş uçuşu içindir. "Plana uygula" tarihleri 25 Ara–1 Oca'ya ayarlar ve toplamı bu fiyatla hesaplar.</span></p>
           <div id="altInsights" class="grid2"></div>
           <div class="flights" id="alts"></div>
         </section>
@@ -344,24 +383,8 @@
               <li><b>Taksi</b>: Kakao T. 23:00–02:00 arası %40 gece zammı.</li>
             </ul>
           </section>
-          <section class="card">
-            <h2><span class="h-ic red"><svg class="ic" aria-hidden="true"><use href="#i-sparkles"/></svg></span>Yılbaşı gecesi (31 Aralık)</h2>
-            <ul class="clean">
-              <li>Bosingak çan töreni gece yarısı; çan 33 kez çalınır. 2025'te program 22:50–00:20 arasıydı.</li>
-              <li>2025'te Jonggak istasyonunda 23:00–01:00 arası tren durmadı, çevre yollar 18:00'den kapatıldı, metro son seferleri 02:00'ye uzatıldı.</li>
-              <li>2026 programı henüz açıklanmadı; Seul Belediyesi genelde 30 Aralık civarı duyurur.</li>
-              <li>31 Aralık ve 25 Aralık (resmi tatil) akşam yemeği için önceden rezervasyon yapın.</li>
-            </ul>
-          </section>
-          <section class="card">
-            <h2><span class="h-ic"><svg class="ic" aria-hidden="true"><use href="#i-snow"/></svg></span>Hava ve giyim</h2>
-            <ul class="clean">
-              <li>Aralık ortalaması 0,2 °C (gece −3,4 °C, gündüz 4,2 °C); Ocak daha soğuk, yaklaşık −6 ile 2 °C arası.</li>
-              <li>Kalın mont, bere, eldiven, kaymayan ayakkabı. Metro ve AVM'ler sıcak; katmanlı giyinin.</li>
-              <li>İnce toz (fine dust) günlerinde AirKorea'ya bakın; KF94 maske marketlerde satılır.</li>
-            </ul>
-          </section>
         </div>
+        <div class="grid3" id="seasonGuide"></div>
       </div>
 
       <div class="subview" data-subview="sozluk" hidden>
@@ -432,6 +455,7 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="assets/data.js"></script>
+<script src="assets/research.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>

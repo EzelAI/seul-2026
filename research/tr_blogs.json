@@ -1,0 +1,2007 @@
+{
+ "sources": [
+  {
+   "id": "s1",
+   "url": "https://benmbs.blog/seyahat/asya/guney-kore/guney-kore-ve-seul-bir-seyyahin-bilinc-akisi-ve-gezi-notlari",
+   "title": "Güney Kore ve Seul: Bir Seyyahın Bilinç Akışı ve Gezi Notları",
+   "site": "benmbs.blog",
+   "date": "2025-09"
+  },
+  {
+   "id": "s2",
+   "url": "https://bujuyollarda.com/seul-gezi-rehberi",
+   "title": "Seul Gezi Rehberi 2026: Gezilecek Yerler, İpuçları ve Harita",
+   "site": "bujuyollarda.com",
+   "date": null
+  },
+  {
+   "id": "s3",
+   "url": "https://www.birhayalinpesinde.com/seul-gezilecek-yerler-gezi-ve-seyahat-rehberi",
+   "title": "Seul Gezi Rehberi : Seul Hakkında Detaylı Tüm Bilgiler",
+   "site": "birhayalinpesinde.com",
+   "date": null
+  },
+  {
+   "id": "s4",
+   "url": "https://www.birhayalinpesinde.com/guney-kore-yemekleri",
+   "title": "Güney Kore Yemekleri: Mutfağı - Ne Yenir ? +13 Bilgi",
+   "site": "birhayalinpesinde.com",
+   "date": "2020-06"
+  },
+  {
+   "id": "s5",
+   "url": "https://gezimanya.com/GeziNotlari/uzak-dogunun-yukselen-yildizi-seul",
+   "title": "Seul Gezi Rehberi: Uzak Doğu'nun Yükselen Yıldızı Seul Hakkında Önemli Bilgiler",
+   "site": "gezimanya.com",
+   "date": "2020-05"
+  },
+  {
+   "id": "s6",
+   "url": "https://gezginimgezgin.com/seul-gezi-rehberi",
+   "title": "Seul Gezi Rehberi: Teknoloji ve Tarihin Harmonisi",
+   "site": "gezginimgezgin.com",
+   "date": null
+  },
+  {
+   "id": "s7",
+   "url": "https://kucukdunya.com/seul-gezi-rehberi-seul-gezilecek-yerler",
+   "title": "Seul Gezi Rehberi - Seul Gezilecek Yerler",
+   "site": "kucukdunya.com",
+   "date": null
+  },
+  {
+   "id": "s8",
+   "url": "https://gezipgordum.com/seul-gezilecek-yerler",
+   "title": "Seul Gezilecek Yerler (2026) – Haritalı Gezi Rehberi",
+   "site": "gezipgordum.com",
+   "date": "2026-07"
+  },
+  {
+   "id": "s9",
+   "url": "https://www.journavel.com/seul-gezilecek-yerler",
+   "title": "Seul Gezilecek Yerler: 26 Yer ile Detaylı Gezi Rehberi",
+   "site": "journavel.com",
+   "date": null
+  },
+  {
+   "id": "s10",
+   "url": "https://yiyegeze.com/seul-gezi-rehberi-seulde-gezilecek-20-yer",
+   "title": "Seul Gezi Rehberi: Seul'de Gezilecek 20 Yer",
+   "site": "yiyegeze.com",
+   "date": null
+  },
+  {
+   "id": "s11",
+   "url": "https://www.themagger.com/guney-kore/",
+   "title": "Ailece Güney Kore'de: Seul ve Busan'dan Notlar",
+   "site": "themagger.com",
+   "date": "2025-07"
+  },
+  {
+   "id": "s12",
+   "url": "https://www.themagger.com/guney-kore-yeme-icme/",
+   "title": "Ailece Güney Kore'nin Sofralarında: Seul ve Busan'da Lezzet Yolculuğu",
+   "site": "themagger.com",
+   "date": "2025-07"
+  },
+  {
+   "id": "s13",
+   "url": "https://www.oykununoykuleri.com/2019/11/seul-gezi-rehberi-guney-korede-tek-basima.html",
+   "title": "Seul Gezi Rehberi - Güney Kore'de Tek Başıma",
+   "site": "oykununoykuleri.com",
+   "date": "2019-11"
+  },
+  {
+   "id": "s14",
+   "url": "http://ayferonurseyahatnamesi.com/asya/guney-kore/seoul/seul.html",
+   "title": "Seul Gezi Notları",
+   "site": "ayferonurseyahatnamesi.com",
+   "date": null
+  },
+  {
+   "id": "s15",
+   "url": "https://www.prontotour.com/Blog/seul-gezi-rehberi",
+   "title": "Seul Gezi Rehberi: Güney Kore'nin En Popüler Durakları",
+   "site": "prontotour.com",
+   "date": null
+  },
+  {
+   "id": "s16",
+   "url": "https://gezimanya.com/seul",
+   "title": "Seul Gezi Rehberi",
+   "site": "gezimanya.com",
+   "date": null
+  },
+  {
+   "id": "s17",
+   "url": "https://www.biletdukkani.com/blog/seulde-gezilecek-yerler",
+   "title": "Seul'de Gezilecek Yerler",
+   "site": "biletdukkani.com",
+   "date": null
+  },
+  {
+   "id": "s18",
+   "url": "https://bmag.com.tr/haber/gezi-rotasi-seul",
+   "title": "Gezi rotası Seul",
+   "site": "bmag.com.tr",
+   "date": null
+  },
+  {
+   "id": "s19",
+   "url": "https://eksisozluk.com/seul-gezi-rehberi--7982194",
+   "title": "seul gezi rehberi - ekşi sözlük (yeme içme alternatifleri entry'si)",
+   "site": "eksisozluk.com",
+   "date": null
+  },
+  {
+   "id": "s20",
+   "url": "https://oitheblog.com/2017/04/20/en-ilginc-kafeler-seul/",
+   "title": "Seul'da Karşınıza Çıkabilecek En İlginç Kafeler",
+   "site": "oitheblog.com",
+   "date": "2017-04"
+  },
+  {
+   "id": "s21",
+   "url": "https://gezipgordum.com/seulde-ne-yenir/",
+   "title": "Seul'de Ne Yenir? En Popüler 15 Lezzet",
+   "site": "gezipgordum.com",
+   "date": "2025-12"
+  },
+  {
+   "id": "s22",
+   "url": "https://gezilecekyerler-listesi.com/seul-de-ne-yenir/",
+   "title": "Seul'de Ne Yenir ? & Nerede Yenir ?",
+   "site": "gezilecekyerler-listesi.com",
+   "date": null
+  },
+  {
+   "id": "s23",
+   "url": "https://seyahatdelisi.com/2024/01/25/guney-koreye-gitmeden-bilinmesi-gerekenler/",
+   "title": "Güney Kore'ye Gitmeden Bilinmesi Gerekenler",
+   "site": "seyahatdelisi.com",
+   "date": "2024-01"
+  },
+  {
+   "id": "s24",
+   "url": "https://gezginbirchef.com/seul-gezi-rehberi/",
+   "title": "Seul Gezilecek Yerler 2026: Gezi Rehberi ve Fiyatlar",
+   "site": "gezginbirchef.com",
+   "date": "2026-06"
+  },
+  {
+   "id": "s25",
+   "url": "https://gezimaris.com/seul-gezi-rehberi/",
+   "title": "Seul Gezi Rehberi 2026: Nerede Kalınır, Ne Yenir, Nereler Gezilir?",
+   "site": "gezimaris.com",
+   "date": null
+  },
+  {
+   "id": "s26",
+   "url": "https://www.avruparuyasi.com.tr/seulde-yeme-icme-rehberi-restoran-fiyatlari",
+   "title": "Seul'de Yeme İçme Rehberi: Sokak Lezzetlerinden Restoranlara",
+   "site": "avruparuyasi.com.tr",
+   "date": null
+  }
+ ],
+ "restaurants": [
+  {
+   "name": "Gwangjang Market (Gwangjang Pazarı)",
+   "ko": "광장시장",
+   "area": "Jongno",
+   "type": "sokak yemeği / geleneksel pazar",
+   "order": "bindaetteok (mung fasulyesi pankeki), mayak kimbap, tteokbokki, mandu, pajeon, canlı ahtapot",
+   "note": "Gezginlerin en çok önerdiği sokak yemeği durağı. s2: bindaetteok ve mayak kimbap için kuyruk oluyor; s9: biraz turistikleşmiş ama hâlâ yerel halk kullanıyor; s9 noodle/mandu ve sokak lezzeti için öneriyor. Fiyat: s9'a göre pazarlarda sokak lezzetleri 4.000-9.000 won. s2 gece pazarlarında nakit taşımayı öneriyor. s24: Netflix belgeselindeki teyzenin tezgâhında yemişler; bol midyeli el kesimi erişte, çıtır binduk ve tteokbokki 'hepsi güzeldi', pirinç hamurlu tarçınlı tatlıyı da denemişler. s25 tezgâh tezgâh ilerlemeyi, öğleden sonra/erken akşam gitmeyi ve nakit taşımayı öneriyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s2",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s18",
+    "s24",
+    "s25"
+   ],
+   "station": null,
+   "price": "sokak lezzetleri ~₩4.000-9.000 (s9)"
+  },
+  {
+   "name": "Noryangjin Balık Pazarı",
+   "ko": "노량진수산시장",
+   "area": "Dongjak (Noryangjin)",
+   "type": "deniz ürünleri pazarı",
+   "order": "alt katta canlı balık seç, üst kattaki restoranda pişirt",
+   "note": "Karışık tepki: s3 'balığını seç, üst kattaki restoranda pişirt' sistemini anlatıyor (kişi başı 20.000-200.000 won arası); s4 sahibi balıkçı ailesinden, canlı ahtapotu 'lastik gibi' bulup beğenmemiş (~20.000 won); s14 balıkların nasıl öldürüldüğünü görünce iştahı kaçıp yemeden çıkmış; s1 balık pazarını gezmeyi öneriyor. s26 de taze deniz ürününü pazardan alıp üst kattaki restoranda pişirtme deneyimini anlatıyor (sannakji dahil).",
+   "halal": "unknown",
+   "mentions": [
+    "s1",
+    "s3",
+    "s4",
+    "s5",
+    "s14",
+    "s26"
+   ],
+   "station": null,
+   "price": "kişi başı ~₩20.000-200.000 (s3)"
+  },
+  {
+   "name": "Cafe Onion Anguk",
+   "ko": null,
+   "area": "Anguk / Jongno",
+   "type": "kafe / fırın (hanok)",
+   "order": "tatlılar, matchalı kurabiye, pandoro",
+   "note": "s12: favori kafe oldu, 5-6 tatlı denediler hepsi lezzetli, girişteki kuyruğa değdi, geniş hanok ortamı. s9 kahvaltı için tercih etmiş; tatlıların çok şekerli olabileceği uyarısı. s25 Bukchon/Changdeokgung rotasında kahve molası için iyi konumda diyor; mimari atmosferiyle kısa bir 'tasarım molası'.",
+   "halal": "unknown",
+   "mentions": [
+    "s9",
+    "s12",
+    "s25"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Thanks Nature Cafe",
+   "ko": null,
+   "area": "Hongdae",
+   "type": "temalı kafe (koyunlu)",
+   "order": "içecek",
+   "note": "s2 koyunlu kafe olarak öneriyor (rezervasyon gerekebilir); s13 hayvanlı kafelere gitmeye içi elvermediğini yazıyor (Myoll ve 2D'ye gitmiş). s20: Seul'a iner inmez bavulları bırakıp doğrudan buraya gittiklerini, 'zirveye oynayan' kafelerden olduğunu yazıyor (içinde koyunlar yaşıyor, duvarlar koyun posterli). Adres: 486 Seogyo-dong, Mapo-gu. Fiyat (danielfooddiary.com 2017): waffle ₩6.000-12.000, tost ₩6.000-8.000, meyve içeceği ₩5.000-7.500.",
+   "halal": "unknown",
+   "mentions": [
+    "s2",
+    "s13",
+    "s20"
+   ],
+   "station": null,
+   "price": "waffle ~₩6.000-12.000 (danielfooddiary.com, 2017)"
+  },
+  {
+   "name": "Mr. Kebab Türk Kebabı & Dondurma (Mr. Kebap)",
+   "ko": null,
+   "area": "Itaewon",
+   "type": "Türk kebabı",
+   "order": "kebap, dondurma",
+   "note": "s14 Itaewon'da gezerken Türk kebapçısına rastlayıp öğle yemeğini burada yemiş, çalışanlarla ve sahibiyle sohbet etmiş. s8 de Türk restoranları listesinde sayıyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s8",
+    "s14"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Kervan Turkish Restaurant (Itaewon)",
+   "ko": null,
+   "area": "Itaewon",
+   "type": "Türk / helal",
+   "order": "Türk mutfağı",
+   "note": "s8 Seul'deki bilinen Türk restoranları arasında listelemiş (adında 'Halal' etiketi var); yazar bazılarını denediğini ama doğrudan tavsiye etmek istemediğini, güncel Google yorumlarına bakılmasını yazıyor. Ayrı bir Kervan COEX şubesi de listelenmiş. s22: Itaewon'da Türk restoranı olarak 'kesinlikle Kervan Restaurant'ı tavsiye ederiz'. Adres (visitkorea): 192 Itaewon-ro, Yongsan-gu; menüde tavuk şiş kebap, pide, Türk tatlıları.",
+   "halal": "yes",
+   "mentions": [
+    "s8",
+    "s22"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "King Kebab Itaewon",
+   "ko": "킹케밥 이태원점",
+   "area": "Itaewon",
+   "type": "Türk kebap / helal",
+   "order": "kebap",
+   "note": "s8 listesinde 'Halal' etiketiyle yer alıyor; tavsiye değil, sadece liste.",
+   "halal": "yes",
+   "mentions": [
+    "s8"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Mapple Tree House (Maple Tree House)",
+   "ko": null,
+   "area": "Itaewon",
+   "type": "Kore barbekü",
+   "order": "Kore barbeküsü (et)",
+   "note": "s5: Itaewon'da gittiler, etleri çok beğenmiş ('barbekü yemeden dönmeyin'); akşamları çok dolu olduğu için rezervasyon öneriyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s5"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Wangbijib",
+   "ko": "왕비집",
+   "area": "Myeongdong",
+   "type": "Kore barbekü",
+   "order": "Korean BBQ",
+   "note": "s9: Korean BBQ'yu burada denediler, barbeküden çok memnun kaldılar; barbekü için rezervasyon öneriliyor. Fiyat: s9'a göre Korean BBQ kişi başı 26.000-52.000 won.",
+   "halal": "unknown",
+   "mentions": [
+    "s9"
+   ],
+   "station": null,
+   "price": "kişi başı ~₩26.000-52.000 (s9)"
+  },
+  {
+   "name": "BBQ Chicken Myeongdong Star",
+   "ko": null,
+   "area": "Myeongdong",
+   "type": "Kore usulü kızarmış tavuk",
+   "order": "Korean fried chicken",
+   "note": "s9: Korean chicken'ı burada denediler. Fiyat: tavuk+bira kişi başı 20.000-35.000 won (s9).",
+   "halal": "unknown",
+   "mentions": [
+    "s9"
+   ],
+   "station": null,
+   "price": "tavuk+bira kişi başı ~₩20.000-35.000 (s9)"
+  },
+  {
+   "name": "Niuroumianguan",
+   "ko": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "noodle / mandu",
+   "order": "noodle ve mandu",
+   "note": "s9 noodle ve mandu için öneriyor; noodle fiyatı 7.000-15.000 won aralığı (s9 genel fiyat notu).",
+   "halal": "unknown",
+   "mentions": [
+    "s9"
+   ],
+   "station": null,
+   "price": "noodle ₩7.000-15.000 (s9 genel fiyat notu)"
+  },
+  {
+   "name": "Solbangul Bakery",
+   "ko": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "fırın / kahvaltı",
+   "order": "hamur işleri",
+   "note": "s9 kahvaltıda tercih ettiklerini yazıyor; hamur işi tatlıları çok tatlı olabilir uyarısı.",
+   "halal": "unknown",
+   "mentions": [
+    "s9"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Isaac Toast & Coffee",
+   "ko": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "tost / kahvaltı",
+   "order": "tost",
+   "note": "s9 kahvaltıda tercih ettiklerini yazıyor. s22: Michelin'li pahalı Woo Lae Oak yerine bütçe dostu alternatif olarak öneriyor; s25: erken başlayan günlerde ekonomik ve hızlı kahvaltı, tatlı-tuzlu tost herkese hitap etmeyebilir.",
+   "halal": "unknown",
+   "mentions": [
+    "s9",
+    "s22",
+    "s25"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Artist Bakery",
+   "ko": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "fırın / kahvaltı",
+   "order": "hamur işleri",
+   "note": "s9 kahvaltıda tercih ettiklerini yazıyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s9"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Anguk 153",
+   "ko": null,
+   "area": "Anguk",
+   "type": "kafe / kahvaltı",
+   "order": "kahvaltı",
+   "note": "s9 kahvaltıda tercih ettiklerini yazıyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s9"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Greenmile Coffee Bukchon",
+   "ko": null,
+   "area": "Bukchon",
+   "type": "kahve",
+   "order": "kahve",
+   "note": "s9 en sevdikleri kahvecilerden biri.",
+   "halal": "unknown",
+   "mentions": [
+    "s9"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "ACR Alegria Coffee Roasters",
+   "ko": null,
+   "area": "Seul",
+   "type": "kahve",
+   "order": "kahve",
+   "note": "s9 en sevdikleri kahvecilerden biri.",
+   "halal": "unknown",
+   "mentions": [
+    "s9"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "UPND Coffee Roasters",
+   "ko": null,
+   "area": "Seul",
+   "type": "kahve",
+   "order": "kahve",
+   "note": "s9 en sevdikleri kahvecilerden biri.",
+   "halal": "unknown",
+   "mentions": [
+    "s9"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Four Stones Samseong",
+   "ko": null,
+   "area": "Samseong (Gangnam)",
+   "type": "kahve",
+   "order": "kahve",
+   "note": "s9 en sevdikleri kahvecilerden biri.",
+   "halal": "unknown",
+   "mentions": [
+    "s9"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Imun Seolleongtang",
+   "ko": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "seolleongtang (sığır kemik çorbası)",
+   "order": "seolleongtang",
+   "note": "s12: Michelin rehberinde olduğu için gittiler, kapanışa yarım saat kala yetiştiler, banchan'lar güzeldi ama çorba hayal kırıklığı: sade, tuzsuz, sofra tuzu ve yeşil soğanla tatlandırmak gerekti; ailede sadece Korece okuyan kardeş beğendi.",
+   "halal": "unknown",
+   "mentions": [
+    "s12"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Jangin (Dak Galbi)",
+   "ko": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "dak galbi (baharatlı tavuk, masada pişen)",
+   "order": "dak galbi + bokkeumbap (kızarmış pilav)",
+   "note": "s12: 'kalbimizi bıraktık', en keyif alınan yemeklerden; masada paylaşım, taze banchan'lar.",
+   "halal": "unknown",
+   "mentions": [
+    "s12"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Gwanghwamun Mi-jin",
+   "ko": null,
+   "area": "Gwanghwamun",
+   "type": "geleneksel / karabuğday erişte (Michelin)",
+   "order": "memil guksu (karabuğday ramyonu), karabuğdaylı bibimbap",
+   "note": "s12: ilk gittiklerinde sırada 100'den fazla kişi vardı, başka gün gidip daha az beklediler; soğuk, hafif, acısız erişte, bibimbap da güzel.",
+   "halal": "unknown",
+   "mentions": [
+    "s12"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Goryeo Samgyetang",
+   "ko": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "samgyetang (Michelin)",
+   "order": "samgyetang (ginsengli tavuk çorbası)",
+   "note": "s12: Busan'dan dönüş günü valizlerle gittiler, 'iyi ki gelmişiz'; doyurucu, hafif ginseng aromalı.",
+   "halal": "unknown",
+   "mentions": [
+    "s12"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Mom's Touch",
+   "ko": null,
+   "area": "Seul (birçok şube)",
+   "type": "Kore usulü kızarmış tavuk",
+   "order": "yangnyeom soslu çıtır tavuk",
+   "note": "s12: hepsi çok sevdi, yangnyeom sosu favori.",
+   "halal": "unknown",
+   "mentions": [
+    "s12"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Jayeondo Salt Bread",
+   "ko": null,
+   "area": "Ikseon-dong",
+   "type": "fırın",
+   "order": "tuzlu ekmek",
+   "note": "s12: son sabah kahvaltıya burada tuzlu ekmekle başladılar. s24: 'Jayeondo Sogeumbang'ın meşhur tuzlu tereyağlı ekmeği': sıcak geliyor, boyozla kruvasan arası, biraz yağlı ama çok güzel; 4 parça ₩12.000, 'dört tane az geldi'.",
+   "halal": "unknown",
+   "mentions": [
+    "s12",
+    "s24"
+   ],
+   "station": null,
+   "price": "4 parça ₩12.000 (s24)"
+  },
+  {
+   "name": "Cheong Su Dang Cafe",
+   "ko": null,
+   "area": "Ikseon-dong / Jongno",
+   "type": "kafe",
+   "order": "kahve, tatlı",
+   "note": "s12: kahvaltının devamı ve tatlı-kahve molası için; sevdikleri kafelerden.",
+   "halal": "unknown",
+   "mentions": [
+    "s12"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Original Pancake House",
+   "ko": null,
+   "area": "Itaewon",
+   "type": "kahvaltı / pancake",
+   "order": "pancake kahvaltısı",
+   "note": "s13: Kore'nin en iyi kahvaltıcılarından biri sayılıyor, 'kaloriye boğdum'; ayrıca Itaewon'da Türk fırını ve Türk restoranı gördüğünü yazıyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s13"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Cafe Hoho Myoll",
+   "ko": null,
+   "area": "Hongdae",
+   "type": "temalı kafe (karavanlı)",
+   "order": "kafe",
+   "note": "s13: Myoll'e gitmiş, 'çok güzel'. s20: 'listenin en normali'; küçük kafenin içinde retro Volkswagen Van var, içinde oturulabiliyor. Adres: 93-44 Sangsu-dong, Mapo-gu.",
+   "halal": "unknown",
+   "mentions": [
+    "s13",
+    "s20"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "2D Cafe",
+   "ko": null,
+   "area": "Hongdae",
+   "type": "temalı kafe (2D çizgi estetiği)",
+   "order": "kafe",
+   "note": "s13: Instagram'da çok beğenilen, gidip beğendiği kafe.",
+   "halal": "unknown",
+   "mentions": [
+    "s13"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Tom N Toms Coffee",
+   "ko": null,
+   "area": "Seul geneli",
+   "type": "kahve zinciri",
+   "order": "kahvaltı",
+   "note": "s4: Kore'de kahvaltı bulmak zor; Tom N Toms veya Starbucks gibi kafelerde kahvaltı sorunu çözülür.",
+   "halal": "unknown",
+   "mentions": [
+    "s4"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Caffe Pasuca (Incheon Havalimanı)",
+   "ko": null,
+   "area": "Incheon Havalimanı",
+   "type": "kafe",
+   "order": "kahve (3.800 won)",
+   "note": "s14: erken indiklerinden restoranlar kapalıydı, burada kahve içip yanlarındakilerle kahvaltı yaptılar.",
+   "halal": "unknown",
+   "mentions": [
+    "s14"
+   ],
+   "station": null,
+   "price": "kahve ₩3.800 (s14)"
+  },
+  {
+   "name": "Paris Baguette",
+   "ko": null,
+   "area": "Seul geneli",
+   "type": "fırın zinciri",
+   "order": "kahvaltı",
+   "note": "s12: annenin hamur işi/kahvaltı isteği için gittikleri fırın zinciri.",
+   "halal": "unknown",
+   "mentions": [
+    "s12"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Twosome Place",
+   "ko": null,
+   "area": "Seul geneli",
+   "type": "kafe zinciri",
+   "order": "sandviç, kahve",
+   "note": "s12: sandviç seçenekleri için gittikleri kafe zinciri.",
+   "halal": "unknown",
+   "mentions": [
+    "s12"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Tteul Gwa Dawon",
+   "ko": null,
+   "area": "Seul (hanok kafe)",
+   "type": "geleneksel hanok çay evi",
+   "order": "çay + tteok",
+   "note": "s12: hanok kafede çay ve tteok ile ara öğün, çok mutlu etti.",
+   "halal": "unknown",
+   "mentions": [
+    "s12"
+   ],
+   "station": null,
+   "price": null
+  },
+  {
+   "name": "Myeongdong Korean BBQ Beef Mongbeulli",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Myeongdong",
+   "type": "Kore barbekü (sınırsız)",
+   "order": "pirzola dahil sınırsız et, kimchi, yeşillik, mantar",
+   "note": "s19: 'Seul'e dair en sevdiğim şey Kore barbeküsü'; 25.000 won'a pirzola gibi etlerin en iyi kısımlarından sınırsız, kimchi/su/yeşillik/mantar bedava; fiyat/performans için 'efsane' diyor. Domuz eti içerebilir.",
+   "halal": "unknown",
+   "mentions": [
+    "s19"
+   ]
+  },
+  {
+   "name": "Two Two Chicken",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (Myeongdong civarı; semt belirtilmemiş)",
+   "type": "Kore usulü tavuk / birahane (zincir şube)",
+   "order": "soya soslu tavuk, soju, Cass bira",
+   "note": "s19: yerel tavuk zincirinden çok iş çıkışı birahane havasında salaş mekan; soya soslu tavuk 'efsane'; 2 kişi 1 porsiyon yeter. Fiyat: 2 porsiyon tavuk + 1 şişe soju + 1 şişe Cass = 50.000 won. Kkanbu Chicken ile birlikte en sevdikleri tavukçu.",
+   "halal": "unknown",
+   "mentions": [
+    "s19"
+   ]
+  },
+  {
+   "name": "Kkanbu Chicken",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "Kore usulü tavuk (zincir şube)",
+   "order": "sarımsaklı ve yeşil soğan soslu tavuk",
+   "note": "s19: Seul'de pek çok yerde tavuk yedikleri halde en çok Kkanbu Chicken ve Two Two Chicken'ı sevmişler; en iyi ürün sarımsak + yeşil soğan soslu tavuk ('ziyafet').",
+   "halal": "unknown",
+   "mentions": [
+    "s19"
+   ]
+  },
+  {
+   "name": "Bbandak Bbandak",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "dak galbi",
+   "order": "dak galbi + kızarmış pilav (bokkeumbap), patates",
+   "note": "s19: dak galbiyi en iyi yapan mekanlardan biri; marine tavuk, tatlı patates, lahana, yeşil soğan ve tteok tavada pişiyor; çalışanların hepsi kadın; kızarmış pilavı dak galbinin üstüne dökerek karıştırıyorlar, yanına patates söylemeyi öneriyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s19"
+   ]
+  },
+  {
+   "name": "Wheat & Meat",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "sandviç / pastırma",
+   "order": "pastırmalı (pastrami) sandviç, ballı kızarmış ekmek",
+   "note": "s19: 'hayatımda yediğim en iyi pastramili sandviçlerden', İstanbul'daki emsallerinin yarı fiyatına; ikram bölümünden istediğin kadar kızarmış ballı ekmek alınabiliyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s19"
+   ]
+  },
+  {
+   "name": "Elie's Cafe",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Myeongdong (City Hall durağına ~1 dk)",
+   "type": "kahve",
+   "order": "kahve",
+   "note": "s19: Myeongdong'daki favori kafe, içtikleri kahveler arasında en kaliteli; City Hall durağına sadece 1 dakika.",
+   "halal": "unknown",
+   "mentions": [
+    "s19"
+   ]
+  },
+  {
+   "name": "Cafe Appiforet",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Jongno",
+   "type": "kafe / dondurma",
+   "order": "dondurma (tavsiye edilmiyor)",
+   "note": "s19: 'hayatımda yediğim en kötü ve en pahalı dondurma' — 2 top istemiş, 1'ini zor yiyebilmiş. Olumsuz yorum.",
+   "halal": "unknown",
+   "mentions": [
+    "s19"
+   ]
+  },
+  {
+   "name": "Aoitori",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (arka sokak; semt belirtilmemiş)",
+   "type": "Japon fırını",
+   "order": "matchalı ekmek, kavunlu ekmek, bademli kruvasan",
+   "note": "s19: 'best of the best' Japon fırını, en az 20 çeşit ekmek, saat başı yeni ürün; matcha ve kavunlu ekmek ile bademli kruvasana hayran kalmış; 'tekrar gelirsek ilk durak'.",
+   "halal": "unknown",
+   "mentions": [
+    "s19"
+   ]
+  },
+  {
+   "name": "Rosso 1924",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "pizza",
+   "order": "pizza",
+   "note": "s19: 'Seul'un en iyi 3 pizzacısından biri' denmiş ama beklentiyi karşılamadı (hamur/malzeme vasat). Olumsuz yorum.",
+   "halal": "unknown",
+   "mentions": [
+    "s19"
+   ]
+  },
+  {
+   "name": "Brooklyn The Burger Joint",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "burger",
+   "order": "smash burger, soğan halkası",
+   "note": "s19: Seul'un en sevilen burgercilerinden; Amerikan tarzı, köfteler smash, lezzet iyi ama 'ahım şahım değil'.",
+   "halal": "unknown",
+   "mentions": [
+    "s19"
+   ]
+  },
+  {
+   "name": "Sulbing Myeongdong",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Myeongdong",
+   "type": "tatlı (bingsu)",
+   "order": "injeolmi bingsu",
+   "note": "s19: kar kıvamında traşlanmış buz + kavrulmuş fasulye tozu + badem + dondurma; yazar 'neden yenir bilmiyoruz' demiş, üstündeki dondurmayı beğenmiş.",
+   "halal": "unknown",
+   "mentions": [
+    "s19"
+   ]
+  },
+  {
+   "name": "Bau House Dog Cafe",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Hongdae (Seogyo-dong, Mapo-gu)",
+   "type": "temalı kafe (köpekli)",
+   "order": "içecek, köpeklerle vakit",
+   "note": "s20: onlarca köpeğin dolaştığı kafe; amaç köpek sevmek olduğundan istediğin kadar kalınabiliyor. Adres: Jeil Bldg. 1F, 394-44 Seogyo-dong, Mapo-gu.",
+   "halal": "unknown",
+   "mentions": [
+    "s20"
+   ]
+  },
+  {
+   "name": "Poop Cafe",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (adres belirtilmemiş)",
+   "type": "temalı kafe (kaka konseptli)",
+   "order": "tatlı/waffle",
+   "note": "s20: 'kaka' konseptli kafe, 'sweetly disturbing'; waffle'lar güzel görünüyormuş.",
+   "halal": "unknown",
+   "mentions": [
+    "s20"
+   ]
+  },
+  {
+   "name": "Get and Show Cafe (Lego Cafe)",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (adres belirtilmemiş)",
+   "type": "temalı kafe (Lego)",
+   "order": "kafe, Lego ile oyun",
+   "note": "s20: Lego temalı; Lego Man şeklinde çikolatalar, kafedeki Legolarla oynanabiliyor, special edition Lego setleri alınabiliyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s20"
+   ]
+  },
+  {
+   "name": "Hello Kitty Cafe",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Myeongdong (28 Myeongdong 4-gil)",
+   "type": "temalı kafe (Hello Kitty)",
+   "order": "tatlı, kahve, çay",
+   "note": "s20: tatlıdan kurabiyeye, latte art'tan masalara her şey Hello Kitty'li ve pembe; kafe içinde mağaza bölümü var. Adres: 28 Myeongdong 4-gil, Jung-gu.",
+   "halal": "unknown",
+   "mentions": [
+    "s20"
+   ]
+  },
+  {
+   "name": "Raccoon Cafe",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Yongsan (Cheongpa-dong)",
+   "type": "temalı kafe (rakunlu)",
+   "order": "giriş ücretiyle rakunlarla vakit",
+   "note": "s20: içinde 2 rakun yaşıyor, giriş ücreti var; rakunların yüzüne/ağzına dokunmama gibi kuralları var. Adres: Cheongpa-ro 47-gil 76, Yongsan-gu.",
+   "halal": "unknown",
+   "mentions": [
+    "s20"
+   ]
+  },
+  {
+   "name": "Jungsik",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Gangnam (Seolleung-ro 158-gil)",
+   "type": "modern Kore / fine dining (Michelin)",
+   "order": "bibimbap, banchan",
+   "note": "s21: bibimbap ve banchan için 'özellikle önerdiğim restoran'. s26 da Jungsik ve Gaon'u Kore malzemelerini modern teknikle sunan Michelin'li mekanlar diye anıyor (özel akşam için).",
+   "halal": "unknown",
+   "mentions": [
+    "s21",
+    "s26"
+   ]
+  },
+  {
+   "name": "Gaon",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "modern Kore / fine dining (Michelin)",
+   "order": "menü",
+   "note": "s26: Jungsik ile birlikte Michelin Rehberi'ndeki Kore mutfağını modern teknikle sunan restoranlar arasında sayılmış; ayrıntı yok.",
+   "halal": "unknown",
+   "mentions": [
+    "s26"
+   ]
+  },
+  {
+   "name": "Gimbap Cheonguk (Gimbap Cheounguk)",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Jung-gu (Sejong-daero)",
+   "type": "gimbap",
+   "order": "gimbap",
+   "note": "s21: şehirde en iyi gimbap için tavsiye ettiği mekan (adres: 82 Sejong-daero, Jung-gu).",
+   "halal": "unknown",
+   "mentions": [
+    "s21"
+   ]
+  },
+  {
+   "name": "Kim Seon Saeng",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "gimbap",
+   "order": "kimbap",
+   "note": "s22: kimbap için 'kesinlikle tavsiye ederiz'; başka ayrıntı yok.",
+   "halal": "unknown",
+   "mentions": [
+    "s22"
+   ]
+  },
+  {
+   "name": "853",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Insadong / Jongno (Insa-dong 12-gil)",
+   "type": "Kore barbekü",
+   "order": "gogigui (Kore barbeküsü)",
+   "note": "s21: Seul'ün en meşhur barbekü restoranlarından biri olarak anıyor (adres: 16 Insa-dong 12-gil, Jongno-gu). Domuz eti içerebilir.",
+   "halal": "unknown",
+   "mentions": [
+    "s21"
+   ]
+  },
+  {
+   "name": "Soegojip",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Insadong / Jongno (Insadong 3-gil)",
+   "type": "Kore barbekü",
+   "order": "Kore barbeküsü",
+   "note": "s23: Seul'de gittikleri Kore BBQ 'oldukça başarılıydı'; etler inanılmaz lezzetli, damak tadlarına uygun. Adres: 5-2 Insadong 3-gil, Jongno-gu.",
+   "halal": "unknown",
+   "mentions": [
+    "s23"
+   ]
+  },
+  {
+   "name": "Mapo Sutbul Galbi",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Gangnam (Nonhyeon-dong)",
+   "type": "galbi (kömür ızgara kaburga)",
+   "order": "galbi",
+   "note": "s21: galbi için 'beğeneceğinizi umuyorum' (adres: 232 Dosan-daero, Nonhyeon-dong, Gangnam-gu); s22 de galbi için deneyebileceğiniz mekan olarak anıyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s21",
+    "s22"
+   ]
+  },
+  {
+   "name": "Yukjeon Sikdang",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Dongdaemun (Nangye-ro)",
+   "type": "samgyeopsal",
+   "order": "samgyeopsal",
+   "note": "s21: samgyeopsal için tavsiye ettiği mekan (adres: 16 Nangye-ro 30-gil, Dongdaemun-gu). Domuz eti.",
+   "halal": "unknown",
+   "mentions": [
+    "s21"
+   ]
+  },
+  {
+   "name": "Gwangyang Bulgogi",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Gangnam (Samseong-dong)",
+   "type": "bulgogi",
+   "order": "bulgogi",
+   "note": "s21: bulgogiyi hakkıyla yapan yerlerden (adres: 128-3 Samseong-dong, Gangnam-gu).",
+   "halal": "unknown",
+   "mentions": [
+    "s21"
+   ]
+  },
+  {
+   "name": "Woo Lae Oak",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "bulgogi / geleneksel Kore (Michelin, pahalı)",
+   "order": "bulgogi",
+   "note": "s22: bulgogi için 'en ünlü yer, Michelin yıldızlı ve biraz pahalı'; bütçe kısıtlıysa Isaac Toast alternatifi öneriliyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s22"
+   ]
+  },
+  {
+   "name": "Hongdae Dakgalbi",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Hongdae (Hongik-ro 3-gil)",
+   "type": "dak galbi",
+   "order": "dak galbi",
+   "note": "s21: dak galbi için en popüler mekanlardan biri (adres: 32 Hongik-ro 3-gil, Mapo-gu).",
+   "halal": "unknown",
+   "mentions": [
+    "s21"
+   ]
+  },
+  {
+   "name": "Kyochon Chicken Dongdaemun 1",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Dongdaemun (Jongno 294)",
+   "type": "Kore usulü kızarmış tavuk (zincir şube)",
+   "order": "yangnyeom chicken",
+   "note": "s21: yangnyeom chicken yapan meşhur restoranlar arasında bu şubeyi öne çıkarıyor (adres: 294 Jong-ro, Jongno-gu).",
+   "halal": "unknown",
+   "mentions": [
+    "s21"
+   ]
+  },
+  {
+   "name": "Jaedong Sundubu",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "sundubu (yumuşak tofu çorbası)",
+   "order": "sundubu jjigae",
+   "note": "s22: bütçe dostu tofu restoranı; sundubunun en lezzetlisini burada bulabileceğiniz yazılmış.",
+   "halal": "unknown",
+   "mentions": [
+    "s22"
+   ]
+  },
+  {
+   "name": "KwonSookSoo",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Seul (semt belirtilmemiş)",
+   "type": "geleneksel Kore restoranı",
+   "order": "tteokgalbi (kıyma köfte)",
+   "note": "s22: tteokgalbiyi bu geleneksel Kore restoranında denemenizi öneriyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s22"
+   ]
+  },
+  {
+   "name": "Eulji Odeng",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Jung-gu (Euljiro 3-ga)",
+   "type": "sokak yemeği / balık keki",
+   "order": "odeng (balık keki)",
+   "note": "s21: balık köftesini (fish cake) Kore usulü yemek için gidilebilecek en iyi mekanlardan biri (adres: 348-5 Euljiro 3-ga, Jung-gu).",
+   "halal": "unknown",
+   "mentions": [
+    "s21"
+   ]
+  },
+  {
+   "name": "Muskshidonna Samcheongdong",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Samcheong-dong / Jongno",
+   "type": "tteokbokki",
+   "order": "tteokbokki",
+   "note": "s21: tteokbokkisiyle en sevilen yerlerden biri (adres: 74-7 Yulgok-ro 3-gil, Jongno-gu). Yazım s21'deki gibi korundu.",
+   "halal": "unknown",
+   "mentions": [
+    "s21"
+   ]
+  },
+  {
+   "name": "Myeongdong Kyoja",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Myeongdong (29 Myeongdong 10-gil)",
+   "type": "kalguksu / mandu (Michelin listeli)",
+   "order": "kalguksu, mandu",
+   "note": "Karışık: s21 kimchi ve dak-kkochi için de Myeongdong Kyoja Main'i öneriyor (adres: 8-1 Myeongdong 10-gil); s25 kalguksu ve mandu için klasikleşmiş adres, hızlı öğle molası; s24 3 yemek 32.000 won ödeyip memnun kalmamış, mantılarda domuz yaygın, tavuklu söylemişler, Michelin yıldızı yok (2026 rehberinde listeli).",
+   "halal": "unknown",
+   "mentions": [
+    "s21",
+    "s24",
+    "s25"
+   ]
+  },
+  {
+   "name": "Tosokchon Samgyetang",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Jongno (Gyeongbokgung yakını, Jahamun-ro 5-gil)",
+   "type": "samgyetang (ginsengli tavuk çorbası)",
+   "order": "samgyetang",
+   "note": "s21: samgyetang için gidilecek yer (adres: 5 Jahamun-ro 5-gil, Jongno-gu); s25 saray rotasına yakın güçlü seçenek, öğlen sıra bekleme ihtimali yüksek; s22 de adını anıyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s21",
+    "s22",
+    "s25"
+   ]
+  },
+  {
+   "name": "Baeknyeon Tojong Samgyetang",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Jongno (Gyeongbokgung yakını)",
+   "type": "samgyetang",
+   "order": "samgyetang, kızarmış samgyetang, Kore usulü kızarmış tavuk",
+   "note": "s24: ginseng tavuk çorbasını burada içtiler; ginseng kökü yer elması tadında, porsiyonlar büyük (2 kişiye bir çorba yeter). İçecekler dahil toplam 78.000 won.",
+   "halal": "unknown",
+   "mentions": [
+    "s24"
+   ]
+  },
+  {
+   "name": "BRICKSAND Seoul",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Insadong çevresi",
+   "type": "fırın / tatlı",
+   "order": "tuğla görünümlü çikolatalı-karamelli kek",
+   "note": "s24: tuğla görünümlü, üstü çikolatalı ve karamelli keki denediler, 'başarılı'.",
+   "halal": "unknown",
+   "mentions": [
+    "s24"
+   ]
+  },
+  {
+   "name": "Grains Cookie Bukchon",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Bukchon",
+   "type": "kafe / kurabiye",
+   "order": "ballı kahve",
+   "note": "s24: Bukchon'da yokuş yürüyüşünde mola verdikleri kafe; ballı kahvesini denemişler, 'ortamı dinlenmek için güzel'.",
+   "halal": "unknown",
+   "mentions": [
+    "s24"
+   ]
+  },
+  {
+   "name": "Abon Cafe",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Gangnam",
+   "type": "konsept kafe",
+   "order": "kahve, tatlı, kahvaltı",
+   "note": "s24: Instagram'da çok karşılaşılan konsept kafe; tasarım çok iyi, lezzetler 'fena değil', sabah kahvaltısı için olur. Kahve + tatlılar toplam 24.000 won.",
+   "halal": "unknown",
+   "mentions": [
+    "s24"
+   ]
+  },
+  {
+   "name": "Gourmet 494",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Gangnam (metrodan doğrudan giriş)",
+   "type": "yemek alanı (raylı sistem)",
+   "order": "rayda dolaşan yemekler",
+   "note": "s24: metrodan çıkınca girilen yemek alanı; yemekler rayda dolaşıyor, istediğini alıyorsun; değişik geldiği için denemişler, tatlar çok güzel.",
+   "halal": "unknown",
+   "mentions": [
+    "s24"
+   ]
+  },
+  {
+   "name": "Rain Report Rainbow",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Gangnam",
+   "type": "temalı kafe",
+   "order": "matcha tiramisu",
+   "note": "s24: Instagram'da çok övülen ama 'bizim için hayal kırıklığı', 'sadece çok iyi çekilmiş', matcha tiramisu da olmamış. Olumsuz yorum.",
+   "halal": "unknown",
+   "mentions": [
+    "s24"
+   ]
+  },
+  {
+   "name": "Namusae Çay Evi",
+   "ko": null,
+   "station": null,
+   "price": null,
+   "area": "Dongdaemun",
+   "type": "geleneksel çay evi",
+   "order": "sikhye, zencefilli çay",
+   "note": "s24: sikhye (pirinç içeceği) ve zencefil çayını denediler; sikhye soğumuş mısır püskülü çayına benziyor, zencefil çayı güzel. 2 içecek + 1 tatlı = 25.000 won. Yazım 'Namusae çay evi' olarak kaynakta geçiyor.",
+   "halal": "unknown",
+   "mentions": [
+    "s24"
+   ]
+  }
+ ],
+ "places": [
+  {
+   "name": "Myeongdong",
+   "ko": "명동",
+   "area": "Jung-gu",
+   "mentions": [
+    "s2",
+    "s3",
+    "s5",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s12",
+    "s13",
+    "s14",
+    "s15",
+    "s16",
+    "s17",
+    "s18"
+   ],
+   "tr_comment": "Alışveriş + sokak yemeği + konaklama için en çok önerilen bölge (s9, s13, s11 burada kaldı). s12 akşamları sokak lezzetlerine (mochi, kızarmış tavuk, odeng, japchae) gittiklerini, sokakta yürürken yemenin hoş karşılanmadığını yazıyor. s2 gece pazarını 'en sıcak yer' diye öneriyor ama s2 genel olarak Kore yemeklerinden/sokak lezzetlerinden memnun kalmadığını da belirtiyor. s6: akşam yemeklerini Namdaemun ve Myeongdong'da sokakta yedik, tezgâhlar çok temizdi."
+  },
+  {
+   "name": "Gyeongbokgung Sarayı",
+   "ko": "경복궁",
+   "area": "Jongno",
+   "mentions": [
+    "s2",
+    "s3",
+    "s5",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s13",
+    "s14",
+    "s15",
+    "s16",
+    "s17",
+    "s18"
+   ],
+   "tr_comment": "Neredeyse tüm bloglarda ilk sırada. s11: hanbokla giriş ücretsiz, normal kıyafetle kişi başı 3.000 won; sabah erken gitmeyi öneriyor. s13: hanbok kiralayıp ücretsiz girmiş, nöbet değişim töreni kaçırılmamalı."
+  },
+  {
+   "name": "Changdeokgung Sarayı ve Secret Garden",
+   "ko": "창덕궁",
+   "area": "Jongno",
+   "mentions": [
+    "s2",
+    "s3",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s13",
+    "s14",
+    "s15",
+    "s16",
+    "s17",
+    "s18"
+   ],
+   "tr_comment": "s13: Kore'nin ikinci önemli sarayı, Secret Garden meşhur; Ulusal güne denk geldiği için ücretsiz girmiş. s11 Anguk mahallesinde Bukchon ve Insadong ile yarım gün planlamış."
+  },
+  {
+   "name": "N Seoul Tower / Namsan",
+   "ko": "N서울타워 / 남산",
+   "area": "Yongsan / Jung-gu",
+   "mentions": [
+    "s2",
+    "s3",
+    "s5",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s14",
+    "s15",
+    "s16",
+    "s17",
+    "s18"
+   ],
+   "tr_comment": "s11: cumartesi teleferik kuyruğu gidiş-dönüş en az 1 saat; teleferik gidiş-dönüş kişi başı 15.000 won; tepede marketten atıştırmalık alıp gün batımı izlemişler. s5 teleferikle çıkıp yürüyerek inmeyi öneriyor; s6 en üst gözlem katına çıkmayıp terasta gün batımı izlemiş."
+  },
+  {
+   "name": "Insadong",
+   "ko": "인사동",
+   "area": "Jongno",
+   "mentions": [
+    "s2",
+    "s3",
+    "s5",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s14",
+    "s15",
+    "s16",
+    "s17",
+    "s18"
+   ],
+   "tr_comment": "s3'e göre şehirdeki en güzel bölge, keşke burada kalsaydık demişler; çay evleri, kafeler. s6 burada konaklamış (saraylara yürüme mesafesi). s9: akşamüstü Insadong, sonra Jongno'da yemek öneriyor."
+  },
+  {
+   "name": "Gangnam",
+   "ko": "강남",
+   "area": "Gangnam-gu",
+   "mentions": [
+    "s1",
+    "s2",
+    "s3",
+    "s5",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s13",
+    "s15",
+    "s17",
+    "s18"
+   ],
+   "tr_comment": "s3: en pahalı bölge, tek öğüne 100.000 won verilebilir; s1 'Gangnam'a şöyle bir bakıversin' diyor; s2 Gangnam Style heykeli için 'çok önemli değil ama gelmişken görün' diyor. s13: Bongeunsa, Starfield, Apgujeong-ro 12-gil rotasını gezmiş."
+  },
+  {
+   "name": "Bukchon Hanok Köyü",
+   "ko": "북촌한옥마을",
+   "area": "Jongno",
+   "mentions": [
+    "s2",
+    "s3",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s13",
+    "s15",
+    "s17",
+    "s18"
+   ],
+   "tr_comment": "s3'e göre erken saatte gitmek ve kahve/çay evleri iyi; s13 çatı fotoğrafları için öneriyor ve kafe/dükkan çok diyor; s11 'açık hava müzesi'."
+  },
+  {
+   "name": "Hongdae",
+   "ko": "홍대",
+   "area": "Mapo-gu",
+   "mentions": [
+    "s2",
+    "s3",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s13",
+    "s15",
+    "s17",
+    "s18"
+   ],
+   "tr_comment": "Genç, hareketli, gece hayatı. s13 Seul'de en sevdiği ikinci bölge, uygun fiyatlı tasarım ürünleri ve temalı kafeler; s3 Hongdae'de konaklamış, kulüplere gitmiş; s2 cuma-cumartesi gece festival havası, kalabalıkta çantayı önde tutmayı öneriyor; s8 sokak lezzetleri ve uygun restoranlar."
+  },
+  {
+   "name": "Dongdaemun Design Plaza (DDP) / Dongdaemun",
+   "ko": "동대문디자인플라자",
+   "area": "Jung-gu",
+   "mentions": [
+    "s2",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s13",
+    "s15",
+    "s16",
+    "s17",
+    "s18"
+   ],
+   "tr_comment": "s13: uzay mekiği şeklindeki bina, tasarım marketleri, bir gün geçer; s11 Dongdaemun mahallesini ayrı bir gün olarak gezmiş."
+  },
+  {
+   "name": "Kore Ulusal Müzesi",
+   "ko": "국립중앙박물관",
+   "area": "Yongsan",
+   "mentions": [
+    "s1",
+    "s2",
+    "s3",
+    "s5",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s14",
+    "s16",
+    "s18"
+   ],
+   "tr_comment": "Giriş ücretsiz (s2, s11); s14 en az 3-4 saat, pazartesi kapalı, İngilizce PDA 3.000 won; s1 pazartesi müzelerin kapalı olması yüzünden planı bozulduğunu yazıyor."
+  },
+  {
+   "name": "COEX / Starfield Kütüphanesi",
+   "ko": "스타필드 코엑스몰 별마당도서관",
+   "area": "Gangnam-gu",
+   "mentions": [
+    "s1",
+    "s2",
+    "s3",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s13",
+    "s17",
+    "s18"
+   ],
+   "tr_comment": "s13: dünyanın en güzel kütüphanelerinden, merdivenlerden insanları izleyin; s2 COEX Mall & Akvaryum'u listeliyor; s6 yazısında modern AVM/akvaryumları gezemediklerini yazıyor."
+  },
+  {
+   "name": "Namdaemun Pazarı",
+   "ko": "남대문시장",
+   "area": "Jung-gu",
+   "mentions": [
+    "s2",
+    "s3",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s14",
+    "s17"
+   ],
+   "tr_comment": "s14: İstanbul'daki Salı pazarı/Mahmutpaşa gibi, pazarlık yapın; s6 akşam yemeğini Namdaemun ve Myeongdong'da sokakta yemişler, tezgâhlar temiz."
+  },
+  {
+   "name": "Han Nehri",
+   "ko": "한강",
+   "area": "Seul geneli",
+   "mentions": [
+    "s1",
+    "s2",
+    "s3",
+    "s7",
+    "s8",
+    "s9",
+    "s11",
+    "s15",
+    "s17"
+   ],
+   "tr_comment": "s1 nehir etrafında yürümeyi öneriyor; s11 bisiklet planlamış ama çok sıcak olduğu için nehir kenarında şemsiye altında kahvaltı yapmış."
+  },
+  {
+   "name": "Itaewon",
+   "ko": "이태원",
+   "area": "Yongsan",
+   "mentions": [
+    "s3",
+    "s5",
+    "s6",
+    "s8",
+    "s9",
+    "s10",
+    "s13",
+    "s14"
+   ],
+   "tr_comment": "Uluslararası/gece hayatı bölgesi. s5 barbekü (Mapple Tree House) için; s13 Original Pancake House kahvaltısı, Türk fırını ve Türk restoranı gördü; s14 Türk kebapçısı Mr. Kebap'ta öğle yemeği yedi; s8 Itaewon'da helal restoranlar ve Türk, Arap, Hint mutfağı olduğunu yazıyor."
+  },
+  {
+   "name": "Lotte World",
+   "ko": "롯데월드",
+   "area": "Songpa-gu",
+   "mentions": [
+    "s2",
+    "s3",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s17",
+    "s18"
+   ],
+   "tr_comment": "s3 gitmemiş ('Everland/Lotte World'e gitmeyi tercih etmedik, vakit olsa 1 gün eklerdik'); s9 Disneyland benzeri tema parkı, çocukla gidenlere öneriyor; diğerleri liste halinde."
+  },
+  {
+   "name": "Jongmyo Tapınağı",
+   "ko": "종묘",
+   "area": "Jongno",
+   "mentions": [
+    "s2",
+    "s3",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s16"
+   ],
+   "tr_comment": "s6 Bukchon/saraylara yakın olduğunu not ediyor; çoğu kaynak sadece liste."
+  },
+  {
+   "name": "Gwangjang Pazarı",
+   "ko": "광장시장",
+   "area": "Jongno",
+   "mentions": [
+    "s2",
+    "s3",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s18"
+   ],
+   "tr_comment": "Bkz. restoranlar: bindaetteok/mayak kimbap kuyruğu (s2), turistikleşmiş ama otantik (s9)."
+  },
+  {
+   "name": "DMZ (Askerden Arındırılmış Bölge)",
+   "ko": "비무장지대",
+   "area": "Paju / Kuzey sınırı",
+   "mentions": [
+    "s2",
+    "s3",
+    "s8",
+    "s9",
+    "s10",
+    "s13",
+    "s14"
+   ],
+   "tr_comment": "s13 DMZ turuna 40 USD ödeyip gitmiş ve Kore Savaşı'ndaki Türk rolünü anlattığı ayrı yazı yazmış; s3 DMZ'ye gitmemiş; s2/s8 tur olarak listeliyor."
+  },
+  {
+   "name": "Cheonggyecheon",
+   "ko": "청계천",
+   "area": "Jongno / Jung-gu",
+   "mentions": [
+    "s2",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s15"
+   ],
+   "tr_comment": "s11: gece ışıklandırması ve oturma alanlarıyla sakin yürüyüş yolu; s2: akşam yürüyüşü öneriyor, ücretsiz."
+  },
+  {
+   "name": "Deoksugung",
+   "ko": "덕수궁",
+   "area": "Jung-gu",
+   "mentions": [
+    "s2",
+    "s3",
+    "s7",
+    "s8",
+    "s9",
+    "s16"
+   ],
+   "tr_comment": "Çoğunlukla listelenmiş; s9 gece/gündüz saraylar arasında sayıyor."
+  },
+  {
+   "name": "Bongeunsa Tapınağı",
+   "ko": "봉은사",
+   "area": "Gangnam-gu",
+   "mentions": [
+    "s2",
+    "s3",
+    "s6",
+    "s8",
+    "s9",
+    "s13"
+   ],
+   "tr_comment": "s13: Gangnam'daki huzurlu tapınak, Budizm'i öğrenmek isteyenlere özel program; ibadeti izlemek etkileyici."
+  },
+  {
+   "name": "Lotte World Tower / Seoul Sky",
+   "ko": "롯데월드타워",
+   "area": "Songpa-gu",
+   "mentions": [
+    "s2",
+    "s8",
+    "s10",
+    "s17",
+    "s18"
+   ],
+   "tr_comment": "Çoğunlukla gözlem katı/AVM olarak listelenmiş; yorum yok."
+  },
+  {
+   "name": "War Memorial of Korea",
+   "ko": "전쟁기념관",
+   "area": "Yongsan",
+   "mentions": [
+    "s2",
+    "s3",
+    "s8",
+    "s9",
+    "s17"
+   ],
+   "tr_comment": "s3 Kore Savaşı'na Türk katılımı bağlamında anıyor; çoğu kaynak liste."
+  },
+  {
+   "name": "Noryangjin Balık Pazarı",
+   "ko": "노량진수산시장",
+   "area": "Dongjak",
+   "mentions": [
+    "s1",
+    "s3",
+    "s4",
+    "s5",
+    "s14"
+   ],
+   "tr_comment": "Bkz. restoranlar: s3 pişirtme sistemi; s4 beğenmemiş; s14 canlı balık görünce iştahı kaçmış."
+  },
+  {
+   "name": "Suwon / Hwaseong Kalesi",
+   "ko": "수원 화성",
+   "area": "Gyeonggi (günübirlik)",
+   "mentions": [
+    "s2",
+    "s7",
+    "s8",
+    "s18"
+   ],
+   "tr_comment": "Günübirlik gezi olarak tur ve rehber listesi; kişisel yorum yok."
+  },
+  {
+   "name": "Bukhansan Milli Parkı",
+   "ko": "북한산",
+   "area": "Seul kuzeyi",
+   "mentions": [
+    "s7",
+    "s8",
+    "s10",
+    "s18"
+   ],
+   "tr_comment": "Yürüyüş ve manzara olarak listelenmiş; kişisel yorum yok."
+  },
+  {
+   "name": "Samcheong-dong",
+   "ko": "삼청동",
+   "area": "Jongno",
+   "mentions": [
+    "s7",
+    "s9",
+    "s14"
+   ],
+   "tr_comment": "s14: restoran-kafe için çok beğendik ama Seul'den ayrılmadan bir gün önce keşfettik; Cheongdam ile yeme-içme açısından ideal."
+  },
+  {
+   "name": "Trick Eye Museum (İlüzyon Müzesi)",
+   "ko": "트릭아이뮤지엄",
+   "area": "Hongdae",
+   "mentions": [
+    "s7",
+    "s8",
+    "s10"
+   ],
+   "tr_comment": "s10'a göre giriş 15.000 KRW; kişisel yorum yok."
+  },
+  {
+   "name": "Seongsu-dong",
+   "ko": "성수동",
+   "area": "Seongdong-gu",
+   "mentions": [
+    "s9",
+    "s11",
+    "s18"
+   ],
+   "tr_comment": "s9: Seul'de en çok keyif aldıkları semtlerden; eski fabrika/depo dönüşümü, hareketli. s11 gezdikleri mahalleler arasında sayıyor."
+  },
+  {
+   "name": "Apgujeong",
+   "ko": "압구정",
+   "area": "Gangnam-gu",
+   "mentions": [
+    "s8",
+    "s11",
+    "s13"
+   ],
+   "tr_comment": "s13: Apgujeong-ro 12-gil'i alışveriş için sevmiş, Bağdat Caddesi'ne benzetmiş."
+  },
+  {
+   "name": "Ihwa Mural Köyü",
+   "ko": "이화벽화마을",
+   "area": "Jongno (Naksan eteği)",
+   "mentions": [
+    "s10",
+    "s13"
+   ],
+   "tr_comment": "s13: duvar resimleri, sessiz olunmalı çünkü yerel halk gürültüden bıkmış ve bazı muralleri kaldırmaya başlamışlar; s10 son sırada fotoğraf için öneriyor."
+  },
+  {
+   "name": "Nami Adası",
+   "ko": "남이섬",
+   "area": "Chuncheon (günübirlik)",
+   "mentions": [
+    "s2",
+    "s8"
+   ],
+   "tr_comment": "Sadece günübirlik tur olarak listelenmiş; kişisel deneyim yok."
+  },
+  {
+   "name": "Kore Halk Köyü",
+   "ko": "한국민속촌",
+   "area": "Yongin",
+   "mentions": [
+    "s2",
+    "s3"
+   ],
+   "tr_comment": "s3 Güney Kore'de temsili eski köy türü bir yeri (berber, restoran, postane) gezmiş, 'çok hoşumuza gitti' demiş (köyün adı belirtilmemiş); s2 Suwon+Halk Köyü turunu listeliyor."
+  },
+  {
+   "name": "Seoul Central Mosque (Itaewon)",
+   "ko": "서울중앙성원",
+   "area": "Itaewon",
+   "mentions": [
+    "s8"
+   ],
+   "tr_comment": "s8: Itaewon'da 1976'da açılan Kore'nin ilk ve en büyük camisi; çevresinde helal restoranlar, Türk-Arap-Hint mutfağı."
+  },
+  {
+   "name": "Seoul Forest",
+   "ko": "서울숲",
+   "area": "Seongdong-gu",
+   "mentions": [
+    "s2"
+   ],
+   "tr_comment": "Sadece liste."
+  },
+  {
+   "name": "Seoullo 7017",
+   "ko": "서울로7017",
+   "area": "Jung-gu",
+   "mentions": [
+    "s2"
+   ],
+   "tr_comment": "Sadece liste."
+  },
+  {
+   "name": "Banpo Köprüsü / Ay Işığı Gökkuşağı Çeşmesi",
+   "ko": "반포대교",
+   "area": "Seocho",
+   "mentions": [
+    "s2"
+   ],
+   "tr_comment": "Sadece liste."
+  },
+  {
+   "name": "Everland",
+   "ko": "에버랜드",
+   "area": "Yongin",
+   "mentions": [
+    "s3"
+   ],
+   "tr_comment": "s3 gitmemiş; 'vakit olursa görülebilir' demiş."
+  },
+  {
+   "name": "HUFS ve Kyung Hee Üniversitesi kampüsleri",
+   "ko": "한국외국어대학교 / 경희대학교",
+   "area": "Dongdaemun",
+   "mentions": [
+    "s11"
+   ],
+   "tr_comment": "s11: kardeşinin değişim öğrencisi olduğu HUFS'u ve Kyung Hee kampüsünü (sakura ağaçları, yeşillik) yürüyerek gezmişler."
+  },
+  {
+   "name": "Ikseon-dong",
+   "ko": "익선동",
+   "area": "Jongno",
+   "mentions": [
+    "s12"
+   ],
+   "tr_comment": "s12: meşhur fırında (Jayeondo Salt Bread) tuzlu ekmekle son sabah kahvaltısı."
+  }
+ ],
+ "tips": [
+  {
+   "text": "Telefon haritası: Google Maps Seul'de yürüme/rota için zayıf; KakaoMap ve Naver Map önerilir (KakaoMap'te İngilizce yok, Naver Map'te pusula zaman zaman şaşabiliyor).",
+   "mentions": [
+    "s2",
+    "s6"
+   ]
+  },
+  {
+   "text": "Ödeme: kredi kartı çoğu yerde geçiyor ama özellikle gece pazarlarında ve her ihtimale karşı yanınızda nakit bulundurun; kartta dolar/euro ekstresi açık olsun.",
+   "mentions": [
+    "s2",
+    "s8",
+    "s9",
+    "s13"
+   ]
+  },
+  {
+   "text": "Toplu taşıma: T-money / Seoul City Pass kart (kart bedeli ~2.500 won, kiosklardan yüklenir) metro ve otobüste geçer; tek yön metro biletinde 500 won depozito iade makinesinden geri alınır — unutmayın.",
+   "mentions": [
+    "s6",
+    "s8",
+    "s13",
+    "s14"
+   ]
+  },
+  {
+   "text": "Vergi iadesi (tax refund): alışverişte pasaportu yanınızda taşıyın; bazı mağazalar (Olive Young) kasada iade yapıyor, bazılarında havalimanında yapılıyor.",
+   "mentions": [
+    "s2",
+    "s9"
+   ]
+  },
+  {
+   "text": "Giriş: vizesiz seyahatte K-ETA başvurusunu önceden yapın (resmi site k-eta.go.kr, aracı sitelere dikkat); s2 giriş kontrolünde otel rezervasyonu ve dönüş biletinin telefonda hazır olmasını öneriyor.",
+   "mentions": [
+    "s2",
+    "s8",
+    "s9"
+   ]
+  },
+  {
+   "text": "Barbekü ve ödüllü/lüks restoranlar için rezervasyon yapın; rezervasyon almayan yerlerde açılışa yakın gidin veya sıra bekleyin. Itaewon'da Mapple Tree House akşamları çok doluymuş.",
+   "mentions": [
+    "s5",
+    "s9"
+   ]
+  },
+  {
+   "text": "Bahşiş yok; servis ücreti çoğunlukla hesaba dahil, yerel restoranlarda bahşiş geri çevrilebilir.",
+   "mentions": [
+    "s9"
+   ]
+  },
+  {
+   "text": "Kahvaltı sorunu: Kore'de geleneksel sabah kahvaltısı yok; kafe zincirleri (Tom N Toms, Starbucks, Paris Baguette) veya pyeonuijeom (7-Eleven/GS25/FamilyMart) kimbap-onigiri çözüm.",
+   "mentions": [
+    "s4",
+    "s12"
+   ]
+  },
+  {
+   "text": "24 saat açık marketler (7-Eleven, GS25, FamilyMart): gece yemek ve ucuz atıştırmalık; ramyon içeride pişirilebiliyor.",
+   "mentions": [
+    "s4",
+    "s12",
+    "s13"
+   ]
+  },
+  {
+   "text": "Sokakta yürürken yemek hoş karşılanmıyor; sokak lezzetini tezgâhın yanında ayakta yiyin. Sokakta sigara içmek de yasak, belirlenmiş alanlarda içilir.",
+   "mentions": [
+    "s4",
+    "s12"
+   ]
+  },
+  {
+   "text": "Domuz eti çok yaygın: bibimbap, bulgogi vb. yemeklerde et türünü sormadan sipariş vermeyin; helal hassasiyeti olanlar Itaewon/Seoul Central Mosque çevresine yönelsin, yerel tariflerde içeriği mutlaka sorun.",
+   "mentions": [
+    "s8",
+    "s10"
+   ]
+  },
+  {
+   "text": "Pazartesi günleri çoğu müze kapalı; planı buna göre yapın (Kore Ulusal Müzesi pazartesi kapalı).",
+   "mentions": [
+    "s1",
+    "s14"
+   ]
+  },
+  {
+   "text": "Hanbok giyerek saraylara (Gyeongbokgung vb.) ücretsiz girilir; normal kıyafetle Gyeongbokgung kişi başı 3.000 won.",
+   "mentions": [
+    "s11",
+    "s13"
+   ]
+  },
+  {
+   "text": "Cumartesi Namsan teleferiği kuyruğu 1 saat olabilir; zamanlama buna göre yapılmalı.",
+   "mentions": [
+    "s11"
+   ]
+  },
+  {
+   "text": "Ihwa Mural Köyü'nde sessiz olun; yerel halk turist gürültüsünden şikayetçi.",
+   "mentions": [
+    "s13"
+   ]
+  },
+  {
+   "text": "Kore barbeküsü kişi başı doyurucu porsiyon için pahalı olabilir: 100 gr et ~10.000 won, doymak için kişi başı en az ~30.000 won (s3); günlük yemek bütçesi örnekleri s3 ve s9'da.",
+   "mentions": [
+    "s3",
+    "s4",
+    "s9"
+   ]
+  },
+  {
+   "text": "Seul'de en pahalı yeme-içme bölgesi Gangnam; Myeongdong sokak yemeği ve Gwangjang daha hesaplı.",
+   "mentions": [
+    "s3",
+    "s9"
+   ]
+  },
+  {
+   "text": "İnternet: havalimanında wifi pocket (s13: KT Olleh, 10 gün 55.000 won) veya e-SIM (s9) alın; yön bulmak için gerekli.",
+   "mentions": [
+    "s9",
+    "s13"
+   ]
+  },
+  {
+   "text": "Havalimanı-şehir: AREX all-stop treni Myeongdong'a 4.275 won (s13); gece geç saatte limuzin otobüs 9.000 won.",
+   "mentions": [
+    "s13"
+   ]
+  },
+  {
+   "text": "Kore halkı Türkleri seviyor; s13 ve s14 yerel halkın Türk olduğumuzu söyleyince ilgilendiğini yazıyor. s2 ise tersine bazı olumsuz deneyimler (havalimanı polisi tavrı, kalabalıkta omuz atma, vasat sokak lezzetleri) belirtiyor.",
+   "mentions": [
+    "s2",
+    "s13",
+    "s14"
+   ]
+  },
+  {
+   "text": "Tatlı/fırın ürünleri çok şekerli olabilir; hamur işi seçerken dikkat.",
+   "mentions": [
+    "s9"
+   ]
+  }
+ ]
+}

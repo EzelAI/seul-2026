@@ -1,7 +1,7 @@
 {
-  "name": "Seul 2026 · Yılbaşı Planlayıcı",
+  "name": "Seul 2026 · Tatil Planlayıcı",
   "short_name": "Seul 2026",
-  "description": "Seul yılbaşı planı: uçuş, konaklama, gün gün tur, Naver/Kakao navigasyonu ve Korece cep sözlüğü.",
+  "description": "Seul planı (yılbaşı, Ramazan Bayramı, sakura): uçuş, konaklama, gün gün tur, Naver/Kakao navigasyonu ve Korece cep sözlüğü.",
   "lang": "tr",
   "start_url": "./#ana",
   "scope": "./",

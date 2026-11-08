@@ -1,0 +1,542 @@
+{
+ "asof": "2026-11-08",
+ "items": {
+  "gyeongbok": {
+   "google": {
+    "rating": 4.6,
+    "count": 46559,
+    "url": "https://wanderlog.com/place/details/913/gyeongbokgung-palace"
+   },
+   "tripadvisor": {
+    "rating": 4.4,
+    "count": 11064,
+    "url": "https://wanderlog.com/place/details/913/gyeongbokgung-palace"
+   },
+   "praise": [
+    "Sarayın beklenenden çok daha büyük olması; avlular, bahçeler ve dağ manzaralı geleneksel mimari",
+    "Hanbok giyenlere ücretsiz giriş ve ücretli girişin de ucuz olması",
+    "Muhafız değişimi töreni ziyaretçilerce çok beğeniliyor"
+   ],
+   "complaints": [
+    "Fotoğraf noktalarında kalabalık olabiliyor (iç kısımlar daha sakin)",
+    "Bir yorumcuya göre Çin'deki saraylar kadar etkileyici değil, ölçek daha küçük",
+    "Çok yürüme gerekiyor; rahat ayakkabı öneriliyor"
+   ],
+   "verdict": "Kışın da değer: büyük, ucuz ve ikonik; kalın giyinip muhafız töreni saatine göre planlayın, Salı günü kapalı olduğunu unutmayın (Wanderlog saat bilgisi).",
+   "sources": [
+    "https://wanderlog.com/place/details/913/gyeongbokgung-palace"
+   ]
+  },
+  "bukchon": {
+   "google": {
+    "rating": 4.4,
+    "count": 24204,
+    "url": "https://wanderlog.com/place/details/19859/bukchon-hanok-village"
+   },
+   "tripadvisor": {
+    "rating": 4.2,
+    "count": 5394,
+    "url": "https://wanderlog.com/place/details/19859/bukchon-hanok-village"
+   },
+   "praise": [
+    "Dar sokaklarda geleneksel hanok evleri ve şehir manzarası",
+    "Fotoğraf noktaları, kafeler ve galeriler",
+    "Barışçıl bir geleneksel Kore atmosferi"
+   ],
+   "complaints": [
+    "Kalabalıktan kaçınmak için sabah erken veya hafta içi önerilmiş",
+    "Burası insanların yaşadığı bir mahalle; sakinlere saygı gerektiriyor"
+   ],
+   "verdict": "Gyeongbokgung ile aynı gün kolayca eklenir; kışın yürüyüş ve fotoğraf için güzel, sabah erken gitmek en iyisi.",
+   "sources": [
+    "https://wanderlog.com/place/details/19859/bukchon-hanok-village"
+   ]
+  },
+  "changdeok": {
+   "google": {
+    "rating": 4.6,
+    "count": 13845,
+    "url": "https://wanderlog.com/place/details/915/changdeokgung"
+   },
+   "tripadvisor": {
+    "rating": 4.4,
+    "count": 4729,
+    "url": "https://wanderlog.com/place/details/915/changdeokgung"
+   },
+   "praise": [
+    "Muhteşem saray yapıları ve sakin atmosfer",
+    "Gizli Bahçe (Secret Garden) turu çok tavsiye ediliyor",
+    "Doğa ve eski Kore mimarisi iç içe"
+   ],
+   "complaints": [
+    "Gizli Bahçe turu için önceden rezervasyon gerekiyor; turlar dolabiliyor",
+    "Bazı bölümlere erişim sınırlı",
+    "Bazı ziyaretçilere göre personel yardımsever değil"
+   ],
+   "verdict": "Gyeongbokgung'dan daha sakin ve ormanlık; rehberli tura önceden bilet alabilen yetişkinler için çok değerli.",
+   "sources": [
+    "https://wanderlog.com/place/details/915/changdeokgung"
+   ]
+  },
+  "insadong": {
+   "google": {
+    "rating": 4.3,
+    "count": 1986,
+    "url": "https://wanderlog.com/place/details/526745/insadong-gil-street"
+   },
+   "tripadvisor": {
+    "rating": 4,
+    "count": 65,
+    "url": "https://wanderlog.com/place/details/526745/insadong-gil-street"
+   },
+   "praise": [
+    "Geleneksel el sanatları, çay evleri ve restoranlar",
+    "Hediyelik eşya için yürüyerek gezmesi keyifli; temiz ve güvenli",
+    "Küçük ara sokaklarda sanat dükkanları ve çay evleri"
+   ],
+   "complaints": [
+    "Öğleden sonra kalabalıklaşıyor",
+    "6-gil'deki yumuşak dondurma gibi bazı yerlerde fahiş fiyat uyarısı"
+   ],
+   "verdict": "Hediyelik eşya ve çay molası için iyi bir yarım saatlik-bir saatlik durak; öğleden sonra veya akşam gidilmesi öneriliyor. (Puanlar Insadong-gil sokağı için.)",
+   "sources": [
+    "https://wanderlog.com/place/details/526745/insadong-gil-street"
+   ]
+  },
+  "gwanghwamun": {
+   "google": {
+    "rating": 4.5,
+    "count": 14196,
+    "url": "https://wanderlog.com/place/details/65277/gwanghwamun-square"
+   },
+   "tripadvisor": {
+    "rating": 4.1,
+    "count": 752,
+    "url": "https://wanderlog.com/place/details/65277/gwanghwamun-square"
+   },
+   "praise": [
+    "Rahatlatıcı ortam ve Gwanghwamun Kapısı manzarası",
+    "Aralıkta festival süslemeleri",
+    "Kral Sejong ve Amiral Yi Sun-sin heykelleri, yeraltı müzesi"
+   ],
+   "complaints": [
+    "Kalabalıktan kaçınmak için sabah erken veya hafta içi önerilmiş",
+    "Çok popüler bir yer olduğu belirtiliyor, ancak geniş alan sayesinde sıkışık hissettirmediği de yazılmış"
+   ],
+   "verdict": "Ücretsiz, Gyeongbokgung'un hemen önünde; Aralık süslemeleri nedeniyle kış ziyaretine uygun kısa bir durak.",
+   "sources": [
+    "https://wanderlog.com/place/details/65277/gwanghwamun-square"
+   ]
+  },
+  "ikseon": {
+   "google": {
+    "rating": 4.3,
+    "count": 8384,
+    "url": "https://wanderlog.com/place/details/126445/ikseon-dong-hanok-village"
+   },
+   "tripadvisor": {
+    "rating": 4.4,
+    "count": 111,
+    "url": "https://wanderlog.com/place/details/126445/ikseon-dong-hanok-village"
+   },
+   "praise": [
+    "Hanoklarda kafeler, butikler ve restoranlar; labirent gibi sokaklar",
+    "İyi korunmuş hanok evleri",
+    "Sabahları sakin"
+   ],
+   "complaints": [
+    "Bazılarına göre fazla turistik ve fiyatlar yüksek",
+    "Çok kalabalık; çok erken saatte gitmek tavsiye ediliyor"
+   ],
+   "verdict": "Kafe ve fotoğraf sevenler için güzel; kışın sıcak kafeler avantaj, ama kalabalık için erken gidin.",
+   "sources": [
+    "https://wanderlog.com/place/details/126445/ikseon-dong-hanok-village"
+   ]
+  },
+  "gwangjang": {
+   "google": {
+    "rating": 4.2,
+    "count": 44425,
+    "url": "https://wanderlog.com/place/details/27567/gwangjang-market"
+   },
+   "tripadvisor": {
+    "rating": 4.2,
+    "count": 2370,
+    "url": "https://wanderlog.com/place/details/27567/gwangjang-market"
+   },
+   "praise": [
+    "Sokak yemekleri; dükkan sahipleri güler yüzlü",
+    "Makul fiyatlar ve otantik Kore lezzetleri",
+    "Paylaşarak farklı yemekler deneme imkanı"
+   ],
+   "complaints": [
+    "Gürültü, pişirme dumanı, kalabalık ve bazen ısrarcı tezgahtarlar (başka bir ziyaretçi yorumu)",
+    "Kalabalıktan kaçınmak için günün erken saatinde gitmek öneriliyor"
+   ],
+   "verdict": "Kışın sıcak sokak yemeği için güzel; aileler için lezzet odaklı bir durak, kalabalık ve duman kabul edilmeli.",
+   "sources": [
+    "https://wanderlog.com/place/details/27567/gwangjang-market",
+    "https://wanderlog.com/place/details/78453/gwangjang-market"
+   ]
+  },
+  "ddp": {
+   "google": {
+    "rating": 4.4,
+    "count": 32166,
+    "url": "https://wanderlog.com/place/details/32902/dongdaemun-design-plaza-ddp"
+   },
+   "tripadvisor": null,
+   "praise": [
+    "Zaha Hadid imzalı etkileyici mimari",
+    "Ücretsiz sergiler ve canlı müzik",
+    "Gece ışıklandırması/modern sanat yerleştirmeleri"
+   ],
+   "complaints": [
+    "Bazı ziyaretçilere göre mekan küçük çocuklara daha uygun",
+    "Moda haftası gibi etkinliklerde bazı bölümler kapatılabiliyor",
+    "Özel sergiler için önceden bilet öneriliyor"
+   ],
+   "verdict": "Kapalı mekanı ve sergileriyle kışın iyi bir yağmur/soğuk alternatifi; mimariye ilgi duyanlar için değer.",
+   "sources": [
+    "https://wanderlog.com/place/details/32902/dongdaemun-design-plaza-ddp"
+   ]
+  },
+  "namsan": {
+   "google": {
+    "rating": 4.5,
+    "count": 68636,
+    "url": "https://wanderlog.com/place/details/19855/n-seoul-tower"
+   },
+   "tripadvisor": {
+    "rating": 4.2,
+    "count": 9654,
+    "url": "https://wanderlog.com/place/details/19855/n-seoul-tower"
+   },
+   "praise": [
+    "360° şehir, Han Nehri ve dağ manzarası; gündüz de gece de güzel",
+    "Aşk kilitleri alanı, kafeler",
+    "Düzenli ve bakımlı gözlem terası"
+   ],
+   "complaints": [
+    "Akşam ve hafta sonları yoğun kalabalık",
+    "Gözlem terası bileti büyüklüğüne göre pahalı bulunmuş",
+    "Turistik bir yer"
+   ],
+   "verdict": "Gün batımı saatine gelmek şartıyla değer; kalabalık ve bilet fiyatı kabul edilirse aileler için klasik bir manzara durağı.",
+   "sources": [
+    "https://wanderlog.com/place/details/19855/n-seoul-tower"
+   ]
+  },
+  "myeongdong": {
+   "google": {
+    "rating": 4.4,
+    "count": 26597,
+    "url": "https://wanderlog.com/place/details/64870/myeongdong-shopping-street"
+   },
+   "tripadvisor": null,
+   "praise": [
+    "Çok sayıda mağaza, K-beauty ve sokak lezzetleri",
+    "Noel sezonunda süsleme ve canlı atmosfer",
+    "Sıcak sokak yemeği kışa uygun"
+   ],
+   "complaints": [
+    "Kalabalık, fiyatlar mahalle pazarlarından yüksek; satıcılar ısrarcı olabiliyor",
+    "Ana caddedeki oturmalı restoranlar önerilmiyor",
+    "Hafta sonu akşamları daha kalabalık"
+   ],
+   "verdict": "Alışveriş ve sokak yemeği için kış Noel havasında keyifli; ana caddedeki restoranlardan kaçınıp hafta içi akşam gitmek daha iyi.",
+   "sources": [
+    "https://wanderlog.com/place/details/64870/myeongdong-shopping-street",
+    "https://k-crush.com/myeongdong-guide-seoul/"
+   ]
+  },
+  "namsangol": {
+   "google": {
+    "rating": 4.4,
+    "count": 10483,
+    "url": "https://wanderlog.com/place/details/19866/namsangol-hanok-village"
+   },
+   "tripadvisor": {
+    "rating": 4.2,
+    "count": 862,
+    "url": "https://wanderlog.com/place/details/19866/namsangol-hanok-village"
+   },
+   "praise": [
+    "Sakin ortam, ücretsiz giriş",
+    "Namsan Kulesi manzaralı güzel hanoklar",
+    "Joseon dönemi evleri iyi korunmuş"
+   ],
+   "complaints": [
+    "Belirgin şikayet yok; kalabalık olmadığı yazılmış",
+    "Sabah erken gidilmesi öneriliyor"
+   ],
+   "verdict": "Kalabalıktan uzak, ücretsiz ve sakin; N Seoul Tower rotasına eklenebilecek rahat bir durak.",
+   "sources": [
+    "https://wanderlog.com/place/details/19866/namsangol-hanok-village"
+   ]
+  },
+  "nmk": {
+   "google": {
+    "rating": 4.7,
+    "count": 28682,
+    "url": "https://wanderlog.com/place/details/909/national-museum-of-korea"
+   },
+   "tripadvisor": {
+    "rating": 4.5,
+    "count": 2505,
+    "url": "https://wanderlog.com/place/details/909/national-museum-of-korea"
+   },
+   "praise": [
+    "Ücretsiz giriş ve mükemmel küratörlük",
+    "Kore tarihi ve kültürü hakkında detaylı sergiler, çocuklar için etkileşimli alanlar",
+    "Mimarisi ve Namsan Kulesi manzarası"
+   ],
+   "complaints": [
+    "Kalabalıktan kaçınmak için günün erken saatleri veya hafta içi önerilmiş"
+   ],
+   "verdict": "Kışın kapalı mekan ve ücretsiz olması nedeniyle çok değerli; çocuklu aileler ve tarih sevenler için ideal.",
+   "sources": [
+    "https://wanderlog.com/place/details/909/national-museum-of-korea"
+   ]
+  },
+  "itaewon": {
+   "google": {
+    "rating": 4.8,
+    "count": 4854,
+    "url": "https://wanderlog.com/place/details/126396/seoul-central-mosque"
+   },
+   "tripadvisor": {
+    "rating": 4.4,
+    "count": 126,
+    "url": "https://wanderlog.com/place/details/126396/seoul-central-mosque"
+   },
+   "praise": [
+    "Huzurlu, sakin ortam ve güzel İslami mimari",
+    "Camide Türk kahvesi sunan bir kafe ve Seul manzarası",
+    "İngilizce, Arapça ve Korece dersler; Cuma namazı"
+   ],
+   "complaints": [
+    "Hafta içi gidilirse daha az kalabalık; bayram namazlarında yoğunluk",
+    "Ziyaretçi yorumlarında açık bir şikayet bulunmadı"
+   ],
+   "verdict": "Müslüman aile için namaz ve helal yemek için en uygun durak; Itaewon İslam Caddesi ile birleştirilebilir.",
+   "sources": [
+    "https://wanderlog.com/place/details/126396/seoul-central-mosque"
+   ]
+  },
+  "hongdae": {
+   "google": {
+    "rating": 4.6,
+    "count": 9300,
+    "url": "https://wanderlog.com/place/details/77420/hongdae-street"
+   },
+   "tripadvisor": null,
+   "praise": [
+    "Canlı gençlik atmosferi, sokak sanatçıları (sihir, dans)",
+    "Çok sayıda mağaza, kafe ve yemek pazarları",
+    "Gece renkli ışıklar"
+   ],
+   "complaints": [
+    "Hafta sonları ve festival dönemlerinde kalabalık; hafta içi önerilmiş"
+   ],
+   "verdict": "Genç ruhlu, gece hayatı ve sokak gösterisi arayanlar için eğlenceli; kışın akşam saatlerinde gidin. (Puan Hongdae Street kaydı için.)",
+   "sources": [
+    "https://wanderlog.com/place/details/77420/hongdae-street"
+   ]
+  },
+  "seongsu": {
+   "google": null,
+   "tripadvisor": null,
+   "praise": [
+    "Eski fabrikalardan dönüşen kahve evleri, galeriler ve pop-up mağazalar",
+    "Common Ground konteyner AVM'si ve Seoul Forest yakınlığı",
+    "Myeongdong'a göre daha az turistik, daha otantik"
+   ],
+   "complaints": [
+    "Hafta sonları popüler kafe ve pop-up'larda kalabalık",
+    "Bir pop-up beklenenden 30 dk fazla sürebilir (zaman planı esnek tutulmalı)"
+   ],
+   "verdict": "Kafe ve tasarım mağazası sevenler için yarım günlük güzel bir rota; kışın iç mekan kafeleri sayesinde uygun. (Doğrulanabilir Google/TA puanı bulunamadı.)",
+   "sources": [
+    "https://askthecity.com/seoul/landmarks/seongsu-dong",
+    "https://mykoreaedit.com/i-spent-a-day-chasing-pop-ups-in-seongsu-dong-heres-why-its-seouls-hottest-neighborhood-right-now"
+   ]
+  },
+  "coex": {
+   "google": {
+    "rating": 4.3,
+    "count": 24820,
+    "url": "https://wanderlog.com/place/details/2087460/starfield-coex-mall"
+   },
+   "tripadvisor": {
+    "rating": 4,
+    "count": 893,
+    "url": "https://wanderlog.com/place/details/2087460/starfield-coex-mall"
+   },
+   "praise": [
+    "Devasa raflı Starfield Kütüphanesi, modern ve rahat alan",
+    "Çok sayıda uluslararası marka, kafe ve restoran",
+    "Kapalı alan; bir sürü mağaza ve yemek seçeneği"
+   ],
+   "complaints": [
+    "Hafta sonları kalabalık; hafta içi önerilmiş",
+    "AVM planı karışık bulunabiliyor"
+   ],
+   "verdict": "Soğuk günlerde kapalı alanda güzel bir durak; kitap/fotoğraf ve alışveriş severler için. (Puanlar Starfield COEX Mall içindir, kütüphaneye özel değil.)",
+   "sources": [
+    "https://wanderlog.com/place/details/2087460/starfield-coex-mall"
+   ]
+  },
+  "seoulsky": {
+   "google": {
+    "rating": 4.4,
+    "count": 50910,
+    "url": "https://wanderlog.com/place/details/65035/lotte-world-tower"
+   },
+   "tripadvisor": {
+    "rating": 4.4,
+    "count": 893,
+    "url": "https://wanderlog.com/place/details/65035/lotte-world-tower"
+   },
+   "praise": [
+    "Gökyüzü platformundan nefes kesen panorama; cam zemin heyecanı",
+    "Temiz, düzenli bina ve yardımsever personel",
+    "Altındaki AVMde yemek ve alışveriş"
+   ],
+   "complaints": [
+    "Biletler nispeten pahalı",
+    "Sisli havada görüş azalabiliyor"
+   ],
+   "verdict": "Açık ve berrak bir günde gün batımına denk getirilirse değer; sis riskine karşı hava durumuna bakın. (Puanlar Lotte World Tower kaydı için.)",
+   "sources": [
+    "https://wanderlog.com/place/details/65035/lotte-world-tower"
+   ]
+  },
+  "bosingak": {
+   "google": {
+    "rating": 4.2,
+    "count": 2339,
+    "url": "https://wanderlog.com/place/details/126436/bosingak-bell-pavilion"
+   },
+   "tripadvisor": {
+    "rating": 3.8,
+    "count": 60,
+    "url": "https://wanderlog.com/place/details/126436/bosingak-bell-pavilion"
+   },
+   "praise": [
+    "Tarihi önemi; gece yürüyüşünde atmosfer",
+    "Yılbaşı çan töreni sırasında binlerce kişi toplanıyor"
+   ],
+   "complaints": [
+    "Gündüz daha az kalabalık; yılbaşı gecesi töreninde binlerce kişi toplandığı belirtilmiş"
+   ],
+   "verdict": "31 Aralık gecesi çan törenini görmek isteyenler için özel anlam taşır; bunun dışında kısa bir uğrama noktası.",
+   "sources": [
+    "https://wanderlog.com/place/details/126436/bosingak-bell-pavilion"
+   ]
+  },
+  "rink": {
+   "google": {
+    "rating": 4.3,
+    "count": 3481,
+    "url": "https://wanderlog.com/place/details/524728/seoul-plaza"
+   },
+   "tripadvisor": {
+    "rating": 3.9,
+    "count": 133,
+    "url": "https://wanderlog.com/place/details/524728/seoul-plaza"
+   },
+   "praise": [
+    "Kışın buz pateni ve festival havası, ışıklandırmalar",
+    "Çok uygun fiyat: kiralama dahil saat başı 1.000 won (2025-26 sezonu)"
+   ],
+   "complaints": [
+    "Noel gününde rezervasyon önceden yapılması gerekiyor (talep yüksek)",
+    "Akşam ışık saatinde kalabalık; öğleden sonra daha sakin"
+   ],
+   "verdict": "Ucuz ve atmosferik kış aktivitesi, aileler için; Noel/Yılbaşı döneminde önceden rezervasyon şart. (Puanlar rink değil Seoul Plaza kaydı için; 2026-27 sezonu detayları ayrıca doğrulanmalı.)",
+   "sources": [
+    "https://wanderlog.com/place/details/524728/seoul-plaza",
+    "https://www.flipkorea.com/post/winter-fun-at-seoul-plaza-ice-rink-2025-2026-update"
+   ]
+  },
+  "nami": {
+   "google": {
+    "rating": 4.4,
+    "count": 37664,
+    "url": "https://wanderlog.com/place/details/64703/nami-island"
+   },
+   "tripadvisor": {
+    "rating": 4.3,
+    "count": 1952,
+    "url": "https://wanderlog.com/place/details/64703/nami-island"
+   },
+   "praise": [
+    "Sonbahar ve kışın karla kaplı manzaralar; romantik ve sakin",
+    "Yürüyüş, fotoğraf, kafeler ve sokak yemeği",
+    "Bisiklet ve servisle gezme imkanı"
+   ],
+   "complaints": [
+    "Bir blogger'a göre bazıları ziyaretin değerini sorguluyor",
+    "Sabah erken gelinmeyen günlerde kalabalık",
+    "Seul'den günlük gezi gerektiriyor"
+   ],
+   "verdict": "Kışın kar varsa Kore dizisi havası için güzel bir günübirlik gezi; çiftler ve doğa sevenler için, kalın giyinin.",
+   "sources": [
+    "https://wanderlog.com/place/details/64703/nami-island",
+    "https://tofuvtravels.com/nami-island",
+    "https://www.tripadvisor.com/Attraction_Review-g608520-d597358-Reviews-or20-Nami_Island-Chuncheon_Gangwon_do.html"
+   ]
+  },
+  "suwon": {
+   "google": {
+    "rating": 4.6,
+    "count": 9224,
+    "url": "https://wanderlog.com/place/details/276082/suwon-hwaseong"
+   },
+   "tripadvisor": {
+    "rating": 4.4,
+    "count": 992,
+    "url": "https://wanderlog.com/place/details/276082/suwon-hwaseong"
+   },
+   "praise": [
+    "Surlardan ve kapılardan harika manzara",
+    "Tarihi yapı içinde modern kafe, restoran ve hediyelik dükkanlar",
+    "Sakin Suwon atmosferi"
+   ],
+   "complaints": [
+    "Hafta sonu otopark sınırlı, toplu taşıma öneriliyor"
+   ],
+   "verdict": "Seul dışında yarım günlük tarih gezisi; Paldalmun kapısından başlayıp surlar boyunca yürümek öneriliyor, hafta sonu toplu taşıma tercih edilmeli.",
+   "sources": [
+    "https://wanderlog.com/place/details/276082/suwon-hwaseong"
+   ]
+  },
+  "dmz": {
+   "google": {
+    "rating": 4.3,
+    "count": 9983,
+    "url": "https://wanderlog.com/place/details/77778/imjingak-tourist-information-center"
+   },
+   "tripadvisor": {
+    "rating": 4.1,
+    "count": 199,
+    "url": "https://wanderlog.com/place/details/77778/imjingak-tourist-information-center"
+   },
+   "praise": [
+    "Barış Köprüsü, Barış Treni ve Mangbaedan gibi etkileyici tarihi noktalar",
+    "Bilgi merkezi personeli yardımsever ve bilgili",
+    "Kuzey Kore'yi görebilme imkanı; rehberli ziyaret tarihi daha anlaşılır kılıyor"
+   ],
+   "complaints": [
+    "DMZ turlarında bilet/güvenlik sırası uzun olabiliyor ve giriş garantisi yok (tek bir blogger deneyimi)",
+    "Bazı bölümler kapalı olabiliyor"
+   ],
+   "verdict": "Tarih ve siyasi bağlam için çok anlamlı; kışın soğuk olabilir, rehberli tur önceden rezerve edilmeli. (Puanlar Imjingak bilgi merkezi kaydı için.)",
+   "sources": [
+    "https://wanderlog.com/place/details/77778/imjingak-tourist-information-center",
+    "https://wherearethosemorgans.com/best-dmz-tour-review/"
+   ]
+  }
+ }
+}

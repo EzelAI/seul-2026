@@ -1,0 +1,93 @@
+[
+ {
+  "name": "Elie's Cafe",
+  "area": "Myeongdong (City Hall durağına ~1 dk)",
+  "type": "kahve",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Cafe Appiforet",
+  "area": "Jongno",
+  "type": "kafe / dondurma",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Aoitori",
+  "area": "Seul (arka sokak; semt belirtilmemiş)",
+  "type": "Japon fırını",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Rosso 1924",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "pizza",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Brooklyn The Burger Joint",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "burger",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Sulbing Myeongdong",
+  "area": "Myeongdong",
+  "type": "tatlı (bingsu)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Bau House Dog Cafe",
+  "area": "Hongdae (Seogyo-dong, Mapo-gu)",
+  "type": "temalı kafe (köpekli)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Poop Cafe",
+  "area": "Seul (adres belirtilmemiş)",
+  "type": "temalı kafe (kaka konseptli)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Get and Show Cafe (Lego Cafe)",
+  "area": "Seul (adres belirtilmemiş)",
+  "type": "temalı kafe (Lego)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Hello Kitty Cafe",
+  "area": "Myeongdong (28 Myeongdong 4-gil)",
+  "type": "temalı kafe (Hello Kitty)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Raccoon Cafe",
+  "area": "Yongsan (Cheongpa-dong)",
+  "type": "temalı kafe (rakunlu)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Jungsik",
+  "area": "Gangnam (Seolleung-ro 158-gil)",
+  "type": "modern Kore / fine dining (Michelin)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Gaon",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "modern Kore / fine dining (Michelin)",
+  "ko_known": null,
+  "price_known": null
+ }
+]

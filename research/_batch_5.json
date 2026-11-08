@@ -1,0 +1,93 @@
+[
+ {
+  "name": "Gimbap Cheonguk (Gimbap Cheounguk)",
+  "area": "Jung-gu (Sejong-daero)",
+  "type": "gimbap",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Kim Seon Saeng",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "gimbap",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "853",
+  "area": "Insadong / Jongno (Insa-dong 12-gil)",
+  "type": "Kore barbekü",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Soegojip",
+  "area": "Insadong / Jongno (Insadong 3-gil)",
+  "type": "Kore barbekü",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Mapo Sutbul Galbi",
+  "area": "Gangnam (Nonhyeon-dong)",
+  "type": "galbi (kömür ızgara kaburga)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Yukjeon Sikdang",
+  "area": "Dongdaemun (Nangye-ro)",
+  "type": "samgyeopsal",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Gwangyang Bulgogi",
+  "area": "Gangnam (Samseong-dong)",
+  "type": "bulgogi",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Woo Lae Oak",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "bulgogi / geleneksel Kore (Michelin, pahalı)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Hongdae Dakgalbi",
+  "area": "Hongdae (Hongik-ro 3-gil)",
+  "type": "dak galbi",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Kyochon Chicken Dongdaemun 1",
+  "area": "Dongdaemun (Jongno 294)",
+  "type": "Kore usulü kızarmış tavuk (zincir şube)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Jaedong Sundubu",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "sundubu (yumuşak tofu çorbası)",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "KwonSookSoo",
+  "area": "Seul (semt belirtilmemiş)",
+  "type": "geleneksel Kore restoranı",
+  "ko_known": null,
+  "price_known": null
+ },
+ {
+  "name": "Eulji Odeng",
+  "area": "Jung-gu (Euljiro 3-ga)",
+  "type": "sokak yemeği / balık keki",
+  "ko_known": null,
+  "price_known": null
+ }
+]
