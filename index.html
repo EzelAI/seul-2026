@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/app.css?v=5">
 <script>
   try { const t = localStorage.getItem("seulTheme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
@@ -63,6 +63,7 @@
     <symbol id="i-cloud-snow" viewBox="0 0 24 24"><path d="M4 14.9A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.24M8 15h.01M8 19h.01M12 17h.01M12 21h.01M16 15h.01M16 19h.01"/></symbol>
     <symbol id="i-fog" viewBox="0 0 24 24"><path d="M4 14.9A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.24M16 17H7M17 21H9"/></symbol>
     <symbol id="i-thermo" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
     <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
     <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
@@ -262,7 +263,10 @@
               </div>
             </div>
             <div class="timeline" id="timeline"></div>
-            <a class="btn" id="flightLink" href="#" target="_blank" rel="noopener">Google Uçuşlar'da aç<svg class="ic" aria-hidden="true"><use href="#i-external"/></svg></a>
+            <div class="actions">
+              <a class="btn" id="flightLink" href="#" target="_blank" rel="noopener">Google Uçuşlar'da aç<svg class="ic" aria-hidden="true"><use href="#i-external"/></svg></a>
+              <a class="btn ghost" href="#planla/ucus"><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg>Fiyat alarmı kur</a>
+            </div>
             <p class="sub" id="flightNote"></p>
           </section>
 
@@ -295,6 +299,8 @@
       </div>
 
       <div class="subview" data-subview="ucus" hidden>
+        <section class="card" id="alarmCard"></section>
+
         <section class="card">
           <div class="card-head">
             <h2><span class="h-ic"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg></span><span id="altTitle">25 Aralık → 1 Ocak, tüm havayolları</span></h2>
@@ -331,7 +337,7 @@
               <button type="button" data-k="otel">Otel</button>
             </div>
           </div>
-          <p class="hint"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Karta dokununca toplama eklenir ve rotalar bu konumdan hesaplanır. Fiyatlar 26 Aralık–1 Ocak (6 gece) toplamının gecelik ortalamasıdır.</span></p>
+          <p class="hint"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Karta dokununca toplama eklenir ve rotalar bu konumdan hesaplanır. <span id="stayNote">Fiyatlar 26 Aralık–1 Ocak (6 gece) toplamının gecelik ortalamasıdır.</span></span></p>
           <div class="grid2" id="homes"></div>
         </section>
       </div>
@@ -419,7 +425,7 @@
               <li>Saat farkı: Seul, Türkiye'den 6 saat ileride.</li>
               <li>Kartla ödeme çok yaygın; pazar ve T-money yüklemesi için biraz nakit won bulundurun.</li>
               <li>Helal yemek: Itaewon'daki Seul Merkez Camii çevresi.</li>
-              <li>25 Aralık ve 1 Ocak resmi tatil; bazı yerler kapalı veya kısa saatli.</li>
+              <li id="holidayLine">25 Aralık ve 1 Ocak resmi tatil; bazı yerler kapalı veya kısa saatli.</li>
             </ul>
           </section>
         </div>
@@ -454,8 +460,9 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/data.js"></script>
-<script src="assets/research.js"></script>
-<script src="assets/app.js"></script>
+<!-- ?v= sürümü sw.js'teki VERSION ile birlikte artırılır; eski CSS'in yeni JS ile karışmasını önler. -->
+<script src="assets/data.js?v=5"></script>
+<script src="assets/research.js?v=5"></script>
+<script src="assets/app.js?v=5"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
   "use strict";
   const S = window.SEOUL;
   const { KRW_TRY, PEOPLE, BUDGET, REF_DEP, REF_RET, KETA_KRW, deps, rets, P, QR, ALTS, SEARCH_AIRLINES, AL_CODE,
-    AREAS, STAYS, CATS, CAT_META, PLACES, ICN, NEIGH, HOMECL, LUNCH, FOOD, APPS, PHRASES, CHECKLIST, SEASONS } = S;
+    AREAS, STAYS, CATS, CAT_META, PLACES, ICN, NEIGH, HOMECL, LUNCH, FOOD, APPS, PHRASES, CHECKLIST, SEASONS, PRICE_WATCH } = S;
   const PLACE = Object.fromEntries(PLACES.map(p => [p.id, p]));
   const APP = Object.fromEntries(APPS.map(a => [a.id, a]));
   const SEASON = Object.fromEntries(SEASONS.map(s => [s.id, s]));
@@ -97,7 +97,7 @@
     picks: Object.fromEntries(PLACES.filter(p => p.def).map(p => [p.id, true])),
     origin: "", checks: {}, apps: {},
     stayFilter: "all", cat: "all", q: "", restKind: "all", phraseCat: "Temel", allChecks: false,
-    season: "yilbasi", trip: { bayram: "b2", sakura: "s2" }, fl: { bayram: 0, sakura: 0 },
+    season: "yilbasi", trip: { bayram: "b2", sakura: "s2" }, fl: { bayram: 0, sakura: 0 }, target: {},
     view: "ana", sub: { kesfet: "yerler", planla: "butce", rehber: "uygulamalar" }
   };
   try {
@@ -117,6 +117,7 @@
         if (saved.trip && SEASON[sid].trips.some(t => t.id === saved.trip[sid])) state.trip[sid] = saved.trip[sid];
         if (saved.fl && Number.isInteger(saved.fl[sid]) && saved.fl[sid] >= 0) state.fl[sid] = saved.fl[sid];
       });
+      if (saved.target && typeof saved.target === "object") state.target = Object.fromEntries(Object.entries(saved.target).filter(([k, v]) => SEASON[k] && Number.isFinite(v) && v > 0));
       if (typeof saved.origin === "string") state.origin = saved.origin;
       if (saved.checks && typeof saved.checks === "object") state.checks = saved.checks;
       if (saved.apps && typeof saved.apps === "object") state.apps = saved.apps;
@@ -126,7 +127,7 @@
     try {
       localStorage.setItem(STORE, JSON.stringify({ di: state.di, ri: state.ri, t: state.t, alt: state.alt, stay: state.stay, food: state.food,
         picks: state.picks, known: PLACES.map(p => p.id), origin: state.origin, checks: state.checks, apps: state.apps,
-        season: state.season, trip: state.trip, fl: state.fl }));
+        season: state.season, trip: state.trip, fl: state.fl, target: state.target }));
     } catch (e) { /* depolama kapalı */ }
   };
 
@@ -631,7 +632,7 @@
       const status = on ? (di !== undefined ? "<a class='tag good' href='#tur/gun-" + (di + 1) + "'>" + ic("calendar") + (di + 1) + ". gün · " + fmtD(tour.days[di].date) + "</a>" : "<span class='tag warn'>" + ic("alert") + "Plana sığmadı</span>") : "";
       const closedTxt = [
         p.closed && p.closed.length ? p.closed.map(i => DAYS_L[i]).join(", ") + " kapalı" : "",
-        p.closedDates ? p.closedDates.map(fmtD).join(", ") + " kapalı" : "",
+        (p.closedDates || []).some(x => x >= ctx.arrDate && x <= ctx.retDate) ? p.closedDates.filter(x => x >= ctx.arrDate && x <= ctx.retDate).map(fmtD).join(", ") + " kapalı" : "",
         p.window ? fmtD(p.window[0]) + "–" + fmtD(p.window[1]) + " arası" : "",
         p.pin ? fmtD(p.pin) + " gecesi" : ""
       ].filter(Boolean).join(" · ");
@@ -773,9 +774,10 @@
       "<span class='t'>" + fmtDL(ctx.arrDate) + " · " + f.arr + "</span><span>Incheon'a varış (toplam " + f.dur + ")</span>" +
       "<span class='t'>" + fmtDL(f.retDate) + "</span><span>Seul'den dönüş</span>";
     $("flightLink").href = f.link;
+    const dec = ctx.season === "yilbasi";
     $("flightNote").textContent = (f.note ? f.note + " " : "") + "Dönüş uçuşunun saatleri link açılınca görünür. Bagajlı tarifeyi seçin." +
-      (state.alt !== null ? " Bu fiyat yalnızca 25 Ara–1 Oca içindir; başka tarih için matristen seçin." : "") +
-      (state.alt === null && state.t === "t1" ? " Not: 7 Kasım'daki 25 Aralık aramasında 13:50 kalkışlı sefer Doha'da 8 sa 35 dk bekleyip 17:15'te varıyordu; 10:30 varışlı bağlantıyı linkte doğrulayın." : "");
+      (dec && state.alt !== null ? " Bu fiyat yalnızca 25 Ara–1 Oca içindir; başka tarih için matristen seçin." : "") +
+      (dec && state.alt === null && state.t === "t1" ? " Not: 7 Kasım'daki 25 Aralık aramasında 13:50 kalkışlı sefer Doha'da 8 sa 35 dk bekleyip 17:15'te varıyordu; 10:30 varışlı bağlantıyı linkte doğrulayın." : "");
 
     const s = ctx.stay;
     let arrival;
@@ -860,6 +862,7 @@
   }
 
   function renderFlights(ctx) {
+    renderAlarm(ctx);
     const spring = ctx.season !== "yilbasi";
     $("altTrips").hidden = !spring;
     if (spring) { renderSeasonFlights(ctx); return; }
@@ -937,6 +940,8 @@
   function renderStays(ctx) {
     const ci = ctx.arrDate, co = ctx.retDate;
     $("areaDates").textContent = fmtD(ci) + "–" + fmtD(co) + " · " + ctx.nights + " gece";
+    $("stayNote").textContent = ctx.season === "yilbasi" ? "Fiyatlar 26 Aralık–1 Ocak (6 gece) toplamının gecelik ortalamasıdır."
+      : "Fiyatlar " + fmtD(ctx.S.stayRange[0]) + "–" + fmtD(ctx.S.stayRange[1]) + " toplamının gecelik ortalamasıdır (8 Kasım 2026); o tarihte müsait görünmeyenlerde Aralık fiyatı tahmin olarak kullanılır.";
     $("areas").innerHTML = AREAS.map(a =>
       "<div class='area" + (a.key === ctx.stay.area ? " here" : "") + "'>" +
         "<div class='card-head'><h3>" + esc(a.name) + "</h3>" + (a.key === ctx.stay.area ? "<span class='tag blue'>" + ic("pin") + "Seçili konaklama</span>" : "") + "</div>" +
@@ -1023,6 +1028,8 @@
       "<span class='det'>AREX genel tren gidiş-dönüş " + won(t.arex) + " · varış/dönüş günü 4 yolculuk " + won(t.rides) + " · kartlar " + won(t.cards) +
       (t.passDays ? " · " + t.passDays + " günlük İklim Kartı paketi " + won(t.pass) : "") + ". Günübirlik gezilerin tren ücretleri dahil değil.</span></div>";
     $("sosList").innerHTML = sosHtml();
+    $("holidayLine").textContent = ctx.season === "yilbasi" ? "25 Aralık ve 1 Ocak resmi tatil; bazı yerler kapalı veya kısa saatli."
+      : "Tarihlerinizde Kore'de resmî tatil yok (en yakınları 1 Mart ve 5 Mayıs); müzelerin haftalık kapalı günlerine dikkat.";
     const S = ctx.S;
     $("seasonGuide").innerHTML = (S.guide || []).map(g =>
       "<section class='card'><h2><span class='h-ic" + (g.tone ? " " + g.tone : "") + "'>" + ic(g.icon) + "</span>" + esc(g.title) + "</h2>" +
@@ -1142,13 +1149,87 @@
         p.tip + "\nNaver Map: https://map.naver.com/p/search/" + enc(p.ko));
     }));
     L.push("END:VCALENDAR");
+    downloadICS(L, "seul-2026-tur.ics");
+    toast("Takvim dosyası indirildi; açınca tüm duraklar takviminize eklenir");
+  }
+  function downloadICS(L, name) {
     const blob = new Blob([L.join("\r\n")], { type: "text/calendar;charset=utf-8" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = "seul-2026-tur.ics";
+    a.download = name;
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 2000);
-    toast("Takvim dosyası indirildi; açınca tüm duraklar takviminize eklenir");
+  }
+
+  // ---------- Fiyat alarmı ----------
+  // Statik sayfa fiyatı kendisi izleyemez: alarmı Google Uçuşlar / Skyscanner kurar (e-posta), takvim hatırlatıcıları kontrol günlerini işaretler.
+  const trToday = () => new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Istanbul", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  function watchPlan(ctx) {
+    const W = PRICE_WATCH.window[ctx.season === "yilbasi" ? "yilbasi" : "bahar"];
+    const dep = ctx.flight.depDate, today = trToday();
+    const start = addDays(dep, -W.max), best = addDays(dep, -W.best), end = addDays(dep, -W.min);
+    const sales = PRICE_WATCH.saleDays.filter(([dt]) => dt < dep);
+    const marks = [
+      [start, "En ucuz dönem başlıyor", "Google Uçuş Arama verisine göre " + W.label + " en düşük fiyatlar kalkıştan " + W.max + "–" + W.min + " gün önce görülüyor."],
+      [best, "Ortalamada en düşük gün", "Kalkıştan " + W.best + " gün önce (Google Uçuş Arama verisi)."],
+      ...sales.map(([dt, l]) => [dt, l, "2025'te Qatar Airways Avrupa çıkışlı uçuşlarda 21 Kas–2 Ara arasında taban ücrette %20'ye varan indirim yaptı."]),
+      [end, "Son karar günü", "Google verisine göre bundan sonra fiyatlar genelde yükselir."]
+    ].sort((a, b) => a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0);
+    return { W, dep, today, start, best, end, sales, marks };
+  }
+  function alarmAdvice(ctx, w) {
+    const saleIn = w.sales.some(([dt]) => dt >= w.today) && w.sales.every(([dt]) => dt <= w.end);
+    if (w.today > w.end) return "Önerilen alım dönemi " + fmtD(w.end) + "'de kapandı; fiyatlar genelde bundan sonra yükselir. Hedefe yakın bir fiyat görürseniz beklemeyin.";
+    if (w.today >= w.start) return "Şu an en ucuz dönemin içindesiniz (" + fmtD(w.start) + "–" + fmtD(w.end) + "). " +
+      (saleIn ? "Kara Cuma bu döneme denk geliyor; alarmı kurup o haftayı bekleyebilirsiniz." : "Kara Cuma bu dönemden sonra; beklemek riskli. Alarmı kurun, hedefe yakın fiyatta alın.") +
+      (ctx.season === "yilbasi" ? " 2025 kampanyasında bazı şehirlerden Noel–yılbaşı tarihleri indirim dışıydı." : "");
+    return "En ucuz dönem " + fmtD(w.start) + "–" + fmtD(w.end) + ". " +
+      (w.sales.some(([dt]) => dt >= w.today) ? "Ondan önce Kara Cuma var: 2025'te Qatar Airways Avrupa çıkışlı uçuşlarda 21 Kas–2 Ara arasında taban ücrette %20'ye varan indirim yaptı (vergiler hariç; Türkiye'nin kapsamda olup olmadığını o gün sitede kontrol edin). Fiyat hedefinizin altına inerse alın; inmezse alarm açık kalsın, bu dönem içinde alın."
+        : "Alarmı kurun, bu dönem içinde hedefe yakın fiyatta alın.");
+  }
+  function renderAlarm(ctx) {
+    const f = ctx.flight, w = watchPlan(ctx), tgt = state.target[ctx.season], cur = f.price;
+    const al = f.airline.split(" / ")[0];
+    const when = dt => dt < w.today ? "<span class='sub'>geçti</span>" : dt === w.today ? "<span class='tag warn'>bugün</span>" : "<span class='sub'>" + diff(w.today, dt) + " gün sonra</span>";
+    const src = PRICE_WATCH.src;
+    $("alarmCard").innerHTML =
+      "<div class='card-head'><h2><span class='h-ic amber'>" + ic("bell") + "</span>Fiyat alarmı</h2><span class='tag blue num'>" + esc(ctx.S.label) + " · " + fmtD(f.depDate) + " → " + fmtD(f.retDate) + "</span></div>" +
+      "<p class='sub'>Planda: <b>" + esc(f.airline) + "</b>, kişi başı " + tl(cur) + " (Kasım 2026 araması). Bu sayfa fiyatı kendisi izleyemez; alarmı Google Uçuşlar ve Skyscanner kurar, fiyat değişince e-posta gönderir.</p>" +
+      "<p class='callout info'>" + ic("calendar") + "<span>" + alarmAdvice(ctx, w) + "</span></p>" +
+      "<div class='field alarm-target'><label for='alarmTarget'>Hedef fiyat (kişi başı, TL)</label>" +
+        "<input id='alarmTarget' inputmode='numeric' autocomplete='off' placeholder='örn. " + n0(Math.floor(cur * 0.9 / 1000) * 1000) + "' value='" + (tgt ? n0(tgt) : "") + "'>" +
+        "<span class='sub'>" + (tgt ? (tgt < cur ? "Şu anki fiyatın %" + Math.round((1 - tgt / cur) * 100) + " altında; tutarsa 4 kişide " + tl((cur - tgt) * PEOPLE) + " kazanç." : "Şu anki fiyat zaten hedefin altında; bu fiyattan almak hedefe uyuyor.") : "Takvim hatırlatıcılarına yazılır; alarm e-postasındaki fiyatla karşılaştırın.") + "</span></div>" +
+      "<ol class='alarm-steps'>" +
+        "<li><b>Google Uçuşlar</b><span class='sub'>Açılan aramada <b>Fiyatları takip et</b> anahtarını açın (Google hesabıyla). Tarihleriniz esnekse \"Tüm tarihler\"i seçin; o ay rotanın en düşük fiyatı belirgin düşünce e-posta gelir.</span>" +
+          "<div class='actions'>" + extLink("btn", gflights(f.depDate, f.retDate, ""), "Google Uçuşlar'da takip et") + extLink("btn ghost sm", gflights(f.depDate, f.retDate, al), "Yalnızca " + esc(al)) + extLink("btn ghost sm", src.google, "Nasıl?") + "</div></li>" +
+        "<li><b>Skyscanner</b><span class='sub'>Giriş yapın; masaüstünde sonuçlardaki fiyat takibi bandı, uygulamada sağ üstteki zil, mobil sitede uçuşun yanındaki kalp alarmı kurar. Arama 4 yetişkin için açılır.</span>" +
+          "<div class='actions'>" + extLink("btn ghost", skyscanner(f.depDate, f.retDate), "Skyscanner'da alarm kur") + extLink("btn ghost sm", src.skyscanner, "Nasıl?") + "</div></li>" +
+        "<li><b>Takvim hatırlatıcıları</b><span class='sub'>" + (w.today <= w.end ? "Son karar gününe kadar her pazartesi 20:00'de" : "Kalkıştan bir hafta öncesine kadar her pazartesi 20:00'de") + " kontrol, ayrıca aşağıdaki günler. Her hatırlatıcıda iki arama linki ve hedef fiyat yazar.</span>" +
+          "<ul class='alarm-dates'>" + w.marks.map(([dt, l]) => "<li class='" + (dt < w.today ? "past" : "") + "'><b class='num'>" + fmtD(dt) + "</b><span>" + esc(l) + "</span>" + when(dt) + "</li>").join("") + "</ul>" +
+          "<div class='actions'><button type='button' class='btn ghost' data-action='alarm-ics'>" + ic("calendar") + "Takvime ekle (.ics)</button></div></li>" +
+      "</ol>" +
+      "<p class='sub'>Dönem tarihleri <a href='" + src.window + "' target='_blank' rel='noopener'>Google Uçuş Arama'nın 2021–2025 verisinden</a> (ABD çıkışlı uçuşlar; Türkiye için yön gösterir, kesin değil). Kara Cuma günleri <a href='" + src.sale + "' target='_blank' rel='noopener'>2025 Qatar kampanyasının</a> takvimine göre; 2026 kampanyası henüz açıklanmadı.</p>";
+  }
+  function exportAlarmICS() {
+    const ctx = context(), w = watchPlan(ctx), f = ctx.flight, tgt = state.target[ctx.season];
+    const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+    const at20 = (date, m) => date.replace(/-/g, "") + "T17" + m + "00Z"; // 20:00 Türkiye (UTC+3)
+    const desc = "Planda: " + f.airline + ", " + n0(f.price) + " TL/kişi (Kasım 2026 araması)." + (tgt ? "\nHedef: " + n0(tgt) + " TL/kişi altı." : "") +
+      "\nGoogle Uçuşlar: " + gflights(f.depDate, f.retDate, "") + "\nSkyscanner: " + skyscanner(f.depDate, f.retDate);
+    const L = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Seul 2026//Planlayici//TR", "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "X-WR-CALNAME:Seul uçak fiyatı"];
+    const ev = (uid, date, sum, note, rule) => L.push("BEGIN:VEVENT", "UID:" + uid + "@seul2026", "DTSTAMP:" + stamp, "DTSTART:" + at20(date, "00"), "DTEND:" + at20(date, "15"),
+      ...(rule ? [rule] : []), "SUMMARY:" + icsEsc(sum), "DESCRIPTION:" + icsEsc(note + "\n" + desc),
+      "BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + icsEsc(sum), "TRIGGER:PT0S", "END:VALARM", "END:VEVENT");
+    const until = w.today <= w.end ? w.end : addDays(w.dep, -7);
+    let mon = addDays(w.today, 1);
+    while (d(mon).getUTCDay() !== 1) mon = addDays(mon, 1);
+    if (mon <= until) ev("fiyat-haftalik-" + ctx.season, mon, "Seul uçak fiyatı: haftalık kontrol (" + ctx.S.label + ")",
+      "Alarm e-postalarına ve aşağıdaki linklere bakın; hedefin altındaysa alın.", "RRULE:FREQ=WEEKLY;UNTIL=" + until.replace(/-/g, "") + "T235959Z");
+    const future = w.marks.filter(([dt]) => dt >= w.today);
+    future.forEach(([dt, l, note]) => ev("fiyat-" + ctx.season + "-" + dt, dt, "Seul uçak fiyatı: " + l + " (" + ctx.S.label + ")", note));
+    L.push("END:VCALENDAR");
+    downloadICS(L, "seul-ucak-fiyati-" + ctx.season + ".ics");
+    toast((mon <= until ? "Haftalık kontrol ve " : "") + future.length + " hatırlatıcı takvim dosyasına eklendi");
   }
   async function sharePlan() {
     const ctx = context(), tour = buildTour(ctx);
@@ -1255,6 +1336,7 @@
       if (a === "taxi-home") openTaxi("home");
       else if (a === "emergency") openEmergency();
       else if (a === "ics") exportICS();
+      else if (a === "alarm-ics") exportAlarmICS();
       else if (a === "share") sharePlan();
       else if (a === "print") window.print();
       else if (a === "install") install();
@@ -1316,6 +1398,11 @@
   document.addEventListener("change", e => {
     const c = e.target.closest("[data-check]");
     if (c) { if (c.checked) state.checks[c.dataset.check] = true; else delete state.checks[c.dataset.check]; save(); setTimeout(render, 250); return; }
+    if (e.target.id === "alarmTarget") {
+      const v = parseInt(e.target.value.replace(/\D/g, ""), 10);
+      if (v > 0) state.target[state.season] = v; else delete state.target[state.season];
+      render(); toast(v > 0 ? "Hedef fiyat " + tl(v) + " olarak kaydedildi" : "Hedef fiyat silindi"); return;
+    }
     const g = e.target.closest("[data-appgot]");
     if (g) { if (g.checked) state.apps[g.dataset.appgot] = true; else delete state.apps[g.dataset.appgot]; save(); renderApps(); }
   });

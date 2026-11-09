@@ -440,6 +440,24 @@ window.SEOUL = (() => {
       ] }
   ];
 
+  // Fiyat takibi. Rezervasyon penceresi: Google Uçuş Arama 2021–2025 verisi; ABD çıkışlı 4–16 günlük gidiş-dönüşler
+  // (Noel: kalkıştan 32–73 gün önce, en düşük ortalama 51. gün; Mart–Nisan: 28–61, en düşük 43). Türkiye çıkışı için yön gösterir, kesin değildir.
+  // Kara Cuma: 2025'te Qatar Airways Avrupa çıkışlı kampanyası 21 Kas–2 Ara satış, taban ücrette %20'ye varan indirim (vergiler hariç),
+  // seyahat satıştan sonraki 365 gün; bazı şehirlerde Noel–Yılbaşı ve Paskalya kapsam dışıydı. 2026 Kara Cuma 27 Kasım; hatırlatıcılar 2025 takvimine göre.
+  const PRICE_WATCH = {
+    window: {
+      yilbasi: { min: 32, best: 51, max: 73, label: "Noel–yılbaşı uçuşlarında" },
+      bahar: { min: 28, best: 43, max: 61, label: "Mart–Nisan uçuşlarında" }
+    },
+    saleDays: [["2026-11-20", "Kara Cuma kampanyaları başladı mı?"], ["2026-11-27", "Kara Cuma"], ["2026-12-01", "Kara Cuma kampanyalarında son günler"]],
+    src: {
+      window: "https://blog.google/products-and-platforms/products/search/holiday-travel-trends-2025/",
+      sale: "https://travelfree.info/5-qatar-airways-black-friday/",
+      google: "https://support.google.com/travel/answer/6235879?hl=tr",
+      skyscanner: "https://help.skyscanner.net/hc/en-gb/articles/115002499829-How-do-I-set-up-or-cancel-email-price-alerts"
+    }
+  };
+
   return { KRW_TRY, PEOPLE, BUDGET, REF_DEP, REF_RET, KETA_KRW, deps, rets, P, QR, ALTS, SEARCH_AIRLINES, AL_CODE,
-    AREAS, STAYS, CATS, CAT_META, PLACES, ICN, NEIGH, HOMECL, LUNCH, FOOD, APPS, PHRASES, CHECKLIST, SEASONS };
+    AREAS, STAYS, CATS, CAT_META, PLACES, ICN, NEIGH, HOMECL, LUNCH, FOOD, APPS, PHRASES, CHECKLIST, SEASONS, PRICE_WATCH };
 })();

@@ -1,15 +1,15 @@
 /* Seul 2026 — çevrimdışı önbellek. Uygulama kabuğu ve fotoğraflar önceden; fontlar ilk kullanımda önbelleğe alınır. */
-const VERSION = "seul-v4";
+const VERSION = "seul-v5"; // index.html'deki ?v= ile aynı tutulur
 const IMG = ["bayram", "naksan", "seokchon", "yeouido", "nami", "dmz", "suwon", "rink", "bosingak", "seoulsky", "coex", "seongsu", "hongdae",
   "itaewon", "nmk", "namsangol", "myeongdong", "namsan", "ddp", "gwangjang", "ikseon", "gwanghwamun", "insadong", "changdeok", "bukchon", "gyeongbok"];
 const SHELL = [
   "./",
   "index.html",
   "manifest.webmanifest",
-  "assets/app.css",
-  "assets/data.js",
-  "assets/research.js",
-  "assets/app.js",
+  "assets/app.css?v=5",
+  "assets/data.js?v=5",
+  "assets/research.js?v=5",
+  "assets/app.js?v=5",
   "assets/icons/icon.svg",
   "assets/icons/icon-192.png",
   "assets/icons/icon-512.png",

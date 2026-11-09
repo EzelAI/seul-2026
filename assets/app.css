@@ -582,6 +582,18 @@ dl.kv dd { margin: 0; }
 .bl-full { position: absolute; top: 3px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--c-bahar); box-shadow: 0 0 0 2px var(--surface-2); }
 .bloom .sub { margin-top: 6px; }
 
+/* ---------- Fiyat alarmı ---------- */
+.alarm-target { max-width: 360px; }
+.alarm-target input { flex: none; font-variant-numeric: tabular-nums; }
+.alarm-steps { margin: 0; padding: 0; list-style: none; counter-reset: st; display: grid; gap: 12px; }
+.alarm-steps > li { counter-increment: st; position: relative; display: grid; gap: 8px; padding: 14px 16px 14px 56px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface-2); }
+.alarm-steps > li::before { content: counter(st); position: absolute; left: 16px; top: 14px; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--ink); color: var(--bg); font-family: var(--font-display); font-weight: 700; font-size: 14px; }
+.alarm-dates { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
+.alarm-dates li { display: grid; grid-template-columns: 64px 1fr auto; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.alarm-dates li.past { opacity: .55; }
+.alarm-dates li.past span:nth-child(2) { text-decoration: line-through; }
+
 @media (hover: hover) {
   .home:hover, .place:hover, .qtile:hover { transform: translateY(-2px); box-shadow: var(--shadow-2); border-color: var(--line-strong); }
   .home[aria-pressed="true"]:hover, .place.on:hover { box-shadow: 0 0 0 2px var(--select), var(--shadow-2); border-color: var(--select); }
